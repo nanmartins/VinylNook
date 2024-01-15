@@ -11,8 +11,11 @@
         <p>{{ vinyl.album }}</p>
         <p>{{ vinyl.artist }}</p>
         <p>{{ vinyl.year }}</p>
+        <p>{{ vinyl._id }}</p>
 
-        <!-- <button @click="editVinyl(vinyl)">Edit</button> -->
+        <router-link :to="`/edit-vinyl/${vinyl._id}`">
+          <button>Editar</button>
+        </router-link>
         <button @click="removeVinyl(vinyl._id)">Delete</button>
       </div>
     </div>
@@ -41,18 +44,6 @@ const fetchVinyls = async () => {
   }
 }
 
-const editVinyl = async (vinyl) => {
-  try {
-    const updateVinyl = {}
-    await updateVinyl(vinyl._id, updateVinyl)
-    window.alert('Vinyl updated successfully!')
-    fetchVinyls()
-  }
-  catch (error) {
-    throw error
-  }
-}
-
 const removeVinyl = async (vinylId) => {
   try {
     await deleteVinyl(vinylId)
@@ -70,4 +61,16 @@ onMounted(() => {
   fetchVinyls()
 })
 
+
+  // const editVinyl = async (vinyl) => {
+  //   try {
+  //     const updateVinyl = {}
+  //     await updateVinyl(vinyl._id, updateVinyl)
+  //     window.alert('Vinyl updated successfully!')
+  //     fetchVinyls()
+  //   }
+  //   catch (error) {
+  //     throw error
+  //   }
+  // }
 </script>

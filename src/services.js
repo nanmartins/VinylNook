@@ -13,6 +13,16 @@ export const getVinyls = async () => {
   }
 }
 
+export const getVinyl = async (id) => {
+  try {
+    const response = await axios.get(`${baseUrl}/${id}`)
+    return response.data.vinyls
+  }
+  catch (error) {
+    throw error
+  }
+}
+
 export const createVinyl = async (newVinyl) => {
   try {
     const response = await axios.post(baseUrl, newVinyl)

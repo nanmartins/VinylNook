@@ -24,6 +24,11 @@ const routes = [
     path: '/albums',
     name: 'albums',
     component: () => import('../views/AlbumsView.vue')
+  },
+  {
+    path: '/edit-vinyl/:id',
+    name: 'edit',
+    component: () => import('../views/VinylEditView.vue')
   }
 ]
 
