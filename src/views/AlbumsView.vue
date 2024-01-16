@@ -29,11 +29,16 @@
       <button type="submit">Add Vinyl</button>
     </form>
   </div>
+
+  <h3>Albums:</h3>
+
+  <Vinyls />
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 import { createVinyl } from '../services.js'
+import Vinyls from '@/components/Vinyls/Vinyls.vue'
 
 const loading = ref(false)
 const apiData = ref([])
@@ -57,6 +62,7 @@ const handleSubmit = async () => {
   }
   finally {
     newVinyl.value = { artist: '', album: '', year: '', albumCover: '' }
+    location.reload()
     loading.value = false
   }
 }

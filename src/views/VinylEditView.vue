@@ -8,15 +8,31 @@
       <label>Capa do Álbum: <input v-model="editedVinyl.albumCover" /></label>
       <button type="submit">Salvar</button>
     </form>
+
+    <div v-if="editedVinyl">
+      <div>
+        <img :src="editedVinyl.albumCover" alt="">
+        <p>{{ editedVinyl.artist }}</p>
+        <p>{{ editedVinyl.album }}</p>
+        <p>{{ editedVinyl.year }}</p>
+      </div>
+    </div>
+
+    <div v-if="loading">
+      <Loading />
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 import { getVinyl, updateVinyl } from '../services.js'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
+import Loading from '@/components/Loading/Loading.vue'
 
 const route = useRoute()
+const router = useRouter()
+const loading = ref(false)
 
 const editedVinyl = ref({
   artist: '',
@@ -25,37 +41,28 @@ const editedVinyl = ref({
   albumCover: '',
 })
 
-// const fetchVinylDetails = async (id) => {
-//   const vinylId = route.params.id
-//   // console.log(vinylId)
-//   try {
-//     const response = await getVinyl(vinylId)
-//     console.log(response.data.vinyl)
-//     editedVinyl.value = response.data.vinyl
-//   } catch (error) {
-//     console.error('Erro ao buscar detalhes do vinil:', error)
-//   }
-// }
-
 const fetchVinylDetails = async (id) => {
   const vinylId = route.params.id
+  loading.value = true
   try {
     const response = await getVinyl(vinylId)
-    // console.log(response.data.vinyl)
-    editedVinyl.value = response.data.vinyl
+    editedVinyl.value = response.vinyl
   } catch (error) {
     console.error('Erro ao buscar detalhes do vinil:', error)
+  }
+  finally {
+    loading.value = false
   }
 }
 
 const handleSubmit = async () => {
+
   try {
     await updateVinyl(route.params.id, editedVinyl.value)
-    console.log('Vinyl atualizado com sucesso!')
-    // Lógica adicional, como redirecionar para a página principal ou exibir uma mensagem de sucesso
+    window.alert('Vinil atualizado com sucesso!')
+    router.push('/')
   } catch (error) {
-    console.error('Erro ao atualizar o vinil:', error)
-    // Lógica para lidar com erros, por exemplo, exibir uma mensagem de erro
+    throw error
   }
 };
 

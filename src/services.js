@@ -16,7 +16,7 @@ export const getVinyls = async () => {
 export const getVinyl = async (id) => {
   try {
     const response = await axios.get(`${baseUrl}/${id}`)
-    return response.data.vinyls
+    return response.data
   }
   catch (error) {
     throw error
