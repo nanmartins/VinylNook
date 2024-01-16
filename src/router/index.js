@@ -29,6 +29,11 @@ const routes = [
     path: '/edit-vinyl/:id',
     name: 'edit',
     component: () => import('../views/VinylEditView.vue')
+  },
+  {
+    path: '/vinyl/:id',
+    name: 'vinyl',
+    component: () => import('../views/VinylView.vue')
   }
 ]
 

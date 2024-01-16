@@ -1,5 +1,5 @@
 <template>
-  <h1>Albums Page</h1>
+  <h1 style="margin-top: 100px">Albums Page</h1>
 
   <h3>Add new album:</h3>
 
@@ -32,13 +32,20 @@
 
   <h3>Albums:</h3>
 
-  <Vinyls />
+  <div v-if="loading">
+    <Loading />
+  </div>
+
+  <div v-else>
+    <Vinyls />
+  </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 import { createVinyl } from '../services.js'
 import Vinyls from '@/components/Vinyls/Vinyls.vue'
+import Loading from '@/components/Loading/Loading.vue'
 
 const loading = ref(false)
 const apiData = ref([])
@@ -51,19 +58,19 @@ const newVinyl = ref({
 
 const handleSubmit = async () => {
   loading.value = true
-
   try {
     const vinyl = await createVinyl(newVinyl.value)
     apiData.value.push(vinyl)
-    window.alert('Vinyl created successfully!')
+    location.reload()
+    // window.alert('Vinyl created successfully!')
   }
   catch (error) {
     throw error
   }
   finally {
     newVinyl.value = { artist: '', album: '', year: '', albumCover: '' }
-    location.reload()
     loading.value = false
+    window.alert('Vinyl created successfully!')
   }
 }
 </script>

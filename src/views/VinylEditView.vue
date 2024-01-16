@@ -9,18 +9,19 @@
       <button type="submit">Salvar</button>
     </form>
 
-    <div v-if="editedVinyl">
-      <div>
-        <img :src="editedVinyl.albumCover" alt="">
+    <div v-if="loading">
+      <Loading />
+    </div>
+
+    <div v-else>
+      <div style="display: flex; flex-direction: column; margin: 20px auto; width: 100%; max-width: 600px; border: 1px solid black; padding: 10px">
+        <img :src="editedVinyl.albumCover" alt="" >
         <p>{{ editedVinyl.artist }}</p>
         <p>{{ editedVinyl.album }}</p>
         <p>{{ editedVinyl.year }}</p>
       </div>
     </div>
 
-    <div v-if="loading">
-      <Loading />
-    </div>
   </div>
 </template>
 
@@ -42,13 +43,13 @@ const editedVinyl = ref({
 })
 
 const fetchVinylDetails = async (id) => {
-  const vinylId = route.params.id
   loading.value = true
+  const vinylId = route.params.id
   try {
     const response = await getVinyl(vinylId)
     editedVinyl.value = response.vinyl
   } catch (error) {
-    console.error('Erro ao buscar detalhes do vinil:', error)
+    throw error
   }
   finally {
     loading.value = false
@@ -59,13 +60,15 @@ const handleSubmit = async () => {
 
   try {
     await updateVinyl(route.params.id, editedVinyl.value)
-    window.alert('Vinil atualizado com sucesso!')
+    window.alert('Vinyl updated successfully!')
     router.push('/')
   } catch (error) {
     throw error
   }
 };
 
-fetchVinylDetails()
-// onMounted(fetchVinylDetails)
+// fetchVinylDetails()
+onMounted(() => {
+  fetchVinylDetails()
+})
 </script>
