@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h1>Logo</h1>
+    <h1>LOGO</h1>
     <nav>
       <router-link to="/">Home</router-link>
       <router-link to="/albums">Albums</router-link>
@@ -17,19 +17,22 @@
 
 header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  justify-content: space-between;
+  padding: 15px 20px;
   position: fixed;
   top: 0;
   width: 100vw;
   text-shadow: 1px 1px 0 black;
   z-index: 100;
+  background:rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(3px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 h1 {
   margin: 0;
-  color: #f2f2f2;
+  color: #ffffff;
   font-size: 46px;
 }
 
@@ -41,13 +44,16 @@ nav {
 
 nav a {
   font-weight: bold;
-  color: #f2f2f2;
+  color: #ffffff;
   text-decoration: none;
   font-size: 20px;
+  padding: 10px;
+  /* background:rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(40.774227142333984px); */
 }
 
 nav a.router-link-exact-active {
   color: black;
-  text-shadow: 1px 1px 0 white;
+  text-shadow: 1px 1px 0 #ffffff;
 }
 </style>

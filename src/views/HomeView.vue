@@ -2,12 +2,12 @@
   <div class="home">
 
     <img
-      src="https://images.unsplash.com/photo-1502773860571-211a597d6e4b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      src="@/assets/home-banner.jpg"
       alt=""
       style="
         background-size: cover;
         width: 100vw;
-        opacity: 0.9;
+        opacity: 0.95;
         "
       >
 
