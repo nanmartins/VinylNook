@@ -1,11 +1,12 @@
 <template>
-  <h1 style="margin-top: 100px">Vinyl Page</h1>
 
   <div v-if="loading">
     <Loading />
   </div>
 
   <div v-else>
+    <h1 style="margin-top: 100px">Vinyl Page</h1>
+
     <div style="display: flex; flex-direction: column; margin: 20px auto; width: 100%; max-width: 600px; border: 1px solid black; padding: 10px">
       <img :src="vinyl.albumCover" alt="" >
       <p>{{ vinyl.artist }}</p>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin-top: 100px">
     <h1>Vinyl Edit</h1>
     <form @submit.prevent="handleSubmit">
       <label>Artista: <input v-model="editedVinyl.artist" /></label>

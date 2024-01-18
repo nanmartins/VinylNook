@@ -43,9 +43,9 @@ export const updateVinyl = async (id, updatedVinyl) => {
   }
 }
 
-export const deleteVinyl = async (id) => {
+export const deleteVinyl = async (deleteId) => {
   try {
-    const response = await axios.delete(`${baseUrl}/${id}`)
+    const response = await axios.delete(`${baseUrl}/${deleteId}`)
     return response.data
   }
   catch (error) {

@@ -3,6 +3,10 @@
 
   <h3>Add new album:</h3>
 
+  <div v-if="createdMessage" class="success-message">
+    <p>{{ createdMessage }}</p>
+  </div>
+
   <div style="display: flex; margin: 0 auto;">
     <form @submit.prevent="handleSubmit" style="display: flex; gap: 15px; margin: 10px auto;">
 
@@ -56,21 +60,42 @@ const newVinyl = ref({
   albumCover: ''
 })
 
+const createdMessage = ref('')
+
 const handleSubmit = async () => {
   loading.value = true
   try {
     const vinyl = await createVinyl(newVinyl.value)
     apiData.value.push(vinyl)
-    location.reload()
-    // window.alert('Vinyl created successfully!')
+    loading.value = false
   }
   catch (error) {
     throw error
   }
   finally {
-    newVinyl.value = { artist: '', album: '', year: '', albumCover: '' }
+    // location.reload()
     loading.value = false
-    window.alert('Vinyl created successfully!')
+    newVinyl.value = { artist: '', album: '', year: '', albumCover: '' }
+    // window.alert('Vinyl created successfully!')
+    createdMessage.value = 'Vinyl created successfully!'
+    setTimeout(() => {
+      createdMessage.value = ''
+    }, 3000)
   }
 }
 </script>
+
+<style scoped>
+.success-message {
+  width: 500px;
+  border: 2px solid rgb(1, 171, 1);
+  position: fixed;
+  padding: 15px 30px;
+  border-radius: 2px;
+  background: #424242;
+  color: #ffffff;
+  bottom: 10px;
+  right: 15px;
+  z-index: 1000;
+}
+</style>
