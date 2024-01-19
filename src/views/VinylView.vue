@@ -11,6 +11,7 @@
       <img :src="vinyl.albumCover" alt="" >
       <p>{{ vinyl.artist }}</p>
       <p>{{ vinyl.album }}</p>
+      <p>{{ vinyl.albumDescription }}</p>
       <p>{{ vinyl.year }}</p>
     </div>
   </div>

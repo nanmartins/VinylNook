@@ -5,6 +5,7 @@
       <label>Artista: <input v-model="editedVinyl.artist" /></label>
       <label>Álbum: <input v-model="editedVinyl.album" /></label>
       <label>Ano: <input v-model="editedVinyl.year" /></label>
+      <label>Descrição: <input v-model="editedVinyl.albumDescription" /></label>
       <label>Capa do Álbum: <input v-model="editedVinyl.albumCover" /></label>
       <button type="submit">Salvar</button>
     </form>
@@ -18,6 +19,7 @@
         <img :src="editedVinyl.albumCover" alt="" >
         <p>{{ editedVinyl.artist }}</p>
         <p>{{ editedVinyl.album }}</p>
+        <p>{{ editedVinyl.albumDescription }}</p>
         <p>{{ editedVinyl.year }}</p>
       </div>
     </div>
@@ -40,6 +42,7 @@ const editedVinyl = ref({
   album: '',
   year: '',
   albumCover: '',
+  albumDescription: ''
 })
 
 const fetchVinylDetails = async (id) => {

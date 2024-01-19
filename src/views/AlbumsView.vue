@@ -30,6 +30,11 @@
         <input type="text" v-model="newVinyl.albumCover" required>
       </div>
 
+      <div>
+        <label for="albumDescription">Description:</label>
+        <input type="text" v-model="newVinyl.albumDescription" required>
+      </div>
+
       <button type="submit">Add Vinyl</button>
     </form>
   </div>
@@ -57,7 +62,8 @@ const newVinyl = ref({
   album: '',
   artist: '',
   year: '',
-  albumCover: ''
+  albumCover: '',
+  albumDescription: ''
 })
 
 const createdMessage = ref('')
@@ -75,7 +81,7 @@ const handleSubmit = async () => {
   finally {
     // location.reload()
     loading.value = false
-    newVinyl.value = { artist: '', album: '', year: '', albumCover: '' }
+    newVinyl.value = { artist: '', album: '', year: '', albumCover: '', albumDescription: '' }
     // window.alert('Vinyl created successfully!')
     createdMessage.value = 'Vinyl created successfully!'
     setTimeout(() => {
