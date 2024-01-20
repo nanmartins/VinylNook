@@ -19,41 +19,42 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 20px;
+  background: #ffffff;
+  padding: 10px 20px;
   position: fixed;
   top: 0;
   width: 100vw;
-  text-shadow: 1px 1px 0 black;
+  /* text-shadow: 1px 1px 0 black; */
   z-index: 100;
-  background:rgba(255, 255, 255, 0.01);
-  backdrop-filter: blur(3px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  /* background:rgba(255, 255, 255, 0.01); */
+  /* backdrop-filter: blur(3px); */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 h1 {
   margin: 0;
-  color: #ffffff;
+  /* color: #ffffff; */
   font-size: 46px;
 }
 
 nav {
   padding: 0;
   display: flex;
-  gap: 20px;
+  gap: 30px;
 }
 
 nav a {
   font-weight: bold;
-  color: #ffffff;
+  color: black;
   text-decoration: none;
-  font-size: 20px;
-  padding: 10px;
+  font-size: 16px;
+  /* padding: 10px; */
   /* background:rgba(255, 255, 255, 0.01);
   backdrop-filter: blur(40.774227142333984px); */
 }
 
 nav a.router-link-exact-active {
-  color: black;
-  text-shadow: 1px 1px 0 #ffffff;
+  color: white;
+  text-shadow: 2px 2px 2px black;
 }
 </style>

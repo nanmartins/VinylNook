@@ -3,15 +3,17 @@ import axios from 'axios'
 const baseUrl = 'https://node-express-sooty-omega.vercel.app/vinyls'
 
 
-export const getVinyls = async () => {
+export const getVinyls = async ({ page = 1, limit = 9 } = {}) => {
   try {
-    const response = await axios.get(baseUrl)
-    return response.data.vinyls
-  }
-  catch (error) {
+    const response = await axios.get(baseUrl, {
+      params: { page, limit }
+    })
+    return response.data
+  } catch (error) {
     throw error
   }
 }
+
 
 export const getVinyl = async (id) => {
   try {
@@ -23,6 +25,7 @@ export const getVinyl = async (id) => {
   }
 }
 
+
 export const createVinyl = async (newVinyl) => {
   try {
     const response = await axios.post(baseUrl, newVinyl)
@@ -32,6 +35,7 @@ export const createVinyl = async (newVinyl) => {
     throw error
   }
 }
+
 
 export const updateVinyl = async (id, updatedVinyl) => {
   try {
@@ -43,10 +47,11 @@ export const updateVinyl = async (id, updatedVinyl) => {
   }
 }
 
+
 export const deleteVinyl = async (deleteId) => {
   try {
-    const response = await axios.delete(`${baseUrl}/${deleteId}`)
-    return response.data
+    await axios.delete(`${baseUrl}/${deleteId}`)
+    // return response.data
   }
   catch (error) {
     throw error
