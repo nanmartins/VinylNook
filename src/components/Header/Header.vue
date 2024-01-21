@@ -54,7 +54,18 @@ nav a {
 }
 
 nav a.router-link-exact-active {
-  color: white;
-  text-shadow: 2px 2px 2px black;
+  /* color: white; */
+  /* text-shadow: 2px 2px 2px rgb(188, 188, 188); */
+  font-style: italic;
+}
+
+nav a.router-link-exact-active::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  border: 1px solid black;
+  margin-top: 3px;
 }
 </style>

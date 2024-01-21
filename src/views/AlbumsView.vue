@@ -82,7 +82,6 @@ const handleSubmit = async () => {
     // location.reload()
     loading.value = false
     newVinyl.value = { artist: '', album: '', year: '', albumCover: '', albumDescription: '' }
-    // window.alert('Vinyl created successfully!')
     createdMessage.value = 'Vinyl created successfully!'
     setTimeout(() => {
       createdMessage.value = ''

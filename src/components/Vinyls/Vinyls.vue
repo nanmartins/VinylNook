@@ -48,13 +48,11 @@ const fetchVinyls = async () => {
     const response = await getVinyls({ page: currentPage.value })
     apiData.value = response.vinyls
     totalPages.value = response.totalPages
-    // console.log('apiData', apiData.value.map((vinyl) => vinyl.album))
-    // console.log('apiData length', apiData.value.length)
-    // console.log('totalPages', totalPages.value)
-    // console.log('currentPage', currentPage.value)
-  } catch (error) {
+  }
+  catch (error) {
     throw error
-  } finally {
+  }
+  finally {
     loading.value = false
   }
 }
@@ -63,7 +61,8 @@ const fetchVinyls = async () => {
 const changePage = async (action) => {
   if (action === 'prev' && currentPage.value > 1) {
     currentPage.value -= 1
-  } else if (action === 'next' && currentPage.value < totalPages.value) {
+  }
+  else if (action === 'next' && currentPage.value < totalPages.value) {
     currentPage.value += 1
   }
   await fetchVinyls()
@@ -81,7 +80,8 @@ const removeVinyl = async (vinylId) => {
     else {
       window.alert('Deletion cancelled by user.')
     }
-  } catch (error) {
+  }
+  catch (error) {
     console.error(error)
   }
   finally {

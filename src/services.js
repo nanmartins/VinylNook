@@ -29,7 +29,7 @@ export const getVinyl = async (id) => {
 export const createVinyl = async (newVinyl) => {
   try {
     const response = await axios.post(baseUrl, newVinyl)
-    return response.data.vinyls
+    // return response.data.vinyls
   }
   catch (error) {
     throw error
