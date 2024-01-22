@@ -15,7 +15,7 @@
       <Loading />
     </div>
 
-    <div v-else>
+    <div v-else style="margin-top: 100px">
       <Vinyls />
     </div>
 

@@ -67,7 +67,7 @@ onMounted(() => {
 }
 
 .vinyl-card-description p {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 130%;
   font-weight: 600;
   color: rgb(87, 87, 87);

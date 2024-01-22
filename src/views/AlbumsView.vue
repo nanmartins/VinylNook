@@ -1,14 +1,17 @@
 <template>
-  <h1 style="margin-top: 100px">Albums Page</h1>
+  <!-- <h1 style="margin-top: 100px">Albums Page</h1> -->
 
-  <h3>Add new album:</h3>
+  <!-- <h3 style="margin-top: 100px">Add new album:</h3> -->
 
   <div v-if="createdMessage" class="success-message">
     <p>{{ createdMessage }}</p>
   </div>
 
-  <div style="display: flex; margin: 0 auto;">
-    <form @submit.prevent="handleSubmit" style="display: flex; gap: 15px; margin: 10px auto;">
+  <div style="margin: 0 auto; margin-top: 100px; border: 1px solid black; padding: 10px; width: 100%; max-width: 1350px">
+
+  <h3>Add new album:</h3>
+
+    <form @submit.prevent="handleSubmit" style="display: flex; gap: 15px; margin: 10px auto; justify-content: center;">
 
       <div>
         <label for="artist">Artist:</label>
@@ -39,7 +42,7 @@
     </form>
   </div>
 
-  <h3>Albums:</h3>
+  <h2 style="margin-top:50px">Albums:</h2>
 
   <div v-if="loading">
     <Loading />
