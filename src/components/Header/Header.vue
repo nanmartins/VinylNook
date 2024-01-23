@@ -53,6 +53,10 @@ nav a {
   backdrop-filter: blur(40.774227142333984px); */
 }
 
+nav a:hover {
+  text-shadow: 3px 2px 3px rgb(188, 188, 188);
+}
+
 nav a.router-link-exact-active {
   /* color: white; */
   /* text-shadow: 2px 2px 2px rgb(188, 188, 188); */
@@ -66,6 +70,6 @@ nav a.router-link-exact-active::after {
   height: 2px;
   background-color: white;
   border: 1px solid black;
-  margin-top: 3px;
+  margin-top: 2px;
 }
 </style>

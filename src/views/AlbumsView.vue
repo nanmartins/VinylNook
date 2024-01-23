@@ -7,7 +7,7 @@
     <p>{{ createdMessage }}</p>
   </div>
 
-  <div style="margin: 0 auto; margin-top: 100px; border: 1px solid black; padding: 10px; width: 100%; max-width: 1350px">
+  <div style="margin: 0 auto; margin-top: 100px; border: 1px solid black; border-radius: 2px; padding: 10px; width: 100%; max-width: 1350px">
 
   <h3>Add new album:</h3>
 
