@@ -93,6 +93,7 @@ onMounted(() => {
   fetchVinyls()
 })
 
+console.log(apiData)
 </script>
 
 

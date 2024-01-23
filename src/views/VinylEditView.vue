@@ -2,12 +2,14 @@
   <div style="margin-top: 100px">
     <h1>Vinyl Edit</h1>
     <form @submit.prevent="handleSubmit">
-      <label>Artista: <input v-model="editedVinyl.artist" /></label>
-      <label>Álbum: <input v-model="editedVinyl.album" /></label>
-      <label>Ano: <input v-model="editedVinyl.year" /></label>
-      <label>Descrição: <input v-model="editedVinyl.albumDescription" /></label>
-      <label>Capa do Álbum: <input v-model="editedVinyl.albumCover" /></label>
-      <button type="submit">Salvar</button>
+      <label>Artist: <input v-model="editedVinyl.artist" /></label>
+      <label>Album: <input v-model="editedVinyl.album" /></label>
+      <label>Year: <input v-model="editedVinyl.year" /></label>
+      <label>Description: <input v-model="editedVinyl.albumDescription" /></label>
+      <label>Album Cover: <input v-model="editedVinyl.albumCover" /></label>
+      <label>Position: <input v-model="editedVinyl.pos" /></label>
+
+      <button type="submit">Save</button>
     </form>
 
     <div v-if="loading">
@@ -42,7 +44,8 @@ const editedVinyl = ref({
   album: '',
   year: '',
   albumCover: '',
-  albumDescription: ''
+  albumDescription: '',
+  pos: 0
 })
 
 const fetchVinylDetails = async (id) => {
@@ -51,7 +54,8 @@ const fetchVinylDetails = async (id) => {
   try {
     const response = await getVinyl(vinylId)
     editedVinyl.value = response.vinyl
-  } catch (error) {
+  }
+  catch (error) {
     throw error
   }
   finally {
@@ -60,7 +64,6 @@ const fetchVinylDetails = async (id) => {
 }
 
 const handleSubmit = async () => {
-
   try {
     await updateVinyl(route.params.id, editedVinyl.value)
     window.alert('Vinyl updated successfully!')
@@ -68,9 +71,8 @@ const handleSubmit = async () => {
   } catch (error) {
     throw error
   }
-};
+}
 
-// fetchVinylDetails()
 onMounted(() => {
   fetchVinylDetails()
 })

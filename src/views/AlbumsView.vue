@@ -1,15 +1,12 @@
 <template>
-  <!-- <h1 style="margin-top: 100px">Albums Page</h1> -->
-
-  <!-- <h3 style="margin-top: 100px">Add new album:</h3> -->
 
   <div v-if="createdMessage" class="success-message">
     <p>{{ createdMessage }}</p>
   </div>
 
-  <div style="margin: 0 auto; margin-top: 100px; border: 1px solid black; border-radius: 2px; padding: 10px; width: 100%; max-width: 1350px">
+  <div class="new-album-form" >
 
-  <h3>Add new album:</h3>
+    <h3>Add new album:</h3>
 
     <form @submit.prevent="handleSubmit" style="display: flex; gap: 15px; margin: 10px auto; justify-content: center;">
 
@@ -36,6 +33,11 @@
       <div>
         <label for="albumDescription">Description:</label>
         <input type="text" v-model="newVinyl.albumDescription" required>
+      </div>
+
+      <div>
+        <label for="pos">Position:</label>
+        <input type="text" v-model="newVinyl.pos" required>
       </div>
 
       <button type="submit">Add Vinyl</button>
@@ -66,7 +68,8 @@ const newVinyl = ref({
   artist: '',
   year: '',
   albumCover: '',
-  albumDescription: ''
+  albumDescription: '',
+  pos: 0
 })
 
 const createdMessage = ref('')
@@ -82,9 +85,8 @@ const handleSubmit = async () => {
     throw error
   }
   finally {
-    // location.reload()
     loading.value = false
-    newVinyl.value = { artist: '', album: '', year: '', albumCover: '', albumDescription: '' }
+    newVinyl.value = { artist: '', album: '', year: '', albumCover: '', albumDescription: '', pos: 0 }
     createdMessage.value = 'Vinyl created successfully!'
     setTimeout(() => {
       createdMessage.value = ''
@@ -106,4 +108,15 @@ const handleSubmit = async () => {
   right: 15px;
   z-index: 1000;
 }
+
+.new-album-form {
+  margin: 0 auto;
+  margin-top: 100px;
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 15px;
+  width: 100%;
+  max-width: 1350px;
+}
+
 </style>

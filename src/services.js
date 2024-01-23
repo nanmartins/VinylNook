@@ -28,8 +28,7 @@ export const getVinyl = async (id) => {
 
 export const createVinyl = async (newVinyl) => {
   try {
-    const response = await axios.post(baseUrl, newVinyl)
-    // return response.data.vinyls
+    await axios.post(baseUrl, newVinyl)
   }
   catch (error) {
     throw error
@@ -51,7 +50,6 @@ export const updateVinyl = async (id, updatedVinyl) => {
 export const deleteVinyl = async (deleteId) => {
   try {
     await axios.delete(`${baseUrl}/${deleteId}`)
-    // return response.data
   }
   catch (error) {
     throw error
