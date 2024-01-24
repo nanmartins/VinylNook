@@ -8,35 +8,36 @@
 
     <h3>Add new album:</h3>
 
-    <form @submit.prevent="handleSubmit" style="display: flex; gap: 15px; margin: 10px auto; justify-content: center;">
+    <form @submit.prevent="handleSubmit">
 
       <div>
-        <label for="artist">Artist:</label>
+        <label for="artist">Artist: </label>
         <input type="text" v-model="newVinyl.artist" required>
       </div>
 
       <div>
-        <label for="album">Album:</label>
+        <label for="album">Album: </label>
         <input type="text" v-model="newVinyl.album" required>
       </div>
 
       <div>
-        <label for="year">Year:</label>
+        <label for="year">Year: </label>
         <input type="text" v-model="newVinyl.year" required>
       </div>
 
       <div>
-        <label for="albumCover">Album Cover URL:</label>
+        <label for="albumCover">Album Cover URL: </label>
         <input type="text" v-model="newVinyl.albumCover" required>
       </div>
 
       <div>
-        <label for="albumDescription">Description:</label>
-        <input type="text" v-model="newVinyl.albumDescription" required>
+        <label for="albumDescription">Description: </label>
+        <!-- <input type="text" v-model="newVinyl.albumDescription" required> -->
+        <textarea v-model="newVinyl.albumDescription" cols="40" rows="10" required></textarea>
       </div>
 
       <div>
-        <label for="pos">Position:</label>
+        <label for="pos">Position: </label>
         <input type="text" v-model="newVinyl.pos" required>
       </div>
 
@@ -110,13 +111,39 @@ const handleSubmit = async () => {
 }
 
 .new-album-form {
-  margin: 0 auto;
   margin-top: 100px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+  justify-items: top;
+  gap: 15px;
+  margin: 10px auto;
+  padding: 15px;
+  /* margin-top: 100px; */
   border: 1px solid black;
   border-radius: 2px;
-  padding: 15px;
   width: 100%;
-  max-width: 1350px;
+  max-width: 500px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+}
+
+input {
+  height: 40px;
+  width: 400px;
+}
+
+textarea {
+  height: 200px;
+  width: 400px;
 }
 
 </style>

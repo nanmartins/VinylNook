@@ -67,9 +67,8 @@ nav a.router-link-exact-active::after {
   content: '';
   display: block;
   width: 100%;
-  height: 2px;
-  background-color: white;
-  border: 1px solid black;
+  height: 3px;
+  background-color: black;
   margin-top: 2px;
 }
 </style>
