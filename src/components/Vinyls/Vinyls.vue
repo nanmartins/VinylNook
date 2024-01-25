@@ -82,7 +82,7 @@ const removeVinyl = async (vinylId) => {
     }
   }
   catch (error) {
-    console.error(error)
+    throw error
   }
   finally {
     loading.value = false
@@ -93,7 +93,6 @@ onMounted(() => {
   fetchVinyls()
 })
 
-console.log(apiData)
 </script>
 
 

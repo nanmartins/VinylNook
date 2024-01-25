@@ -6,9 +6,10 @@
 
   <div class="new-album-form" >
 
-    <h3>Add new album:</h3>
 
     <form @submit.prevent="handleSubmit">
+
+    <h3>Add new album:</h3>
 
       <div>
         <label for="artist">Artist: </label>
@@ -32,7 +33,6 @@
 
       <div>
         <label for="albumDescription">Description: </label>
-        <!-- <input type="text" v-model="newVinyl.albumDescription" required> -->
         <textarea v-model="newVinyl.albumDescription" cols="40" rows="10" required></textarea>
       </div>
 
@@ -43,6 +43,16 @@
 
       <button type="submit">Add Vinyl</button>
     </form>
+
+
+    <!-- <div v-if="newVinyl.album || newVinyl.artist || newVinyl.year || newVinyl.albumCover || newVinyl.albumDescription">
+      <div style="padding: 10px; border: 1px solid black">
+      <h3>Preview:</h3>
+        <img :src="newVinyl.albumCover" alt="">
+        <p>{{ newVinyl.artist }}</p>
+        <p>{{ newVinyl.album }}</p>
+      </div>
+    </div> -->
   </div>
 
   <h2 style="margin-top:50px">Albums:</h2>
@@ -80,7 +90,7 @@ const handleSubmit = async () => {
   try {
     const vinyl = await createVinyl(newVinyl.value)
     apiData.value.push(vinyl)
-    loading.value = false
+    // loading.value = false
   }
   catch (error) {
     throw error
@@ -112,6 +122,9 @@ const handleSubmit = async () => {
 
 .new-album-form {
   margin-top: 100px;
+  display: grid;
+  grid-template-columns: 440px 1fr;
+  padding: 20px;
 }
 
 form {
@@ -139,11 +152,21 @@ form div {
 input {
   height: 40px;
   width: 400px;
+  text-align: center;
 }
 
 textarea {
   height: 200px;
   width: 400px;
+}
+
+form button {
+  max-width: 400px;
+  width: 100%;
+  height: 45px;
+  margin: 0 auto;
+  background: black;
+  color: #ffffff;
 }
 
 </style>
