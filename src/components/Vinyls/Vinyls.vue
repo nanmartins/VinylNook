@@ -42,6 +42,8 @@ const currentPage = ref(1)
 const totalPages = ref(1)
 
 
+
+
 const fetchVinyls = async () => {
   loading.value = true
   try {
@@ -56,6 +58,17 @@ const fetchVinyls = async () => {
     loading.value = false
   }
 }
+
+// const sortedVinyls = computed(() => {
+//   const vinylsCopy = [...apiData.value]
+
+//   console.log(vinylsCopy)
+//   vinylsCopy.sort((a, b) => {
+//     a.pos > b.pos ? 1 : -1
+//   })
+//   console.log(vinylsCopy)
+//   return vinylsCopy
+// })
 
 
 const changePage = async (action) => {
@@ -88,6 +101,7 @@ const removeVinyl = async (vinylId) => {
     loading.value = false
   }
 }
+
 
 onMounted(() => {
   fetchVinyls()

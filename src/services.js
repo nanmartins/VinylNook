@@ -31,6 +31,7 @@ export const createVinyl = async (newVinyl) => {
     await axios.post(baseUrl, newVinyl)
   }
   catch (error) {
+    console.log(error)
     throw error
   }
 }

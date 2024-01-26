@@ -38,21 +38,12 @@
 
       <div>
         <label for="pos">Position: </label>
-        <input type="text" v-model="newVinyl.pos" required>
+        <input type="text" v-model="newVinyl.pos">
       </div>
 
       <button type="submit">Add Vinyl</button>
     </form>
 
-
-    <!-- <div v-if="newVinyl.album || newVinyl.artist || newVinyl.year || newVinyl.albumCover || newVinyl.albumDescription">
-      <div style="padding: 10px; border: 1px solid black">
-      <h3>Preview:</h3>
-        <img :src="newVinyl.albumCover" alt="">
-        <p>{{ newVinyl.artist }}</p>
-        <p>{{ newVinyl.album }}</p>
-      </div>
-    </div> -->
   </div>
 
   <h2 style="margin-top:50px">Albums:</h2>
