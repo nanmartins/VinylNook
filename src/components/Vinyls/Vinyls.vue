@@ -42,8 +42,6 @@ const currentPage = ref(1)
 const totalPages = ref(1)
 
 
-
-
 const fetchVinyls = async () => {
   loading.value = true
   try {
