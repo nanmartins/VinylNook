@@ -5,7 +5,7 @@
 
     <div v-for="vinyl in apiData" :key="vinyl._id" class="vinyl-card">
       <router-link :to="`/vinyl/${vinyl._id}`" style="color: black; text-decoration: none">
-        <img :src="vinyl.albumCover" alt="" width="400px">
+        <img :src="vinyl.albumCover" alt="">
         <p>{{ vinyl.album }}</p>
         <p>{{ vinyl.artist }}</p>
         <p>{{ vinyl.year }}</p>
@@ -129,6 +129,11 @@ onMounted(() => {
   padding: 10px;
   margin: 0 auto;
   position: relative;
+}
+
+.vinyl-card img {
+  width: 100%;
+  max-width: 400px;
 }
 
 .vinyl-card-buttons {

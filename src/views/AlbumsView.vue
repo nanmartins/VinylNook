@@ -112,7 +112,8 @@ const handleSubmit = async () => {
 }
 
 .new-album-form {
-  margin-top: 100px;
+  padding-top: 200px;
+  margin-top: 75px;
   display: grid;
   grid-template-columns: 440px 1fr;
   padding: 20px;
@@ -158,6 +159,7 @@ form button {
   margin: 0 auto;
   background: black;
   color: #ffffff;
+  border-radius: 2px;
 }
 
 </style>

@@ -1,11 +1,12 @@
 <template>
   <Header />
-  <router-view/>
+  <router-view style="height: 100vh"/>
+  <Footer />
 </template>
 
 <script setup>
-
 import Header from './components/Header/Header.vue'
+import Footer from './components/Footer/Footer.vue'
 
 </script>
 
@@ -20,11 +21,16 @@ import Header from './components/Header/Header.vue'
   padding: 0;
   box-sizing: border-box;
 }
+
+html, body {
+  background: black;
+  background-image: linear-gradient(to bottom, white 0%, white 50%, black 100%);
+}
 #app {
   /* font-family: Avenir, Helvetica, Arial, sans-serif; */
   font-family: 'Gloock', serif;
   text-align: center;
-  color: #2c3e50;
+  background: white;
 }
 
 </style>
