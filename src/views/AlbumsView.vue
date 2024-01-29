@@ -1,6 +1,6 @@
 <template>
 
-  <div v-if="createdMessage" class="success-message">
+  <!-- <div v-if="createdMessage" class="success-message">
     <p>{{ createdMessage }}</p>
   </div>
 
@@ -44,9 +44,9 @@
       <button type="submit">Add Vinyl</button>
     </form>
 
-  </div>
+  </div> -->
 
-  <h2 style="margin-top:50px">Albums:</h2>
+  <h2>/ALBUMS</h2>
 
   <div v-if="loading">
     <Loading />
@@ -160,6 +160,17 @@ form button {
   background: black;
   color: #ffffff;
   border-radius: 2px;
+}
+
+h2 {
+  text-align: left;
+  width: 100%;
+  max-width: 1400px;
+  margin: 150px auto 0 auto;
+  font-size: 150px;
+  font-style: italic;
+  font-weight: 600;
+  padding: 20px;
 }
 
 </style>

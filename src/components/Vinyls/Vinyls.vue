@@ -5,10 +5,12 @@
 
     <div v-for="vinyl in apiData" :key="vinyl._id" class="vinyl-card">
       <router-link :to="`/vinyl/${vinyl._id}`" style="color: black; text-decoration: none">
-        <img :src="vinyl.albumCover" alt="">
-        <p>{{ vinyl.album }}</p>
-        <p>{{ vinyl.artist }}</p>
-        <p>{{ vinyl.year }}</p>
+        <img :src="vinyl.albumCover" style="border-radius: 2px">
+        <div style="display: flex; flex-direction: column; gap: 5px; padding: 10px 0 5px 0">
+          <h2>"{{ vinyl.album }}"</h2>
+          <h4 style="letter-spacing: 1.5px">{{ vinyl.artist }}</h4>
+          <p style="letter-spacing: 1.5px">{{ vinyl.year }}</p>
+        </div>
 
         <div class="vinyl-card-buttons">
           <router-link :to="`/edit-vinyl/${vinyl._id}`">
@@ -22,9 +24,20 @@
   </section>
 
   <div class="pagination">
-    <button @click="changePage('prev')" :disabled="currentPage === 1">Previous</button>
+    <button @click="changePage('prev')" :disabled="currentPage === 1">
+      <svg version="1.1" width="25" height="25" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35.3 58.8" enable-background="new 0 0 35.3 58.8" xml:space="preserve">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M29.4,2.7L2.8,29.2c-0.2,0.3-0.2,0.8,0,1.1l26.6,26.5
+        c0.2,0.3,0.7,0.3,1,0l3.5-3.4L10.8,30.3c-0.4-0.2-0.4-0.7,0-1.1L33.9,6.1l-3.5-3.5C30.2,2.2,29.7,2.2,29.4,2.7L29.4,2.7z"></path>
+      </svg>
+    </button>
     <span>{{ currentPage }} / {{ totalPages }}</span>
-    <button @click="changePage('next')" :disabled="currentPage === totalPages">Next</button>
+    <button @click="changePage('next')" :disabled="currentPage === totalPages" style="transform: rotate(180deg)">
+      <svg version="1.1" width="25" height="25" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35.3 58.8" enable-background="new 0 0 35.3 58.8" xml:space="preserve">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M29.4,2.7L2.8,29.2c-0.2,0.3-0.2,0.8,0,1.1l26.6,26.5
+        c0.2,0.3,0.7,0.3,1,0l3.5-3.4L10.8,30.3c-0.4-0.2-0.4-0.7,0-1.1L33.9,6.1l-3.5-3.5C30.2,2.2,29.7,2.2,29.4,2.7L29.4,2.7z"></path>
+      </svg>
+    </button>
+
   </div>
 </template>
 
@@ -147,7 +160,27 @@ onMounted(() => {
   gap: 10px;
   justify-content: center;
   align-items: center;
-  margin: 20px;
+  /* margin: 20px; */
+  padding: 20px 0 50px 0;
+}
+
+.pagination button {
+  background: transparent;
+  border: none;
+  display: flex;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  cursor: default;
+}
+
+.pagination button svg {
+  fill: black;
+}
+
+.pagination button:disabled svg {
+  fill: rgb(151, 151, 151);
 }
 
 </style>
