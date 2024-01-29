@@ -12,12 +12,12 @@
           <p style="letter-spacing: 1.5px">{{ vinyl.year }}</p>
         </div>
 
-        <div class="vinyl-card-buttons">
+        <!-- <div class="vinyl-card-buttons">
           <router-link :to="`/edit-vinyl/${vinyl._id}`">
             <button>Edit</button>
           </router-link>
           <button @click="removeVinyl(vinyl._id)">Delete</button>
-        </div>
+        </div> -->
       </router-link>
     </div>
 

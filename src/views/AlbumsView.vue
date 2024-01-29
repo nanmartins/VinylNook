@@ -166,7 +166,7 @@ h2 {
   text-align: left;
   width: 100%;
   max-width: 1400px;
-  margin: 150px auto 0 auto;
+  margin: 90px auto 0 auto;
   font-size: 150px;
   font-style: italic;
   font-weight: 600;
