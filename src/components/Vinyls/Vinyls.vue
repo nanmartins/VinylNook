@@ -58,7 +58,8 @@ const totalPages = ref(1)
 const fetchVinyls = async () => {
   loading.value = true
   try {
-    const response = await getVinyls({ page: currentPage.value })
+    // const response = await getVinyls({ page: currentPage.value })
+    const response = await getVinyls({ page: router.currentRoute.value.query.page || 1 }) //getting page number
     apiData.value = response.vinyls
     totalPages.value = response.totalPages
   }
@@ -89,6 +90,9 @@ const changePage = async (action) => {
   else if (action === 'next' && currentPage.value < totalPages.value) {
     currentPage.value += 1
   }
+
+  await router.replace({ query: { page: currentPage.value } }) //changing route for pages number
+
   await fetchVinyls()
 }
 

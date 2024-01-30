@@ -24,7 +24,7 @@ header {
   padding: 15px;
   position: fixed;
   top: 0;
-  width: 100vw;
+  width: 100%;
   z-index: 100;
   /* background:rgba(255, 255, 255, 0.01); */
   /* backdrop-filter: blur(3px); */
