@@ -63,7 +63,6 @@ const newVinyl = ref({
 const createdMessage = ref('')
 
 const handleSubmit = async () => {
-  loading.value = true
   try {
     const vinyl = await createVinyl(newVinyl.value)
     apiData.value.push(vinyl)
@@ -72,7 +71,6 @@ const handleSubmit = async () => {
     throw error
   }
   finally {
-    loading.value = false
     newVinyl.value = { artist: '', album: '', year: '', albumCover: '', albumDescription: '', pos: 0 }
     createdMessage.value = 'Vinyl created successfully!'
     setTimeout(() => {
@@ -101,8 +99,8 @@ const handleSubmit = async () => {
 .new-album-form {
   padding-top: 200px;
   margin-top: 75px;
-  display: grid;
-  grid-template-columns: 440px 1fr;
+  /* display: grid; */
+  /* grid-template-columns: 440px 1fr; */
   padding: 20px;
 }
 

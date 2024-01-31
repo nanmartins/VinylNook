@@ -31,9 +31,14 @@ const routes = [
     component: () => import('../views/VinylEditView.vue')
   },
   {
-    path: '/vinyl/:id',
-    name: 'vinyl',
+    path: '/album/:id',
+    name: 'album',
     component: () => import('../views/VinylView.vue')
+  },
+  {
+    path: '/create-vinyl',
+    name: 'create',
+    component: () => import('../components/VinylForm/VinylForm.vue')
   }
 ]
 

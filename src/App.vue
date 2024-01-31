@@ -1,6 +1,6 @@
 <template>
   <Header />
-  <div style="height: 100%; min-height: 100vh; margin: 0; padding: 0">
+  <div style="height: 100%; min-height: 100vh; margin: 0; margin-top: 80px; padding: 0">
     <router-view />
   </div>
   <Footer />

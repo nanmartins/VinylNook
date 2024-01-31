@@ -1,6 +1,5 @@
 <template>
   <header>
-    <!-- <h1>LOGO</h1> -->
     <img src="@/assets/logo.png" height="60px" alt="">
     <nav>
       <router-link to="/">Home</router-link>
@@ -21,21 +20,18 @@ header {
   align-items: center;
   justify-content: space-between;
   background: #ffffff;
-  padding: 15px;
+  padding: 10px;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 100;
-  /* background:rgba(255, 255, 255, 0.01); */
-  /* backdrop-filter: blur(3px); */
-  border-bottom: 0.7px solid black;
 }
 
 nav {
   padding: 0;
   display: flex;
   gap: 30px;
-  padding-right: 5px;
+  padding-right: 10px;
 }
 
 nav a {
@@ -43,22 +39,18 @@ nav a {
   color: black;
   text-decoration: none;
   font-size: 20px;
-  /* padding: 10px; */
-  /* background:rgba(255, 255, 255, 0.01);
-  backdrop-filter: blur(40.774227142333984px); */
 }
 
 nav a:hover::after {
-  /* text-shadow: 1px 1px 4px rgb(206, 206, 206); */
   content: '';
   display: block;
   width: 100%;
   height: 1px;
   background-color: rgb(142, 142, 142);
+  animation: widthAnime 0.5s;
 }
 
 nav a.router-link-exact-active {
-  /* font-style: italic; */
   font-weight: 600;
 }
 
@@ -68,5 +60,14 @@ nav a.router-link-exact-active::after {
   width: 100%;
   height: 2px;
   background-color: black;
+}
+
+@keyframes widthAnime {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
 }
 </style>

@@ -1,28 +1,19 @@
 <template>
   <div class="home">
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; margin-top: 100px; padding: 40px">
+    <div class="home-main-banner">
+      <div  class="home-banner-text">
+        <!-- <h2>Uncover the Rhythm, Explore the Groove - <span>Vinyl Nook</span>, Where Music Finds Its Home.</h2> -->
+        <!-- <h2>Explore Vinyl Brilliance - Where Music Finds Its Home.</h2> -->
+        <span class="home-banner-detail">Uncover the Rhythm, Explore the Groove...</span>
 
-      <div>
-        <h2>Uncover the Rhythm, Explore the Groove - Vinyl Nook, Where Music Finds Its Home.</h2>
+        <h2>Where Music Finds Its Home.</h2>
       </div>
 
       <div>
-        <img src="@/assets/home-banner.jpg" alt="" style="aspect-ratio: 4/4; widht: 100%; max-width: 700px">
+        <img src="@/assets/main-banner.jpg" alt="">
       </div>
-
     </div>
-
-    <!-- <img
-      src="@/assets/home-banner.jpg"
-      alt=""
-      style="
-        background-size: cover;
-        width: 100%;
-        opacity: 0.95;
-        overflow: hidden;
-      "
-    > -->
 
     <div v-if="loading">
       <Loading />
@@ -38,3 +29,48 @@ import Vinyls from '@/components/Vinyls/Vinyls.vue'
 
 const loading = ref(false)
 </script>
+
+<style scoped>
+
+.home-main-banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 40px;
+  gap: 40px;
+}
+
+.home-banner-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: end;
+}
+
+.home-banner-detail {
+  display: flex;
+  /* position: relative; */
+  /* left: -40px; */
+  width: 100%;
+  /* min-height: 40px; */
+  background: linear-gradient(to right, black -10%, rgb(173, 173, 173) 50%, white 100%);
+  color: white;
+  font-size: 28px;
+  font-weight: 200;
+  text-shadow: 1px 1px black;
+  padding: 5px;
+  font-style: italic;
+}
+
+h2 {
+  /* font-family: 'Oswald', sans-serif; */
+  font-size: 120px;
+  text-align: left;
+}
+
+img {
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 4 / 4;
+  border-radius: 2px;
+}
+</style>
