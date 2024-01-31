@@ -35,11 +35,6 @@
         <textarea v-model="newVinyl.albumDescription" cols="40" rows="10" required></textarea>
       </div>
 
-      <div>
-        <label for="pos">Position: </label>
-        <input type="text" v-model="newVinyl.pos">
-      </div>
-
       <button type="submit">Add Vinyl</button>
     </form>
 
@@ -57,7 +52,6 @@ const newVinyl = ref({
   year: '',
   albumCover: '',
   albumDescription: '',
-  pos: 0
 })
 
 const createdMessage = ref('')
@@ -71,7 +65,7 @@ const handleSubmit = async () => {
     throw error
   }
   finally {
-    newVinyl.value = { artist: '', album: '', year: '', albumCover: '', albumDescription: '', pos: 0 }
+    newVinyl.value = { artist: '', album: '', year: '', albumCover: '', albumDescription: '' }
     createdMessage.value = 'Vinyl created successfully!'
     setTimeout(() => {
       createdMessage.value = ''

@@ -149,11 +149,26 @@ onMounted(() => {
   padding: 10px;
   margin: 0 auto;
   position: relative;
+
+  overflow: hidden;
+}
+
+.vinyl-card:hover {
+  transform: scale(1.005);
+  /* box-shadow: 3px 2px 5px rgba(82, 82, 82, 0.2); */
+  animation: grayscaleAnimation 0.5s ease-in-out;
 }
 
 .vinyl-card img {
   width: 100%;
   max-width: 400px;
+  filter: grayscale(100%);
+
+  transition: filter 0.5s ease-in-out;
+}
+
+.vinyl-card img:hover {
+  filter: grayscale(0%);
 }
 
 .vinyl-card-buttons {
@@ -188,6 +203,17 @@ onMounted(() => {
 
 .pagination button:disabled svg {
   fill: rgb(151, 151, 151);
+}
+
+
+
+@keyframes grayscaleAnimation {
+  from {
+    background-position: 0 0; /* Inicia da esquerda */
+  }
+  to {
+    background-position: 100% 0; /* Termina à direita */
+  }
 }
 
 </style>
