@@ -15,18 +15,13 @@ import Vinyls from '@/components/Vinyls/Vinyls.vue'
 
 <style scoped>
 h2 {
-  /* font-family: 'Oswald', sans-serif; */
   text-align: center;
-  width: 100%;
-  max-width: 1400px;
   margin: 0 auto;
-  font-size: 200px;
+  font-size: 220px;
   letter-spacing: 10px;
-  line-height: 45%;
-  /* font-style: italic; */
+  line-height: 40%;
   font-weight: 800;
   z-index: -1;
-  /* padding: 20px; */
   padding-top: 80px;
 }
 </style>

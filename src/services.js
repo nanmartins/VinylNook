@@ -2,7 +2,6 @@ import axios from 'axios'
 
 const baseUrl = 'https://node-express-sooty-omega.vercel.app/vinyls'
 
-
 export const getVinyls = async ({ page = 1, limit = 9 } = {}) => {
   try {
     const response = await axios.get(baseUrl, {
