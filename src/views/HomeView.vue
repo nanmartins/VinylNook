@@ -15,6 +15,8 @@
       </div>
     </div>
 
+    <NewRealeses />
+
     <div v-if="loading">
       <Loading />
     </div>
@@ -26,6 +28,7 @@
 import { ref } from 'vue'
 import Loading from '@/components/Loading/Loading.vue'
 import Vinyls from '@/components/Vinyls/Vinyls.vue'
+import NewRealeses from '@/components/NewRealeses/NewRealeses.vue'
 
 const loading = ref(false)
 </script>
@@ -48,6 +51,7 @@ const loading = ref(false)
 
 .home-banner-detail {
   display: flex;
+  align-items: center;
   /* position: relative; */
   /* left: -40px; */
   width: 100%;
@@ -57,6 +61,7 @@ const loading = ref(false)
   font-size: 28px;
   font-weight: 200;
   text-shadow: 1px 1px black;
+  border-radius: 2px;
   padding: 5px;
   font-style: italic;
 }

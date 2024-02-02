@@ -5,7 +5,7 @@
 
     <div v-for="vinyl in apiData" :key="vinyl._id" class="vinyl-card">
       <router-link :to="`/album/${vinyl._id}`" style="color: black; text-decoration: none">
-        <img :src="vinyl.albumCover" style="border-radius: 2px">
+        <img :src="vinyl.albumCover">
         <div style="display: flex; flex-direction: column; gap: 5px; padding: 10px 0 5px 0">
           <h2>"{{ vinyl.album }}"</h2>
           <h4 style="letter-spacing: 1.5px">{{ vinyl.artist }}</h4>
@@ -94,7 +94,7 @@ const changePage = async (action) => {
   }
 
   // await router.replace({ query: { page: currentPage.value } }) //changing route for pages number
-  window.scrollTo({ top: 70, behavior: 'smooth' })
+  window.scrollTo({ top: 95, behavior: 'smooth' })
 
   await fetchVinyls()
 }
@@ -149,21 +149,23 @@ onMounted(() => {
   padding: 10px;
   margin: 0 auto;
   position: relative;
-
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background: white;
   overflow: hidden;
 }
 
 .vinyl-card:hover {
   transform: scale(1.005);
-  /* box-shadow: 3px 2px 5px rgba(82, 82, 82, 0.2); */
   animation: grayscaleAnimation 0.5s ease-in-out;
 }
 
 .vinyl-card img {
   width: 100%;
   max-width: 400px;
+  border-radius: 2px;
   filter: grayscale(100%);
-
   transition: filter 0.5s ease-in-out;
 }
 
@@ -209,10 +211,10 @@ onMounted(() => {
 
 @keyframes grayscaleAnimation {
   from {
-    background-position: 0 0; /* Inicia da esquerda */
+    background-position: 0 0;
   }
   to {
-    background-position: 100% 0; /* Termina à direita */
+    background-position: 100% 0;
   }
 }
 

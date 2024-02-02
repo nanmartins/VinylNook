@@ -1,6 +1,6 @@
 <template>
-  <header>
-    <img src="@/assets/logo.png" height="60px" alt="">
+  <header :class="{ 'scrolled': scrolled }">
+    <img src="@/assets/logo.png" alt="">
     <nav>
       <router-link to="/">Home</router-link>
       <router-link to="/albums">Albums</router-link>
@@ -11,6 +11,16 @@
 </template>
 
 <script setup>
+
+import { ref, onMounted } from 'vue'
+
+const scrolled = ref(false)
+
+onMounted(() => {
+  window.addEventListener('scroll', () => {
+    scrolled.value = window.scrollY >= 70
+  })
+})
 </script>
 
 <style scoped>
@@ -25,6 +35,33 @@ header {
   top: 0;
   width: 100%;
   z-index: 100;
+}
+
+header img {
+  height: 50px;
+}
+
+.scrolled {
+  background: black;
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+
+.scrolled img {
+  filter: invert(100%);
+  transition: 0.3s ease;
+}
+
+.scrolled nav a {
+  color: white;
+}
+
+.scrolled nav a:hover::after {
+  background-color: rgb(181, 181, 181);
+}
+
+.scrolled nav a.router-link-exact-active::after {
+  background-color: white;
 }
 
 nav {
@@ -70,4 +107,5 @@ nav a.router-link-exact-active::after {
     width: 100%;
   }
 }
+
 </style>
