@@ -18,7 +18,7 @@ const scrolled = ref(false)
 
 onMounted(() => {
   window.addEventListener('scroll', () => {
-    scrolled.value = window.scrollY >= 70
+    scrolled.value = window.scrollY >= 65
   })
 })
 </script>

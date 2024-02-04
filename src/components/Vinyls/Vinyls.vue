@@ -6,9 +6,9 @@
     <div v-for="vinyl in apiData" :key="vinyl._id" class="vinyl-card">
       <router-link :to="`/album/${vinyl._id}`" style="color: black; text-decoration: none">
         <img :src="vinyl.albumCover">
-        <div style="display: flex; flex-direction: column; gap: 5px; padding: 10px 0 5px 0">
-          <h2>"{{ vinyl.album }}"</h2>
-          <h4 style="letter-spacing: 1.5px">{{ vinyl.artist }}</h4>
+        <div class="vinyl-info-container">
+          <h4 style="margin: 0; padding: 0; font-size: 15px; letter-spacing: 1.2px; font-weight: 500">"{{ vinyl.album }}"</h4>
+          <h5 style="letter-spacing: 1.5px">{{ vinyl.artist }}</h5>
           <p style="letter-spacing: 1.5px">{{ vinyl.year }}</p>
         </div>
 
@@ -132,45 +132,57 @@ onMounted(() => {
 .vinyl-card-container {
   display: grid;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1300px;
   place-items: center;
-  gap: 20px;
+  gap: 30px 20px;
   padding: 20px;
   margin: 0 auto;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .vinyl-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   border: 1px solid black;
   border-radius: 2px;
   padding: 10px;
   margin: 0 auto;
-  position: relative;
+  /* position: relative; */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background: white;
   overflow: hidden;
+  text-align: left;
+  width: 100%;
+  max-width: 420px;
 }
 
 .vinyl-card:hover {
-  transform: scale(1.005);
-  animation: grayscaleAnimation 0.5s ease-in-out;
+  transform: scale(1.05);
+  transition: transform 0.5s;
+  /* animation: grayscaleAnimation 0.5s ease-in-out; */
 }
 
 .vinyl-card img {
   width: 100%;
   max-width: 400px;
   border-radius: 2px;
-  filter: grayscale(100%);
-  transition: filter 0.5s ease-in-out;
+  /* filter: grayscale(100%);
+  transition: filter 0.5s ease-in-out; */
 }
 
-.vinyl-card img:hover {
-  filter: grayscale(0%);
+.vinyl-info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  /* padding: 10px; */
+  /* margin: 10px; */
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .vinyl-card-buttons {
@@ -207,7 +219,7 @@ onMounted(() => {
   fill: rgb(151, 151, 151);
 }
 
-
+/*
 
 @keyframes grayscaleAnimation {
   from {
@@ -216,6 +228,6 @@ onMounted(() => {
   to {
     background-position: 100% 0;
   }
-}
+} */
 
 </style>

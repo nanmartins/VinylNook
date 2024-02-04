@@ -15,11 +15,10 @@
       </div>
     </div>
 
-    <NewRealeses />
 
-    <div v-if="loading">
-      <Loading />
-    </div>
+    <h2 class="recents-title">releases</h2>
+    <Loading v-if="loading" />
+    <NewRealeses v-else />
 
   </div>
 </template>
@@ -70,6 +69,17 @@ h2 {
   /* font-family: 'Oswald', sans-serif; */
   font-size: 120px;
   text-align: left;
+}
+
+.recents-title {
+  text-align: center;
+  font-size: 220px;
+  letter-spacing: 10px;
+  line-height: 15%;
+  font-weight: 800;
+  margin: 0 auto;
+  margin-top: 150px;
+  padding-top: 80px;
 }
 
 img {

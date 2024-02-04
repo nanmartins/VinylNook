@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const baseUrl = 'https://node-express-sooty-omega.vercel.app/vinyls'
 
-export const getVinyls = async ({ page = 1, limit = 9 } = {}) => {
+export const getVinyls = async ({ page = 1, limit = 16 } = {}) => {
   try {
     const response = await axios.get(baseUrl, {
       params: { page, limit }
@@ -24,9 +24,12 @@ export const getVinyl = async (id) => {
   }
 }
 
-export const getNewVinyls = async ({ page = 1, sort = 'latest'}) => {
+export const getNewVinyls = async ({ sort = 'latest', limit = 16 }) => {
   try {
-    const response = await axios.get(`${baseUrl}?page=${page}&sort=${sort}`)
+    // const response = await axios.get(`${baseUrl}?page=${page}&sort=${sort}`)
+    const response = await axios.get(baseUrl, {
+      params: { sort, limit }
+    })
     return response.data
   } catch (error) {
     throw error

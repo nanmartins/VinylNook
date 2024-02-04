@@ -1,43 +1,37 @@
 <template>
-
   <Loading v-if="loading" />
-
-
   <section v-else>
-
-    <h2>releases</h2>
-
-      <!-- :loop="true" -->
+    <!-- <h2>releases</h2> -->
     <Swiper
-      :slidesPerView="4"
+      :slidesPerView="5"
       :spaceBetween="40"
-      :pagination="{ clickable: true }"
-      :mousewheel="true"
+      :mousewheel="false"
       :keyboard="true"
       :navigation="true"
-      :autoplay="{
-        delay: 3000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true
-      }"
-      :modules="[Navigation, Autoplay, Pagination, Mousewheel, Keyboard]"
+      :autoplay="{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }"
+      :modules="[Navigation, Autoplay, Mousewheel, Keyboard]"
       class="vinyl-carousel-container"
     >
-      <SwiperSlide v-for="(vinyl) in recentVinyls" :key="vinyl._id" class="vinyl-card">
-        <router-link :to="`/album/${vinyl._id}`" style="color: black; text-decoration: none">
+      <SwiperSlide
+        v-for="(vinyl, index) in recentVinyls"
+        :key="vinyl._id"
+        class="vinyl-card"
+        @mouseover="setHoveredIndex(index)"
+        @mouseleave="resetHoveredIndex"
+      >
+        <router-link :to="`/album/${vinyl._id}`" style="color: black; text-decoration: none;">
           <img :src="vinyl.albumCover">
-          <div style="display: flex; flex-direction: column; gap: 5px; padding: 10px 0 5px 0">
-            <h4 style="letter-spacing: 1px">"{{ vinyl.album }}"</h4>
-            <h4 style="letter-spacing: 1.5px">{{ vinyl.artist }}</h4>
-            <p style="letter-spacing: 1.5px">{{ vinyl.year }}</p>
+          <div v-if="showInfo && index === hoveredIndex" class="vinyl-info-container">
+            <p style="letter-spacing: 1px; font-weight: 800">"{{ vinyl.album }}"</p>
+            <p style="letter-spacing: 1.5px;">{{ vinyl.artist }}</p>
+            <!-- <p style="letter-spacing: 1.5px">{{ vinyl.year }}</p> -->
           </div>
         </router-link>
       </SwiperSlide>
     </Swiper>
-
   </section>
-
 </template>
+
 
 
 <script setup>
@@ -46,16 +40,30 @@ import { getNewVinyls } from '@/services.js'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-import { Navigation, Autoplay, Pagination, Mousewheel, Keyboard } from 'swiper/modules'
+// import 'swiper/css/pagination'
+import { Navigation, Autoplay, Mousewheel, Keyboard } from 'swiper/modules'
+import Loading from '@/components/Loading/Loading.vue'
 
 const recentVinyls = ref([])
 const loading = ref(false)
+const showInfo = ref(false)
+const hoveredIndex = ref(null)
+
+const setHoveredIndex = (index) => {
+  hoveredIndex.value = index
+  showInfo.value = true
+}
+
+const resetHoveredIndex = () => {
+  hoveredIndex.value = null
+  showInfo.value = false
+}
 
 onMounted(async () => {
   loading.value = true
   try {
-    const response = await getNewVinyls({ page: 1, sort: 'latest' })
+    const response = await getNewVinyls({ sort: 'latest', limit: 16 })
+    console.log(response)
     recentVinyls.value = response.vinyls
   } catch (error) {
     throw error
@@ -82,15 +90,11 @@ h2 {
 }
 
 .vinyl-carousel-container {
-  display: flex;
-  width: 100%;
+  /* display: flex; */
+  /* width: 100%; */
   padding: 50px;
+  margin-bottom: 100px;
 }
-
-/* .swiper-button-prev,
-.swiper-button-next {
-  color: #000000;
-} */
 
 .vinyl-card {
   border: 1px solid black;
@@ -101,15 +105,12 @@ h2 {
   text-align: center;
   transition: 0.2s ease-in-out;
   cursor: pointer;
-  filter: grayscale(100%);
-  transition: filter 0.5s ease-in-out;
 }
 
 .vinyl-card:hover {
   transform: scale(1.05);
   transition: 0.3s ease-in-out;
-  animation: grayscaleAnimation 0.5s ease-in-out;
-  filter: grayscale(0%);
+  /* position: relative; */
 }
 
 .vinyl-card img {
@@ -118,14 +119,29 @@ h2 {
   border-radius: 2px;
 }
 
-
-
-@keyframes grayscaleAnimation {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 100% 0;
-  }
+.vinyl-card:hover img {
+  opacity: 0.5;
 }
+
+.vinyl-info-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  gap: 10px;
+  padding: 0 20px;
+  position: absolute;
+  top: 10%;
+  left: -5px;
+  transition: 1s ease-in-out;
+  text-align: left;
+}
+
+.vinyl-info-container p {
+  font-size: 26px;
+  font-weight: 500;
+  text-shadow: 1px 1px rgb(217, 217, 217);
+  font-style: italic;
+}
+
 </style>
