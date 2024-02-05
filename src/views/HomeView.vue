@@ -16,7 +16,7 @@
     </div>
 
 
-    <h2 class="recents-title">releases</h2>
+    <h2 class="recents-title">recents</h2>
     <Loading v-if="loading" />
     <NewRealeses v-else />
 
@@ -66,7 +66,6 @@ const loading = ref(false)
 }
 
 h2 {
-  /* font-family: 'Oswald', sans-serif; */
   font-size: 120px;
   text-align: left;
 }
@@ -75,7 +74,7 @@ h2 {
   text-align: center;
   font-size: 220px;
   letter-spacing: 10px;
-  line-height: 15%;
+  line-height: 10%;
   font-weight: 800;
   margin: 0 auto;
   margin-top: 150px;

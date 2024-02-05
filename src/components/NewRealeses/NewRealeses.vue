@@ -4,7 +4,7 @@
     <!-- <h2>releases</h2> -->
     <Swiper
       :slidesPerView="5"
-      :spaceBetween="40"
+      :spaceBetween="30"
       :mousewheel="false"
       :keyboard="true"
       :navigation="true"
@@ -19,7 +19,7 @@
         @mouseover="setHoveredIndex(index)"
         @mouseleave="resetHoveredIndex"
       >
-        <router-link :to="`/album/${vinyl._id}`" style="color: black; text-decoration: none;">
+        <router-link :to="`/album/${vinyl._id}`" class="card-router-link">
           <img :src="vinyl.albumCover">
           <div v-if="showInfo && index === hoveredIndex" class="vinyl-info-container">
             <p style="letter-spacing: 1px; font-weight: 800">"{{ vinyl.album }}"</p>
@@ -78,7 +78,7 @@ onMounted(async () => {
 
 <style scoped>
 
-h2 {
+/* h2 {
   text-align: center;
   font-size: 220px;
   letter-spacing: 10px;
@@ -87,7 +87,7 @@ h2 {
   margin: 0 auto;
   margin-top: 150px;
   padding-top: 80px;
-}
+} */
 
 .vinyl-carousel-container {
   /* display: flex; */
@@ -100,7 +100,7 @@ h2 {
   border: 1px solid black;
   border-radius: 2px;
   background: white;
-  padding: 10px;
+  padding: 5px;
   box-sizing: border-box;
   text-align: center;
   transition: 0.2s ease-in-out;
@@ -111,6 +111,13 @@ h2 {
   transform: scale(1.05);
   transition: 0.3s ease-in-out;
   /* position: relative; */
+}
+
+.card-router-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
 }
 
 .vinyl-card img {

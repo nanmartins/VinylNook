@@ -24,9 +24,8 @@ export const getVinyl = async (id) => {
   }
 }
 
-export const getNewVinyls = async ({ sort = 'latest', limit = 16 }) => {
+export const getNewVinyls = async ({ sort = 'latest', limit = 16 } = {}) => {
   try {
-    // const response = await axios.get(`${baseUrl}?page=${page}&sort=${sort}`)
     const response = await axios.get(baseUrl, {
       params: { sort, limit }
     })

@@ -7,9 +7,12 @@
       <router-link :to="`/album/${vinyl._id}`" style="color: black; text-decoration: none">
         <img :src="vinyl.albumCover">
         <div class="vinyl-info-container">
-          <h4 style="margin: 0; padding: 0; font-size: 15px; letter-spacing: 1.2px; font-weight: 500">"{{ vinyl.album }}"</h4>
-          <h5 style="letter-spacing: 1.5px">{{ vinyl.artist }}</h5>
-          <p style="letter-spacing: 1.5px">{{ vinyl.year }}</p>
+          <p style="letter-spacing: 1.3px; font-weight: 800">
+            <span style="font-weight: 300">{{ vinyl.year }}, </span>
+            "{{ vinyl.album }}"
+          </p>
+          <!-- <h5 style="letter-spacing: 1.5px">{{ vinyl.artist }}</h5> -->
+          <p style="letter-spacing: 1.5px; font-size: 14px; font-weight: 600">{{ vinyl.artist }}</p>
         </div>
 
         <!-- <div class="vinyl-card-buttons">
@@ -146,7 +149,7 @@ onMounted(() => {
   /* align-items: center; */
   border: 1px solid black;
   border-radius: 2px;
-  padding: 10px;
+  padding: 5px;
   margin: 0 auto;
   /* position: relative; */
   background-size: cover;
@@ -176,9 +179,19 @@ onMounted(() => {
 .vinyl-info-container {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  /* padding: 10px; */
+  gap: 10px;
+  padding: 10px 10px 15px 10px;
   /* margin: 10px; */
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  /* text-overflow: ellipsis; */
+}
+
+.vinyl-info-container p {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
   max-width: 100%;
   white-space: nowrap;
   overflow: hidden;
