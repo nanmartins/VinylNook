@@ -7,12 +7,12 @@
       <router-link :to="`/album/${vinyl._id}`" style="color: black; text-decoration: none">
         <img :src="vinyl.albumCover">
         <div class="vinyl-info-container">
-          <p style="letter-spacing: 1.3px; font-weight: 800">
+          <p style="letter-spacing: 1.3px; font-weight: 500">
             <span style="font-weight: 300">{{ vinyl.year }}, </span>
             "{{ vinyl.album }}"
           </p>
           <!-- <h5 style="letter-spacing: 1.5px">{{ vinyl.artist }}</h5> -->
-          <p style="letter-spacing: 1.5px; font-size: 14px; font-weight: 600">{{ vinyl.artist }}</p>
+          <p style="letter-spacing: 1.5px; font-size: 14px; font-weight: 300">{{ vinyl.artist }}</p>
         </div>
 
         <!-- <div class="vinyl-card-buttons">

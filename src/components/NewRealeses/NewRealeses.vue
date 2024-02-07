@@ -4,7 +4,7 @@
     <!-- <h2>releases</h2> -->
     <Swiper
       :slidesPerView="5"
-      :spaceBetween="30"
+      :spaceBetween="20"
       :mousewheel="false"
       :keyboard="true"
       :navigation="true"
@@ -22,8 +22,8 @@
         <router-link :to="`/album/${vinyl._id}`" class="card-router-link">
           <img :src="vinyl.albumCover">
           <div v-if="showInfo && index === hoveredIndex" class="vinyl-info-container">
-            <p style="letter-spacing: 1px; font-weight: 800">"{{ vinyl.album }}"</p>
-            <p style="letter-spacing: 1.5px;">{{ vinyl.artist }}</p>
+            <p style="letter-spacing: 1.5px; font-weight: 600; background: rgba(255, 255, 255, 0.8); padding: 5px">"{{ vinyl.album }}"</p>
+            <p style="letter-spacing: 1.5px; background: rgba(255, 255, 255, 0.6); padding: 3px 5px">{{ vinyl.artist }}</p>
             <!-- <p style="letter-spacing: 1.5px">{{ vinyl.year }}</p> -->
           </div>
         </router-link>
@@ -135,7 +135,7 @@ onMounted(async () => {
   flex-direction: column;
   width: 100%;
   margin: 0 auto;
-  gap: 10px;
+  gap: 5px;
   padding: 0 20px;
   position: absolute;
   top: 10%;
@@ -145,7 +145,7 @@ onMounted(async () => {
 }
 
 .vinyl-info-container p {
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 500;
   text-shadow: 1px 1px rgb(217, 217, 217);
   font-style: italic;
