@@ -63,7 +63,6 @@ onMounted(async () => {
   loading.value = true
   try {
     const response = await getNewVinyls({ sort: 'latest', limit: 16 })
-    console.log(response)
     recentVinyls.value = response.vinyls
   } catch (error) {
     throw error
@@ -78,20 +77,7 @@ onMounted(async () => {
 
 <style scoped>
 
-/* h2 {
-  text-align: center;
-  font-size: 220px;
-  letter-spacing: 10px;
-  line-height: 20%;
-  font-weight: 800;
-  margin: 0 auto;
-  margin-top: 150px;
-  padding-top: 80px;
-} */
-
 .vinyl-carousel-container {
-  /* display: flex; */
-  /* width: 100%; */
   padding: 50px;
   margin-bottom: 100px;
 }
@@ -110,7 +96,6 @@ onMounted(async () => {
 .vinyl-card:hover {
   transform: scale(1.05);
   transition: 0.3s ease-in-out;
-  /* position: relative; */
 }
 
 .card-router-link {

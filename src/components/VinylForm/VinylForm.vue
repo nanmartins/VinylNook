@@ -1,14 +1,11 @@
 <template>
-
   <div v-if="createdMessage" class="success-message">
     <p>{{ createdMessage }}</p>
   </div>
 
-  <div class="new-album-form" >
-
+  <div class="new-album-form">
     <form @submit.prevent="handleSubmit">
-
-    <h3>Add new album:</h3>
+      <h3>Add new album:</h3>
 
       <div>
         <label for="artist">Artist: </label>
@@ -31,45 +28,197 @@
       </div>
 
       <div>
+        <label for="studio">Studio: </label>
+        <input type="text" v-model="newVinyl.studio" required>
+      </div>
+
+      <div>
+        <label for="albumLength">Album Length: </label>
+        <input type="text" v-model="newVinyl.albumLength" required>
+      </div>
+
+      <div>
+        <label for="genre">Genre: </label>
+        <input type="text" v-model="newVinyl.genre" required>
+      </div>
+
+      <div>
+        <label for="label">Label: </label>
+        <input type="text" v-model="newVinyl.label" required>
+      </div>
+
+      <div>
+        <label for="producer">Producer: </label>
+        <input type="text" v-model="newVinyl.producer" required>
+      </div>
+
+      <div>
         <label for="albumDescription">Description: </label>
         <textarea v-model="newVinyl.albumDescription" cols="40" rows="10" required></textarea>
       </div>
 
+      <h2>Tracks</h2>
+
+      <!-- Disc 01 -->
+      <div v-if="tempTracksDisc1.length > 0">
+        <h6>disc 01</h6>
+        <ul v-for="(track, index) in tempTracksDisc1" :key="index">
+          <li style="display: flex; justify-content: space-between; align-items: center; width: 100%">
+            {{track.trackNumber}}, {{ track.title }} - {{ track.trackLength }} ({{ track.side }})
+            <span @click="removeTrack(index)" style="margin-left: 20px; padding: 0 8px; border: 1px solid black; cursor: pointer">-</span>
+          </li>
+        </ul>
+      </div>
+
+      <div v-if="tempTracksDisc2.length > 0">
+        <h6>disc 02</h6>
+        <ul v-for="(track, index) in tempTracksDisc2" :key="index">
+          <li style="display: flex; justify-content: space-between; align-items: center; width: 100%">
+            {{track.trackNumber}}, {{ track.title }} - {{ track.trackLength }} ({{ track.side }})
+            <span @click="removeTrack(index)" style="margin-left: 20px; padding: 0 8px; border: 1px solid black; cursor: pointer">-</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Disc 01 -->
+      <div>
+        <label for="trackTitle">Track Title: </label>
+        <input type="text" v-model="tempTracksDisc1.title" id="trackTitle" required>
+      </div>
+
+      <div>
+        <label for="trackLength">Track Length: </label>
+        <input type="text" v-model="tempTracksDisc1.trackLength" id="trackLength" required>
+      </div>
+
+      <div>
+        <label for="trackSide">Track Side: </label>
+        <select v-model="tempTracksDisc1.side" id="trackSide" >
+          <option value="sideA">Side A</option>
+          <option value="sideB">Side B</option>
+        </select>
+      </div>
+
+      <span @click="addTrack" style="cursor: pointer; padding: 5px; border: 1px solid black; width: 30px; display: inline-block; text-align: center; margin: 10px auto">+</span>
+
+      <!-- Disc 02 -->
+
+      <div>
+        <label for="tempTracksDisc2">Disc 02?</label>
+        <input type="checkbox" v-model="hasDisc2" id="tempTracksDisc2" style="height: 10px, width: 10px">
+      </div>
+
+      <div v-if="hasDisc2">
+        <label for="trackTitle2">Track Title: </label>
+        <input type="text" v-model="tempTracksDisc2.title" id="trackTitle2">
+      </div>
+
+      <div v-if="hasDisc2">
+        <label for="trackLength2">Track Length: </label>
+        <input type="text" v-model="tempTracksDisc2.trackLength" id="trackLength2" >
+      </div>
+
+      <div v-if="hasDisc2">
+        <label for="trackSide2">Track Side: </label>
+        <select v-model="tempTracksDisc2.side" id="trackSide2" >
+          <option value="sideA">Side A</option>
+          <option value="sideB">Side B</option>
+        </select>
+      </div>
+
+      <span @click="addTrack" v-if="hasDisc2" style="cursor: pointer; padding: 5px; border: 1px solid black; width: 30px; display: inline-block; text-align: center; margin: 10px auto">+</span>
+
+
+
       <button type="submit">Add Vinyl</button>
     </form>
-
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import { createVinyl } from '@/services.js'
 
-const apiData = ref([])
 const newVinyl = ref({
-  album: '',
   artist: '',
+  album: '',
   year: '',
   albumCover: '',
-  albumDescription: '',
+  studio: '',
+  albumLength: '',
+  genre: [],
+  label: '',
+  producer: '',
+  tracks: {
+    disc1: [],
+    disc2: []
+  },
+  albumDescription: ''
 })
+
 
 const createdMessage = ref('')
 
+const tempTracksDisc1 = ref([])
+const tempTracksDisc2 = ref([])
+const hasDisc2 = ref(false)
+
+
 const handleSubmit = async () => {
+  // Verificar se newVinyl.tracks é undefined e inicializá-lo se for
+  if (!newVinyl.tracks) {
+    newVinyl.tracks = {
+      disc1: [],
+      disc2: []
+    };
+  }
+  // Atribuir os valores de tempTracksDisc1 e tempTracksDisc2
+  newVinyl.tracks.disc1 = tempTracksDisc1.value
+  newVinyl.tracks.disc2 = tempTracksDisc2.value
   try {
-    const vinyl = await createVinyl(newVinyl.value)
-    apiData.value.push(vinyl)
-  }
-  catch (error) {
-    throw error
-  }
-  finally {
-    newVinyl.value = { artist: '', album: '', year: '', albumCover: '', albumDescription: '' }
+    await createVinyl(newVinyl.value)
+    // Reset form after successful submission
+    resetForm()
     createdMessage.value = 'Vinyl created successfully!'
     setTimeout(() => {
       createdMessage.value = ''
     }, 3000)
+  } catch (error) {
+    console.error('Error creating vinyl:', error)
+  }
+}
+
+
+const addTrack = () => {
+  const trackTitle = document.getElementById('trackTitle').value
+  const trackLength = document.getElementById('trackLength').value
+  const trackSide = document.getElementById('trackSide').value
+  tempTracksDisc1.value.push({ trackNumber: tempTracksDisc1.value.length + 1, title: trackTitle, trackLength: trackLength, side: trackSide })
+  console.log(tempTracksDisc1)
+}
+
+
+const removeTrack = (index) => {
+  tempTracksDisc1.value.splice(index, 1)
+}
+
+
+const resetForm = () => {
+  newVinyl.value = {
+    artist: '',
+    album: '',
+    year: '',
+    albumCover: '',
+    studio: '',
+    albumLength: '',
+    genre: [],
+    label: '',
+    producer: '',
+    tracks: {
+      disc1: [],
+      disc2: []
+    },
+    albumDescription: ''
   }
 }
 

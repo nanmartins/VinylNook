@@ -8,7 +8,8 @@ export const getVinyls = async ({ page = 1, limit = 16 } = {}) => {
       params: { page, limit }
     })
     return response.data
-  } catch (error) {
+  }
+  catch (error) {
     throw error
   }
 }
@@ -30,7 +31,8 @@ export const getNewVinyls = async ({ sort = 'latest', limit = 16 } = {}) => {
       params: { sort, limit }
     })
     return response.data
-  } catch (error) {
+  }
+  catch (error) {
     throw error
   }
 }
@@ -40,7 +42,6 @@ export const createVinyl = async (newVinyl) => {
     await axios.post(baseUrl, newVinyl)
   }
   catch (error) {
-    console.log(error)
     throw error
   }
 }
