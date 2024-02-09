@@ -65,7 +65,7 @@
         <ul v-for="(track, index) in tempTracksDisc1" :key="index">
           <li style="display: flex; justify-content: space-between; align-items: center; width: 100%">
             {{track.trackNumber}}, {{ track.title }} - {{ track.trackLength }} ({{ track.side }})
-            <span @click="removeTrack(index)" style="margin-left: 20px; padding: 0 8px; border: 1px solid black; cursor: pointer">-</span>
+            <span @click="removeTrackDisc1(index)" style="margin-left: 20px; padding: 0 8px; border: 1px solid black; cursor: pointer">-</span>
           </li>
         </ul>
       </div>
@@ -75,10 +75,11 @@
         <ul v-for="(track, index) in tempTracksDisc2" :key="index">
           <li style="display: flex; justify-content: space-between; align-items: center; width: 100%">
             {{track.trackNumber}}, {{ track.title }} - {{ track.trackLength }} ({{ track.side }})
-            <span @click="removeTrack(index)" style="margin-left: 20px; padding: 0 8px; border: 1px solid black; cursor: pointer">-</span>
+            <span @click="removeTrackDisc2(index)" style="margin-left: 20px; padding: 0 8px; border: 1px solid black; cursor: pointer">-</span>
           </li>
         </ul>
       </div>
+
 
       <!-- Disc 01 -->
       <div>
@@ -99,7 +100,7 @@
         </select>
       </div>
 
-      <span @click="addTrack" style="cursor: pointer; padding: 5px; border: 1px solid black; width: 30px; display: inline-block; text-align: center; margin: 10px auto">+</span>
+      <span @click="addTrackDisc1" style="cursor: pointer; padding: 5px; border: 1px solid black; width: 30px; display: inline-block; text-align: center; margin: 10px auto">+</span>
 
       <!-- Disc 02 -->
 
@@ -126,7 +127,7 @@
         </select>
       </div>
 
-      <span @click="addTrack" v-if="hasDisc2" style="cursor: pointer; padding: 5px; border: 1px solid black; width: 30px; display: inline-block; text-align: center; margin: 10px auto">+</span>
+      <span @click="addTrackDisc2" v-if="hasDisc2" style="cursor: pointer; padding: 5px; border: 1px solid black; width: 30px; display: inline-block; text-align: center; margin: 10px auto">+</span>
 
 
 
@@ -158,23 +159,14 @@ const newVinyl = ref({
 
 
 const createdMessage = ref('')
-
 const tempTracksDisc1 = ref([])
 const tempTracksDisc2 = ref([])
 const hasDisc2 = ref(false)
 
 
 const handleSubmit = async () => {
-  // Verificar se newVinyl.tracks é undefined e inicializá-lo se for
-  if (!newVinyl.tracks) {
-    newVinyl.tracks = {
-      disc1: [],
-      disc2: []
-    };
-  }
-  // Atribuir os valores de tempTracksDisc1 e tempTracksDisc2
-  newVinyl.tracks.disc1 = tempTracksDisc1.value
-  newVinyl.tracks.disc2 = tempTracksDisc2.value
+  newVinyl.value.tracks.disc1 = tempTracksDisc1.value
+  newVinyl.value.tracks.disc2 = tempTracksDisc2.value
   try {
     await createVinyl(newVinyl.value)
     // Reset form after successful submission
@@ -189,17 +181,27 @@ const handleSubmit = async () => {
 }
 
 
-const addTrack = () => {
+const addTrackDisc1 = () => {
   const trackTitle = document.getElementById('trackTitle').value
   const trackLength = document.getElementById('trackLength').value
   const trackSide = document.getElementById('trackSide').value
   tempTracksDisc1.value.push({ trackNumber: tempTracksDisc1.value.length + 1, title: trackTitle, trackLength: trackLength, side: trackSide })
-  console.log(tempTracksDisc1)
+}
+
+const addTrackDisc2 = () => {
+  const trackTitle2 = document.getElementById('trackTitle2').value
+  const trackLength2 = document.getElementById('trackLength2').value
+  const trackSide2 = document.getElementById('trackSide2').value
+  tempTracksDisc2.value.push({ trackNumber: tempTracksDisc2.value.length + 1, title: trackTitle2, trackLength: trackLength2, side: trackSide2 })
 }
 
 
-const removeTrack = (index) => {
+const removeTrackDisc1 = (index) => {
   tempTracksDisc1.value.splice(index, 1)
+}
+
+const removeTrackDisc2 = (index) => {
+  tempTracksDisc2.value.splice(index, 1)
 }
 
 
