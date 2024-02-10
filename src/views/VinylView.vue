@@ -4,9 +4,9 @@
     <Loading />
   </div>
 
-  <div v-else>
-    <h1 style="margin-top: 100px">{{vinyl.artist}}, "{{ vinyl.album }}"</h1>
-    <h2>{{ vinyl.year }}</h2>
+  <div v-else style="margin-top: 100px">
+    <!-- <h1>{{vinyl.artist}}, "{{ vinyl.album }}"</h1>
+    <h2>{{ vinyl.year }}</h2> -->
 
     <div class="vinyl-card">
       <div class="vinyl-card-img">
@@ -14,8 +14,41 @@
       </div>
 
       <div class="vinyl-card-description">
+        <h1>{{vinyl.artist}}, "{{ vinyl.album }}"</h1>
+        <h2>{{ vinyl.year }}</h2>
+        <p>Studio: {{ vinyl.studio}}</p>
+        <p>Length: {{ vinyl.albumLength }}</p>
+        <ul v-for="(genres, index) in vinyl.genre" :key="index">
+          <li>Genre: {{ genres }}</li>
+        </ul>
+        <p>Label: {{ vinyl.label }}</p>
+        <p>Producer: {{ vinyl.producer }}</p>
         <p>{{ vinyl.albumDescription }}</p>
+
+        <h5>Side A</h5>
+        <ul v-for="(disc, index) in vinyl.tracks" :key="disc + index">
+          <ul v-for="(track, index) in disc" :key="track + index">
+
+            <div v-if="track.side === 'sideA'">
+              <p>{{ track.trackNumber }}, {{ track.title }} - {{ track.trackLength }}</p>
+            </div>
+
+          </ul>
+        </ul>
+
+        <h5>Side B</h5>
+        <ul v-for="(disc, index) in vinyl.tracks" :key="disc + index">
+          <ul v-for="(track, index) in disc" :key="track + index">
+
+            <div v-if="track.side === 'sideB'">
+              <p>{{ track.trackNumber }}, {{ track.title }} - {{ track.trackLength }}</p>
+            </div>
+
+          </ul>
+        </ul>
+
       </div>
+
 
     </div>
   </div>
