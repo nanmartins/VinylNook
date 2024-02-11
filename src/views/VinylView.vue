@@ -4,8 +4,8 @@
     <Loading />
   </div>
 
-  <div v-else>
-    <h1 style="margin-top: 100px">{{vinyl.artist}}, "{{ vinyl.album }}"</h1>
+  <div v-else style="width: 100%; max-width: 1400px; margin: 0 auto">
+    <h1 style="margin-top: 100px;">{{vinyl.artist}}, "{{ vinyl.album }}"</h1>
     <h2>{{ vinyl.year }}</h2>
 
     <div class="vinyl-card">

@@ -28,7 +28,7 @@
 
   <div v-if="!loading" class="pagination">
     <button @click="changePage('prev')" :disabled="currentPage === 1">
-      <svg version="1.1" width="25" height="25" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35.3 58.8" enable-background="new 0 0 35.3 58.8" xml:space="preserve">
+      <svg version="1.1" width="20" height="20" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35.3 58.8" enable-background="new 0 0 35.3 58.8" xml:space="preserve">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M29.4,2.7L2.8,29.2c-0.2,0.3-0.2,0.8,0,1.1l26.6,26.5
         c0.2,0.3,0.7,0.3,1,0l3.5-3.4L10.8,30.3c-0.4-0.2-0.4-0.7,0-1.1L33.9,6.1l-3.5-3.5C30.2,2.2,29.7,2.2,29.4,2.7L29.4,2.7z"></path>
       </svg>
@@ -37,7 +37,7 @@
     <span>{{ currentPage }} / {{ totalPages }}</span>
 
     <button @click="changePage('next')" :disabled="currentPage === totalPages" style="transform: rotate(180deg)">
-      <svg version="1.1" width="25" height="25" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35.3 58.8" enable-background="new 0 0 35.3 58.8" xml:space="preserve">
+      <svg version="1.1" width="20" height="20" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35.3 58.8" enable-background="new 0 0 35.3 58.8" xml:space="preserve">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M29.4,2.7L2.8,29.2c-0.2,0.3-0.2,0.8,0,1.1l26.6,26.5
         c0.2,0.3,0.7,0.3,1,0l3.5-3.4L10.8,30.3c-0.4-0.2-0.4-0.7,0-1.1L33.9,6.1l-3.5-3.5C30.2,2.2,29.7,2.2,29.4,2.7L29.4,2.7z"></path>
       </svg>
@@ -136,7 +136,7 @@ onMounted(() => {
 .vinyl-card-container {
   display: grid;
   width: 100%;
-  max-width: 1300px;
+  max-width: 1400px;
   place-items: center;
   gap: 30px 20px;
   padding: 20px;

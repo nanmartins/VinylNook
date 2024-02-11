@@ -107,7 +107,7 @@ onMounted(async () => {
 
 .vinyl-card img {
   width: 100%;
-  max-width: 300px;
+  /* max-width: 300px; */
   border-radius: 2px;
 }
 
