@@ -45,7 +45,7 @@ const loading = ref(false)
   display: flex;
   flex-direction: column;
   gap: 10px;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .home-banner-detail {
