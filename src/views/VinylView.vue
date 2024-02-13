@@ -123,14 +123,17 @@ onMounted(() => {
   gap: 20px;
   border: 1px solid black;
   border-radius: 2px;
+  font-family: 'Barlow Condensed', sans-serif;
+
 }
 
 .vinyl-card-description p {
   font-size: 16px;
   line-height: 130%;
+  letter-spacing: 1px;
   font-weight: 600;
   color: rgb(87, 87, 87);
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  /* font-family: 'Barlow Condensed', sans-serif; */
 }
 
 .vinyl-card-img img {
