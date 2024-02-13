@@ -1,14 +1,9 @@
 <template>
-  <!-- Seção de carregamento -->
   <div v-if="loading">
     <Loading />
   </div>
 
-  <!-- Seção principal -->
-  <div v-else style="width: 100%; max-width: 1400px; margin: 0 auto">
-    <!-- Detalhes do vinil -->
-    <h1 style="margin-top: 100px;">{{ vinyl.artist }}, "{{ vinyl.album }}"</h1>
-    <h2>{{ vinyl.year }}</h2>
+  <div v-else style="width: 100%; max-width: 1400px; margin: 140px auto 20px auto">
 
     <div class="vinyl-card">
       <div class="vinyl-card-img">
@@ -28,11 +23,37 @@
         <p>{{ vinyl.albumDescription }}</p>
 
         <!-- Faixas -->
-        <div v-for="(disc, discIndex) in vinyl.tracks" :key="discIndex">
-          <!-- <h5>Disc {{ discIndex === 'disc1' ? '01' : '02' }}</h5> -->
-          <h4 v-if="discIndex === 'disc1'">Disc 01</h4>
-          <h4 v-if="discIndex === 'disc2'">Disc 02</h4>
+        <div v-for="(disc, index) in vinyl.tracks" :key="index">
+          <h3>{{ disc.sideA.length > 0 && index === 'disc1' ? 'Disc 1' : ''  }}</h3>
+          <h3>{{ disc.sideA.length > 0 && index === 'disc2' ? 'Disc 2' : '' }}</h3>
 
+          <!-- {{ disc.sideA }} -->
+          <div v-for="(side, index) in disc" :key="index">
+            <h4>{{ side.length > 0 && index === 'sideA' ? 'Side A' : '' }}</h4>
+
+            <ul style="list-style-type: none">
+              <template v-for="track in side" :key="track">
+                <li v-if="track.side === 'sideA'" :key="track.trackNumber">
+                  {{ track.trackNumber }}, {{ track.title }} - {{ track.trackLength }}
+                </li>
+              </template>
+            </ul>
+
+            <!-- {{ disc.sideB }} -->
+            <h4>{{ side.length > 0 && index === 'sideB' ? 'Side B' : '' }}</h4>
+
+            <ul style="list-style-type: none">
+              <template v-for="track in side" :key="track">
+                <li v-if="track.side === 'sideB'" :key="track.trackNumber">
+                  {{ track.trackNumber }}, {{ track.title }} - {{ track.trackLength }}
+                </li>
+              </template>
+            </ul>
+
+          </div>
+        </div>
+
+        <!-- <div v-for="(disc, discIndex) in vinyl.tracks" :key="discIndex">
 
           <ul style="list-style-type: none">
             <template v-for="track in disc" :key="track">
@@ -51,9 +72,12 @@
 
             </template>
           </ul>
-        </div>
+        </div> -->
+
+
       </div>
     </div>
+
   </div>
 </template>
 
@@ -83,6 +107,7 @@ const fetchVinyl = async () => {
 
 onMounted(() => {
   fetchVinyl()
+  console.log(vinyl)
 })
 </script>
 

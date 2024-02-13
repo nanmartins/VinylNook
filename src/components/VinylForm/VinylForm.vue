@@ -58,8 +58,65 @@
       </div>
 
       <h2>Tracks</h2>
+      <hr>
+      <!-- TEST -->
 
-      <!-- Disc 01 -->
+      <h2>Disc 1 Tracks</h2>
+      {{tempTracksDisc1}}
+<hr>
+<!-- Campos para adicionar faixas do disco 1 -->
+<div>
+  <label for="trackTitleDisc1">Track Title: </label>
+  <input type="text" v-model="tempTracksDisc1.title" id="trackTitleDisc1" required>
+</div>
+<div>
+  <label for="trackLengthDisc1">Track Length: </label>
+  <input type="text" v-model="tempTracksDisc1.trackLength" id="trackLengthDisc1" required>
+</div>
+<div>
+  <label for="trackSideDisc1">Track Side: </label>
+  <select v-model="tempTracksDisc1.side" id="trackSideDisc1">
+    <option value="sideA">Side A</option>
+    <option value="sideB">Side B</option>
+  </select>
+</div>
+<span @click="addTrackDisc1" style="cursor: pointer; padding: 5px; border: 1px solid black; width: 30px; display: inline-block; text-align: center; margin: 10px auto">+</span>
+
+<!-- Checkbox para indicar se há um disco 2 -->
+<div>
+  <input type="checkbox" v-model="hasDisc2" id="hasDisc2">
+  <label for="hasDisc2">Has Disc 2?</label>
+</div>
+
+<!-- Seção do disco 2 (exibida se hasDisc2 for verdadeiro) -->
+<div v-if="hasDisc2">
+  <h2>Disc 2 Tracks</h2>
+  {{tempTracksDisc2}}
+  <hr>
+  <!-- Campos para adicionar faixas do disco 2 -->
+  <div>
+    <label for="trackTitleDisc2">Track Title: </label>
+    <input type="text" v-model="tempTracksDisc2.title" id="trackTitleDisc2" required>
+  </div>
+  <div>
+    <label for="trackLengthDisc2">Track Length: </label>
+    <input type="text" v-model="tempTracksDisc2.trackLength" id="trackLengthDisc2" required>
+  </div>
+  <div>
+    <label for="trackSideDisc2">Track Side: </label>
+    <select v-model="tempTracksDisc2.side" id="trackSideDisc2">
+      <option value="sideA">Side A</option>
+      <option value="sideB">Side B</option>
+    </select>
+  </div>
+  <span @click="addTrackDisc2" style="cursor: pointer; padding: 5px; border: 1px solid black; width: 30px; display: inline-block; text-align: center; margin: 10px auto">+</span>
+</div>
+
+
+
+      <hr>
+
+      <!-- Disc 01
       <div v-if="tempTracksDisc1.length > 0">
         <h6>disc 01</h6>
         <ul v-for="(track, index) in tempTracksDisc1" :key="index">
@@ -81,7 +138,7 @@
       </div>
 
 
-      <!-- Disc 01 -->
+      Disc 01
       <div>
         <label for="trackTitle">Track Title: </label>
         <input type="text" v-model="tempTracksDisc1.title" id="trackTitle" required>
@@ -102,7 +159,7 @@
 
       <span @click="addTrackDisc1" style="cursor: pointer; padding: 5px; border: 1px solid black; width: 30px; display: inline-block; text-align: center; margin: 10px auto">+</span>
 
-      <!-- Disc 02 -->
+      Disc 02
 
       <div>
         <label for="tempTracksDisc2">Disc 02?</label>
@@ -127,7 +184,7 @@
         </select>
       </div>
 
-      <span @click="addTrackDisc2" v-if="hasDisc2" style="cursor: pointer; padding: 5px; border: 1px solid black; width: 30px; display: inline-block; text-align: center; margin: 10px auto">+</span>
+      <span @click="addTrackDisc2" v-if="hasDisc2" style="cursor: pointer; padding: 5px; border: 1px solid black; width: 30px; display: inline-block; text-align: center; margin: 10px auto">+</span> -->
 
 
 
@@ -151,8 +208,14 @@ const newVinyl = ref({
   label: '',
   producer: '',
   tracks: {
-    disc1: [],
-    disc2: []
+    disc1: {
+      sideA: [],
+      sideB: []
+    },
+    disc2: {
+      sideA: [],
+      sideB: []
+    }
   },
   albumDescription: ''
 })
@@ -165,8 +228,11 @@ const hasDisc2 = ref(false)
 
 
 const handleSubmit = async () => {
-  newVinyl.value.tracks.disc1 = tempTracksDisc1.value
-  newVinyl.value.tracks.disc2 = tempTracksDisc2.value
+  newVinyl.value.tracks.disc1.sideA = tempTracksDisc1.value.filter(track => track.side === 'sideA')
+  newVinyl.value.tracks.disc1.sideB = tempTracksDisc1.value.filter(track => track.side === 'sideB')
+
+  newVinyl.value.tracks.disc2.sideA = tempTracksDisc2.value.filter(track => track.side === 'sideA')
+  newVinyl.value.tracks.disc2.sideB = tempTracksDisc2.value.filter(track => track.side === 'sideB')
   try {
     await createVinyl(newVinyl.value)
     // Reset form after successful submission
@@ -181,20 +247,44 @@ const handleSubmit = async () => {
 }
 
 
+// const addTrackDisc1 = () => {
+//   const trackTitle = document.getElementById('trackTitle').value
+//   const trackLength = document.getElementById('trackLength').value
+//   const trackSide = document.getElementById('trackSide').value
+//   tempTracksDisc1.value.push({ trackNumber: tempTracksDisc1.value.length + 1, title: trackTitle, trackLength: trackLength, side: trackSide })
+// }
+
+// const addTrackDisc2 = () => {
+//   const trackTitle2 = document.getElementById('trackTitle2').value
+//   const trackLength2 = document.getElementById('trackLength2').value
+//   const trackSide2 = document.getElementById('trackSide2').value
+//   tempTracksDisc2.value.push({ trackNumber: tempTracksDisc2.value.length + 1, title: trackTitle2, trackLength: trackLength2, side: trackSide2 })
+// }
+
+
+// const removeTrackDisc1 = (index) => {
+//   tempTracksDisc1.value.splice(index, 1)
+// }
+
+// const removeTrackDisc2 = (index) => {
+//   tempTracksDisc2.value.splice(index, 1)
+// }
+
 const addTrackDisc1 = () => {
-  const trackTitle = document.getElementById('trackTitle').value
-  const trackLength = document.getElementById('trackLength').value
-  const trackSide = document.getElementById('trackSide').value
-  tempTracksDisc1.value.push({ trackNumber: tempTracksDisc1.value.length + 1, title: trackTitle, trackLength: trackLength, side: trackSide })
+  const trackTitle = tempTracksDisc1.value.title
+  const trackLength = tempTracksDisc1.value.trackLength
+  const trackSide = tempTracksDisc1.value.side
+  const trackNumber = tempTracksDisc1.value.length + 1
+  tempTracksDisc1.value.push({ trackNumber, title: trackTitle, trackLength, side: trackSide })
 }
 
 const addTrackDisc2 = () => {
-  const trackTitle2 = document.getElementById('trackTitle2').value
-  const trackLength2 = document.getElementById('trackLength2').value
-  const trackSide2 = document.getElementById('trackSide2').value
-  tempTracksDisc2.value.push({ trackNumber: tempTracksDisc2.value.length + 1, title: trackTitle2, trackLength: trackLength2, side: trackSide2 })
+  const trackTitle = tempTracksDisc2.value.title
+  const trackLength = tempTracksDisc2.value.trackLength
+  const trackSide = tempTracksDisc2.value.side
+  const trackNumber = tempTracksDisc2.value.length + 1
+  tempTracksDisc2.value.push({ trackNumber, title: trackTitle, trackLength, side: trackSide })
 }
-
 
 const removeTrackDisc1 = (index) => {
   tempTracksDisc1.value.splice(index, 1)
@@ -203,7 +293,6 @@ const removeTrackDisc1 = (index) => {
 const removeTrackDisc2 = (index) => {
   tempTracksDisc2.value.splice(index, 1)
 }
-
 
 const resetForm = () => {
   newVinyl.value = {
@@ -217,8 +306,14 @@ const resetForm = () => {
     label: '',
     producer: '',
     tracks: {
-      disc1: [],
-      disc2: []
+      disc1: {
+        sideA: [],
+        sideB: []
+      },
+      disc2: {
+        sideA: [],
+        sideB: []
+      }
     },
     albumDescription: ''
   }
