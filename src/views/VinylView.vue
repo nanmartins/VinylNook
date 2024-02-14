@@ -25,7 +25,7 @@
         <!-- Faixas -->
         <div v-for="(disc, index) in vinyl.tracks" :key="index">
           <h3>{{ disc.sideA.length > 0 && index === 'disc1' ? 'Disc 1' : ''  }}</h3>
-          <h3>{{ disc.sideA.length > 0 && index === 'disc2' ? 'Disc 2' : '' }}</h3>
+          <h3>{{ disc.sideB.length > 0 && index === 'disc2' ? 'Disc 2' : '' }}</h3>
 
           <!-- {{ disc.sideA }} -->
           <div v-for="(side, index) in disc" :key="index">
@@ -52,28 +52,6 @@
 
           </div>
         </div>
-
-        <!-- <div v-for="(disc, discIndex) in vinyl.tracks" :key="discIndex">
-
-          <ul style="list-style-type: none">
-            <template v-for="track in disc" :key="track">
-
-              <div v-if="track.side === 'sideA'">
-                <li v-if="track.side === 'sideA'" :key="track.trackNumber">
-                  {{ track.trackNumber }}, {{ track.title }} - {{ track.trackLength }}
-                </li>
-              </div>
-
-              <div v-else>
-                <li v-if="track.side === 'sideB'" :key="track.trackNumber">
-                  {{ track.trackNumber }}, {{ track.title }} - {{ track.trackLength }}
-                </li>
-              </div>
-
-            </template>
-          </ul>
-        </div> -->
-
 
       </div>
     </div>

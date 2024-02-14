@@ -138,7 +138,7 @@ onMounted(() => {
   width: 100%;
   max-width: 1400px;
   place-items: center;
-  gap: 30px 20px;
+  gap: 40px 20px;
   padding: 20px;
   margin: 0 auto;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -148,7 +148,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   /* align-items: center; */
-  border: 1px solid black;
+  /* border: 1px solid rgb(165, 165, 165); */
   border-radius: 2px;
   padding: 5px;
   margin: 0 auto;
@@ -181,7 +181,8 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 10px 10px 15px 10px;
+  /* padding: 10px 10px 15px 10px; */
+  padding-top: 10px;
   /* margin: 10px; */
   max-width: 100%;
   white-space: nowrap;

@@ -83,7 +83,7 @@ onMounted(async () => {
 }
 
 .vinyl-card {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-radius: 2px;
   background: white;
   padding: 5px;
