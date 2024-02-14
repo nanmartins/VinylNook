@@ -91,11 +91,14 @@ onMounted(async () => {
   text-align: center;
   transition: 0.2s ease-in-out;
   cursor: pointer;
+  box-shadow: 0 2px 10px rgb(233, 233, 233);
+  transition: 0.5s;
 }
 
 .vinyl-card:hover {
   transform: scale(1.05);
-  transition: 0.3s ease-in-out;
+  transition: 0.5s ease-in-out;
+  box-shadow: 0 5px 25px rgb(199, 199, 199);
 }
 
 .card-router-link {

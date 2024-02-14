@@ -8,11 +8,13 @@
         <img :src="vinyl.albumCover">
         <div class="vinyl-info-container">
           <p style="letter-spacing: 1.3px; font-weight: 500">
-            <span style="font-weight: 300">{{ vinyl.year }}, </span>
+
             "{{ vinyl.album }}"
           </p>
           <!-- <h5 style="letter-spacing: 1.5px">{{ vinyl.artist }}</h5> -->
-          <p style="letter-spacing: 1.5px; font-size: 14px; font-weight: 300">{{ vinyl.artist }}</p>
+          <p style="letter-spacing: 1.5px; font-size: 14px; font-weight: 300">
+            <span style="font-weight: 300">{{ vinyl.year }}, </span>
+            {{ vinyl.artist }}</p>
         </div>
 
         <!-- <div class="vinyl-card-buttons">
@@ -138,7 +140,7 @@ onMounted(() => {
   width: 100%;
   max-width: 1400px;
   place-items: center;
-  gap: 40px 20px;
+  gap: 40px 30px;
   padding: 20px;
   margin: 0 auto;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -150,7 +152,7 @@ onMounted(() => {
   /* align-items: center; */
   /* border: 1px solid rgb(165, 165, 165); */
   border-radius: 2px;
-  padding: 5px;
+  padding: 7px;
   margin: 0 auto;
   /* position: relative; */
   background-size: cover;
@@ -161,11 +163,14 @@ onMounted(() => {
   text-align: left;
   width: 100%;
   max-width: 420px;
+  box-shadow: 0 2px 10px rgb(233, 233, 233);
+  transition: 0.5s;
 }
 
 .vinyl-card:hover {
   transform: scale(1.05);
   transition: transform 0.5s;
+  box-shadow: 0 5px 25px rgb(199, 199, 199);
   /* animation: grayscaleAnimation 0.5s ease-in-out; */
 }
 
@@ -181,8 +186,8 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  /* padding: 10px 10px 15px 10px; */
-  padding-top: 10px;
+  padding: 10px 5px;
+  /* padding-top: 10px; */
   /* margin: 10px; */
   max-width: 100%;
   white-space: nowrap;
