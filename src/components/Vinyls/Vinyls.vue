@@ -7,11 +7,7 @@
       <router-link :to="`/album/${vinyl._id}`" style="color: black; text-decoration: none">
         <img :src="vinyl.albumCover">
         <div class="vinyl-info-container">
-          <p style="letter-spacing: 1.3px; font-weight: 500">
-
-            "{{ vinyl.album }}"
-          </p>
-          <!-- <h5 style="letter-spacing: 1.5px">{{ vinyl.artist }}</h5> -->
+          <p style="letter-spacing: 1.3px; font-weight: 500">"{{ vinyl.album }}"</p>
           <p style="letter-spacing: 1.5px; font-size: 14px; font-weight: 300">
             <span style="font-weight: 300">{{ vinyl.year }}, </span>
             {{ vinyl.artist }}</p>
@@ -154,7 +150,6 @@ onMounted(() => {
   border-radius: 2px;
   padding: 7px;
   margin: 0 auto;
-  /* position: relative; */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -164,7 +159,7 @@ onMounted(() => {
   width: 100%;
   max-width: 420px;
   box-shadow: 0 2px 10px rgb(233, 233, 233);
-  transition: 0.5s;
+  transition: 0.5s ease-in-out;
 }
 
 .vinyl-card:hover {

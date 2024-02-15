@@ -73,11 +73,10 @@ nav {
 
 nav a {
   font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 100;
   color: black;
   text-decoration: none;
-  font-weight: 100;
-  font-size: 22px;
+  font-weight: 300;
+  font-size: 18px;
 }
 
 nav a:hover::after {
@@ -90,14 +89,14 @@ nav a:hover::after {
 }
 
 nav a.router-link-exact-active {
-  font-weight: 300;
+  font-weight: 500;
 }
 
 nav a.router-link-exact-active::after {
   content: '';
   display: block;
   width: 100%;
-  height: 1.5px;
+  height: 2px;
   background-color: black;
 }
 
