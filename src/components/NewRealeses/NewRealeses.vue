@@ -3,7 +3,7 @@
   <section v-else>
     <!-- <h2>releases</h2> -->
     <Swiper
-      :slidesPerView="5"
+      :slidesPerView="1"
       :spaceBetween="20"
       :mousewheel="false"
       :keyboard="true"
@@ -11,6 +11,28 @@
       :autoplay="{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }"
       :modules="[Navigation, Autoplay, Mousewheel, Keyboard]"
       class="vinyl-carousel-container"
+      :breakpoints="{
+      '600': {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      '800': {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      '1200': {
+        slidesPerView: 4,
+        spaceBetween: 20,
+      },
+      '1600': {
+        slidesPerView: 5,
+        spaceBetween: 20,
+      },
+      '2000': {
+        slidesPerView: 6,
+        spaceBetween: 20,
+      }
+    }"
     >
       <SwiperSlide
         v-for="(vinyl, index) in recentVinyls"
@@ -24,7 +46,7 @@
           <div v-if="showInfo && index === hoveredIndex" class="vinyl-info-container">
             <p style="letter-spacing: 1.5px; font-weight: 600; background: rgba(255, 255, 255, 0.8); padding: 5px">"{{ vinyl.album }}"</p>
             <p style="letter-spacing: 1.5px; background: rgba(255, 255, 255, 0.6); padding: 3px 5px">{{ vinyl.artist }}</p>
-            <!-- <p style="letter-spacing: 1.5px">{{ vinyl.year }}</p> -->
+            <p style="letter-spacing: 1.5px; background: rgba(255, 255, 255, 0.6); padding: 3px 5px; font-size: 14px; text-align: right">{{ timeDiff(vinyl.createdAt) }}</p>
           </div>
         </router-link>
       </SwiperSlide>
@@ -58,6 +80,37 @@ const resetHoveredIndex = () => {
   hoveredIndex.value = null
   showInfo.value = false
 }
+
+
+const timeDiff = (date) => {
+  const createdTime = new Date(date)
+  const timeNow = new Date()
+
+  const diff = Math.abs(timeNow - createdTime)
+  const minutes = diff / 1000 / 60
+
+  if (minutes < 60) {
+    const min = Math.floor(minutes)
+    return min + " minutes ago."
+  }
+
+  if (minutes < 1440) {
+    const hours = Math.floor(minutes / 60)
+    if (hours === 1) {
+      return hours + " hour ago."
+    } else {
+      return hours + " hours ago."
+    }
+  }
+
+  const days = Math.floor(minutes / 1440)
+  if (days === 1) {
+    return days + " day ago."
+  } else {
+    return days + " days ago."
+  }
+}
+
 
 onMounted(async () => {
   loading.value = true

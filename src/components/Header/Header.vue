@@ -30,7 +30,7 @@ header {
   align-items: center;
   justify-content: space-between;
   background: #ffffff;
-  padding: 10px;
+  padding: 15px 10px;
   position: fixed;
   top: 0;
   width: 100%;
@@ -76,7 +76,7 @@ nav a {
   color: black;
   text-decoration: none;
   font-weight: 300;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 nav a:hover::after {

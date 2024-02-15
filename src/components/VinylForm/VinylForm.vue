@@ -58,135 +58,73 @@
       </div>
 
       <h2>Tracks</h2>
-      <hr>
-      <!-- TEST -->
 
-      <h2>Disc 1 Tracks</h2>
-      {{tempTracksDisc1}}
-<hr>
-<!-- Campos para adicionar faixas do disco 1 -->
-<div>
-  <label for="trackTitleDisc1">Track Title: </label>
-  <input type="text" v-model="tempTracksDisc1.title" id="trackTitleDisc1" required>
-</div>
-<div>
-  <label for="trackLengthDisc1">Track Length: </label>
-  <input type="text" v-model="tempTracksDisc1.trackLength" id="trackLengthDisc1" required>
-</div>
-<div>
-  <label for="trackSideDisc1">Track Side: </label>
-  <select v-model="tempTracksDisc1.side" id="trackSideDisc1">
-    <option value="sideA">Side A</option>
-    <option value="sideB">Side B</option>
-  </select>
-</div>
-<span @click="addTrackDisc1" style="cursor: pointer; padding: 5px; border: 1px solid black; width: 30px; display: inline-block; text-align: center; margin: 10px auto">+</span>
-
-<!-- Checkbox para indicar se há um disco 2 -->
-<div>
-  <input type="checkbox" v-model="hasDisc2" id="hasDisc2">
-  <label for="hasDisc2">Has Disc 2?</label>
-</div>
-
-<!-- Seção do disco 2 (exibida se hasDisc2 for verdadeiro) -->
-<div v-if="hasDisc2">
-  <h2>Disc 2 Tracks</h2>
-  {{tempTracksDisc2}}
-  <hr>
-  <!-- Campos para adicionar faixas do disco 2 -->
-  <div>
-    <label for="trackTitleDisc2">Track Title: </label>
-    <input type="text" v-model="tempTracksDisc2.title" id="trackTitleDisc2" required>
-  </div>
-  <div>
-    <label for="trackLengthDisc2">Track Length: </label>
-    <input type="text" v-model="tempTracksDisc2.trackLength" id="trackLengthDisc2" required>
-  </div>
-  <div>
-    <label for="trackSideDisc2">Track Side: </label>
-    <select v-model="tempTracksDisc2.side" id="trackSideDisc2">
-      <option value="sideA">Side A</option>
-      <option value="sideB">Side B</option>
-    </select>
-  </div>
-  <span @click="addTrackDisc2" style="cursor: pointer; padding: 5px; border: 1px solid black; width: 30px; display: inline-block; text-align: center; margin: 10px auto">+</span>
-</div>
-
-
-
-      <hr>
-
-      <!-- Disc 01
       <div v-if="tempTracksDisc1.length > 0">
-        <h6>disc 01</h6>
-        <ul v-for="(track, index) in tempTracksDisc1" :key="index">
-          <li style="display: flex; justify-content: space-between; align-items: center; width: 100%">
-            {{track.trackNumber}}, {{ track.title }} - {{ track.trackLength }} ({{ track.side }})
-            <span @click="removeTrackDisc1(index)" style="margin-left: 20px; padding: 0 8px; border: 1px solid black; cursor: pointer">-</span>
+        <h2>Disc 1 Tracks</h2>
+        <!-- {{tempTracksDisc1}} -->
+        <ul style="list-style: none">
+          <li v-for="(track, index) in tempTracksDisc1" :key="index">
+            {{ index + 1 }} - {{ track.title }} -------------  {{ track.trackLength }} - {{ track.side }}
+            <span @click="removeTrackDisc1(index)" style="padding: 0 5px; border: 1px solid black; cursor: pointer; display: inline; align-items: center; text-align: center;">-</span>
           </li>
         </ul>
-      </div>
-
-      <div v-if="tempTracksDisc2.length > 0">
-        <h6>disc 02</h6>
-        <ul v-for="(track, index) in tempTracksDisc2" :key="index">
-          <li style="display: flex; justify-content: space-between; align-items: center; width: 100%">
-            {{track.trackNumber}}, {{ track.title }} - {{ track.trackLength }} ({{ track.side }})
-            <span @click="removeTrackDisc2(index)" style="margin-left: 20px; padding: 0 8px; border: 1px solid black; cursor: pointer">-</span>
-          </li>
-        </ul>
-      </div>
-
-
-      Disc 01
-      <div>
-        <label for="trackTitle">Track Title: </label>
-        <input type="text" v-model="tempTracksDisc1.title" id="trackTitle" required>
+        <hr>
       </div>
 
       <div>
-        <label for="trackLength">Track Length: </label>
-        <input type="text" v-model="tempTracksDisc1.trackLength" id="trackLength" required>
+        <label for="trackTitleDisc1">Track Title: </label>
+        <input type="text" v-model="tempTracksDisc1.title" id="trackTitleDisc1" required>
       </div>
-
       <div>
-        <label for="trackSide">Track Side: </label>
-        <select v-model="tempTracksDisc1.side" id="trackSide" >
+        <label for="trackLengthDisc1">Track Length: </label>
+        <input type="text" v-model="tempTracksDisc1.trackLength" id="trackLengthDisc1" required>
+      </div>
+      <div>
+        <label for="trackSideDisc1">Track Side: </label>
+        <select v-model="tempTracksDisc1.side" id="trackSideDisc1">
           <option value="sideA">Side A</option>
           <option value="sideB">Side B</option>
         </select>
       </div>
-
       <span @click="addTrackDisc1" style="cursor: pointer; padding: 5px; border: 1px solid black; width: 30px; display: inline-block; text-align: center; margin: 10px auto">+</span>
 
-      Disc 02
-
+      <!-- Has Disc 2? -->
       <div>
-        <label for="tempTracksDisc2">Disc 02?</label>
-        <input type="checkbox" v-model="hasDisc2" id="tempTracksDisc2" style="height: 10px, width: 10px">
+        <input type="checkbox" v-model="hasDisc2" id="hasDisc2">
+        <label for="hasDisc2">Has Disc 2?</label>
       </div>
 
       <div v-if="hasDisc2">
-        <label for="trackTitle2">Track Title: </label>
-        <input type="text" v-model="tempTracksDisc2.title" id="trackTitle2">
+        <h2>Disc 2 Tracks</h2>
+        <!-- {{tempTracksDisc2}} -->
+        <ul style="list-style: none">
+          <li v-for="(track, index) in tempTracksDisc2" :key="index">
+            {{ index + 1 }} - {{ track.title }} -------------  {{ track.trackLength }} - {{ track.side }}
+            <span @click="removeTrackDisc2" style="padding: 0 5px; border: 1px solid black; cursor: pointer; display: inline; align-items: center; text-align: center;">-</span>
+          </li>
+        </ul>
+
+        <hr>
+
+        <div>
+          <label for="trackTitleDisc2">Track Title: </label>
+          <input type="text" v-model="tempTracksDisc2.title" id="trackTitleDisc2" required>
+        </div>
+        <div>
+          <label for="trackLengthDisc2">Track Length: </label>
+          <input type="text" v-model="tempTracksDisc2.trackLength" id="trackLengthDisc2" required>
+        </div>
+        <div>
+          <label for="trackSideDisc2">Track Side: </label>
+          <select v-model="tempTracksDisc2.side" id="trackSideDisc2">
+            <option value="sideA">Side A</option>
+            <option value="sideB">Side B</option>
+          </select>
+        </div>
+        <span @click="addTrackDisc2" style="cursor: pointer; padding: 5px; border: 1px solid black; width: 30px; display: inline-block; text-align: center; margin: 10px auto">+</span>
       </div>
 
-      <div v-if="hasDisc2">
-        <label for="trackLength2">Track Length: </label>
-        <input type="text" v-model="tempTracksDisc2.trackLength" id="trackLength2" >
-      </div>
-
-      <div v-if="hasDisc2">
-        <label for="trackSide2">Track Side: </label>
-        <select v-model="tempTracksDisc2.side" id="trackSide2" >
-          <option value="sideA">Side A</option>
-          <option value="sideB">Side B</option>
-        </select>
-      </div>
-
-      <span @click="addTrackDisc2" v-if="hasDisc2" style="cursor: pointer; padding: 5px; border: 1px solid black; width: 30px; display: inline-block; text-align: center; margin: 10px auto">+</span> -->
-
-
+      <!-- <hr> -->
 
       <button type="submit">Add Vinyl</button>
     </form>
