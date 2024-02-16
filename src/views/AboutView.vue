@@ -19,6 +19,6 @@ h2 {
   line-height: 35%;
   font-weight: 800;
   z-index: -1;
-  padding-top: 80px;
+  /* padding-top: 80px; */
 }
 </style>

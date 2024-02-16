@@ -4,7 +4,13 @@
   </div>
 
   <div class="recommendation-form">
+
     <h2>Recommend a album</h2>
+
+    <div style="margin: 10px auto 20px auto; font-weight: 300; font-size: 18px">
+      <p>Can't find your favorite album?</p>
+      <p>Send us a recommendation and we will add it to our collection</p>
+    </div>
 
     <form @submit.prevent="handleSubmit">
 
@@ -91,7 +97,7 @@ const handleSubmit = async () => {
   color: #ffffff;
   bottom: 10px;
   right: 15px;
-  z-index: 1000;
+  z-index: 1;
 }
 
 .recommendation-form {
@@ -104,7 +110,7 @@ const handleSubmit = async () => {
   padding: 20px;
   margin: 20px auto;
   border: 1px solid black;
-  z-index: 1000;
+  z-index: 10;
 }
 
 h2 {
@@ -137,7 +143,7 @@ input, textarea {
 button {
   width: 100%;
   max-width: 300px;
-  padding: 10px;
+  padding: 15px;
   border: 1px solid black;
   border-radius: 2px;
   margin: 5px auto;

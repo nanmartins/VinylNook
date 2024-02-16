@@ -33,10 +33,10 @@ header {
   justify-content: space-between;
   background: #ffffff;
   padding: 15px 10px;
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 1000;
 }
 
 header img {
