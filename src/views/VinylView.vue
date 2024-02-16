@@ -11,7 +11,6 @@
       </div>
 
       <div class="vinyl-card-description">
-        {{ vinyl.createdAt }}
         <h1>{{vinyl.artist}}, "{{ vinyl.album }}"</h1>
         <h2>{{ vinyl.year }}</h2>
         <p>Studio: {{ vinyl.studio}}</p>

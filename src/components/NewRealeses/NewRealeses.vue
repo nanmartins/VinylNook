@@ -91,7 +91,11 @@ const timeDiff = (date) => {
 
   if (minutes < 60) {
     const min = Math.floor(minutes)
-    return min + " minutes ago."
+    if (minutes === 1) {
+      return min + " minute ago."
+    } else {
+      return min + " minutes ago."
+    }
   }
 
   if (minutes < 1440) {

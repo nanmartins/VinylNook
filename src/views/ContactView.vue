@@ -2,9 +2,12 @@
   <div class="about">
     <h2>contact</h2>
   </div>
+
+  <RecommendationForm />
 </template>
 
 <script setup>
+import RecommendationForm from '@/components/RecommendationForm/RecommendationForm.vue'
 
 </script>
 

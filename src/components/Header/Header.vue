@@ -1,11 +1,13 @@
 <template>
   <header :class="{ 'scrolled': scrolled }">
-    <img src="@/assets/logo.png" alt="">
+    <router-link to="/">
+      <img src="@/assets/logo.png" alt="">
+    </router-link>
     <nav>
-      <router-link to="/">Home</router-link>
       <router-link to="/albums">Albums</router-link>
       <router-link to="/about">About</router-link>
       <router-link to="/contact">Contact</router-link>
+      <!-- <router-link to="/">Recommendatio</router-link> -->
     </nav>
   </header>
 </template>
@@ -83,6 +85,7 @@ nav a:hover::after {
   content: '';
   display: block;
   width: 100%;
+  top: 2px;
   height: 1px;
   background-color: rgb(142, 142, 142);
   animation: widthAnime 0.5s;
