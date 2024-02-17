@@ -117,7 +117,7 @@ img {
   .home-banner-text h2 {
     font-size: 75px;
     text-shadow: 2px 3px 10px black;
-    color: rgb(223, 223, 223);
+    color: rgb(239, 239, 239);
     padding: 0 15px;
   }
 
