@@ -112,4 +112,31 @@ nav a.router-link-exact-active::after {
   }
 }
 
+@media only screen and (max-width: 800px) {
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  header img {
+    height: 40px;
+  }
+
+  nav a {
+    font-family: 'Barlow Condensed', sans-serif;
+    color: black;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 18px;
+  }
+
+}
+
 </style>

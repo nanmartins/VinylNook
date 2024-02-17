@@ -110,6 +110,7 @@ const handleSubmit = async () => {
   padding: 20px;
   margin: 20px auto;
   border: 1px solid black;
+  border-radius: 2px;
   z-index: 10;
 }
 

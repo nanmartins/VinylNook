@@ -1,9 +1,9 @@
 <template>
   <div class="about">
     <h2>contact</h2>
+    <RecommendationForm />
   </div>
 
-  <RecommendationForm />
 </template>
 
 <script setup>
@@ -21,5 +21,21 @@ h2 {
   font-weight: 800;
   z-index: -1;
   /* padding-top: 80px; */
+}
+
+@media only screen and (max-width: 800px) {
+
+  .about {
+    padding: 0 12px;
+  }
+
+  h2 {
+    font-size: 100px;
+    letter-spacing: 5px;
+    line-height: 15%;
+    font-weight: 800;
+    z-index: -1;
+    /* padding-top: 80px; */
+  }
 }
 </style>

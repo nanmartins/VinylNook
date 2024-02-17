@@ -4,7 +4,7 @@
     <!-- <h2>releases</h2> -->
     <Swiper
       :slidesPerView="1"
-      :spaceBetween="20"
+      :spaceBetween="10"
       :mousewheel="false"
       :keyboard="true"
       :navigation="true"

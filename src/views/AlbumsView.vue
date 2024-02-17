@@ -24,4 +24,12 @@ h2 {
   z-index: -1;
   padding-top: 10px;
 }
+
+
+@media only screen and (max-width: 800px) {
+  h2 {
+    font-size: 100px;
+    letter-spacing: 5px;
+  }
+}
 </style>
