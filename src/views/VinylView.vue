@@ -3,7 +3,7 @@
     <Loading />
   </div>
 
-  <div v-else style="width: 100%; max-width: 1400px; margin: 140px auto 20px auto">
+  <div v-else style="width: 100%; max-width: 1400px; margin: -40px auto 20px auto">
 
     <div class="vinyl-card">
       <div class="vinyl-card-img">
@@ -11,11 +11,11 @@
       </div>
 
       <div class="vinyl-card-description">
-        <h1>{{vinyl.artist}}, "{{ vinyl.album }}"</h1>
-        <h2>{{ vinyl.year }}</h2>
+        <h1>"{{ vinyl.album }}"</h1>
+        <h2>{{ vinyl.year }}, {{vinyl.artist}}</h2>
         <p>Studio: {{ vinyl.studio}}</p>
         <p>Length: {{ vinyl.albumLength }}</p>
-        <ul>
+        <ul style="list-style-type: none">
           <li v-for="genre in vinyl.genre" :key="genre">Genre: {{ genre }}</li>
         </ul>
         <p>Label: {{ vinyl.label }}</p>
@@ -94,30 +94,58 @@ onMounted(() => {
 
 .vinyl-card {
   display: grid;
-  grid-template-columns: 650px 1fr;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  padding: 10px;
-  margin: 20px;
+  /* padding: 10px; */
+  margin: 0 20px;
   gap: 20px;
   border: 1px solid black;
   border-radius: 2px;
   font-family: 'Barlow Condensed', sans-serif;
-
 }
+
+.vinyl-card-description {
+  padding: 0 10px 10px 10px;
+}
+
+.vinyl-card-description * {
+  text-align: left;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
 
 .vinyl-card-description p {
   font-size: 16px;
   line-height: 130%;
   letter-spacing: 1px;
   font-weight: 600;
-  color: rgb(87, 87, 87);
-  /* font-family: 'Barlow Condensed', sans-serif; */
 }
 
 .vinyl-card-img img {
   width: 100%;
   max-width: 650px;
   height: 100%;
+}
+
+@media only screen and (max-width: 800px) {
+
+  .vinyl-card {
+    /* display: grid; */
+    grid-template-columns: 1fr;
+    /* align-items: center; */
+    /* padding: 10px; */
+    margin: 0 10px;
+    /* gap: 20px; */
+    /* border: 1px solid black; */
+    /* border-radius: 2px; */
+    /* font-family: 'Barlow Condensed', sans-serif; */
+  }
+/*
+  .vinyl-card-description * {
+    text-align: left;
+    font-family: 'Barlow Condensed', sans-serif;
+  } */
+
 }
 
 </style>

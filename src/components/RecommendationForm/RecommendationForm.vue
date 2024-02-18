@@ -104,7 +104,7 @@ const handleSubmit = async () => {
   display: flex;
   position: relative;
   width: 100%;
-  max-width: 1200px;
+  max-width: 800px;
   flex-direction: column;
   background: white;
   padding: 20px;
