@@ -196,4 +196,12 @@ onMounted(async () => {
   font-style: italic;
 }
 
+@media only screen and (max-width: 800px) {
+
+  .vinyl-carousel-container {
+    padding: 30px;
+    margin-bottom: 100px;
+  }
+}
+
 </style>
