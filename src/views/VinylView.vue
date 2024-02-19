@@ -3,7 +3,7 @@
     <Loading />
   </div>
 
-  <div v-else style="width: 100%; max-width: 1400px; margin: -40px auto 20px auto">
+  <div v-else style="width: 100%; max-width: 1400px; margin: -15px auto 20px auto">
 
     <div class="vinyl-card">
       <div class="vinyl-card-img">

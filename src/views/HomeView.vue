@@ -110,15 +110,15 @@ img {
     position: absolute;
     padding: 0px;
     top: 80px;
-    height: 70%;
+    height: 60%;
     left: 0;
   }
 
   .home-banner-text h2 {
-    font-size: 75px;
+    font-size: 70px;
     text-shadow: 2px 3px 10px black;
     color: rgb(239, 239, 239);
-    padding: 0 15px;
+    padding: 0 10px;
   }
 
   .home-banner-detail {
@@ -136,7 +136,7 @@ img {
   img {
     width: 100%;
     max-width: 800px;
-    aspect-ratio: 3 / 5;
+    aspect-ratio: 3 / 4;
     border-radius: 0px;
   }
 
