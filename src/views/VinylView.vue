@@ -96,10 +96,9 @@ onMounted(() => {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  /* padding: 10px; */
   margin: 0 20px;
   gap: 20px;
-  border: 1px solid black;
+  border: 0.5px solid black;
   border-radius: 2px;
   font-family: 'Barlow Condensed', sans-serif;
 }
@@ -121,6 +120,11 @@ onMounted(() => {
   font-weight: 600;
 }
 
+.vinyl-card-img {
+  align-self: baseline;
+  justify-self: baseline;
+}
+
 .vinyl-card-img img {
   width: 100%;
   max-width: 650px;
@@ -130,15 +134,8 @@ onMounted(() => {
 @media only screen and (max-width: 800px) {
 
   .vinyl-card {
-    /* display: grid; */
     grid-template-columns: 1fr;
-    /* align-items: center; */
-    /* padding: 10px; */
     margin: 0 10px;
-    /* gap: 20px; */
-    /* border: 1px solid black; */
-    /* border-radius: 2px; */
-    /* font-family: 'Barlow Condensed', sans-serif; */
   }
 /*
   .vinyl-card-description * {
