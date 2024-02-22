@@ -3,8 +3,8 @@
   <section v-else>
     <!-- <h2>releases</h2> -->
     <Swiper
-      :slidesPerView="1"
-      :spaceBetween="10"
+      :slidesPerView="2"
+      :spaceBetween="5"
       :mousewheel="false"
       :keyboard="true"
       :navigation="true"
@@ -13,14 +13,14 @@
       class="vinyl-carousel-container"
       :breakpoints="{
       '600': {
-        slidesPerView: 2,
-        spaceBetween: 20,
-      },
-      '800': {
         slidesPerView: 3,
         spaceBetween: 20,
       },
-      '1200': {
+      // '800': {
+      //   slidesPerView: 3,
+      //   spaceBetween: 20,
+      // },
+      '1000': {
         slidesPerView: 4,
         spaceBetween: 20,
       },
