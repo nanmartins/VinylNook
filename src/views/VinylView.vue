@@ -28,7 +28,7 @@
         <div v-for="(disc, index) in vinyl.tracks" :key="index">
           <h3>{{ disc.sideA.length > 0 && index === 'disc1' ? 'Disc 1' : ''  }}</h3>
           <h3>{{ disc.sideB.length > 0 && index === 'disc2' ? 'Disc 2' : '' }}</h3>
-          <hr>
+
           <TrackList :tracks="disc.sideA" v-if="disc.sideA.length > 0" :side="disc.sideA.length > 0 ? 'Side A' : 'Side B' " />
           <TrackList :tracks="disc.sideB" v-if="disc.sideB.length > 0" :side="disc.sideB.length > 0 ? 'Side B' : 'Side A' "/>
         </div>
