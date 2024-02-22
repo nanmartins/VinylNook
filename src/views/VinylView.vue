@@ -20,37 +20,17 @@
         </ul>
         <p>Label: {{ vinyl.label }}</p>
         <p>Producer: {{ vinyl.producer }}</p>
+
+        <hr>
         <p>{{ vinyl.albumDescription }}</p>
 
         <!-- Faixas -->
         <div v-for="(disc, index) in vinyl.tracks" :key="index">
           <h3>{{ disc.sideA.length > 0 && index === 'disc1' ? 'Disc 1' : ''  }}</h3>
           <h3>{{ disc.sideB.length > 0 && index === 'disc2' ? 'Disc 2' : '' }}</h3>
-
-          <!-- {{ disc.sideA }} -->
-          <div v-for="(side, index) in disc" :key="index">
-            <h4>{{ side.length > 0 && index === 'sideA' ? 'Side A' : '' }}</h4>
-
-            <ul style="list-style-type: none">
-              <template v-for="track in side" :key="track">
-                <li v-if="track.side === 'sideA'" :key="track.trackNumber">
-                  {{ track.trackNumber }}, {{ track.title }} - {{ track.trackLength }}
-                </li>
-              </template>
-            </ul>
-
-            <!-- {{ disc.sideB }} -->
-            <h4>{{ side.length > 0 && index === 'sideB' ? 'Side B' : '' }}</h4>
-
-            <ul style="list-style-type: none">
-              <template v-for="track in side" :key="track">
-                <li v-if="track.side === 'sideB'" :key="track.trackNumber">
-                  {{ track.trackNumber }}, {{ track.title }} - {{ track.trackLength }}
-                </li>
-              </template>
-            </ul>
-
-          </div>
+          <hr>
+          <TrackList :tracks="disc.sideA" v-if="disc.sideA.length > 0" :side="disc.sideA.length > 0 ? 'Side A' : 'Side B' " />
+          <TrackList :tracks="disc.sideB" v-if="disc.sideB.length > 0" :side="disc.sideB.length > 0 ? 'Side B' : 'Side A' "/>
         </div>
 
       </div>
@@ -64,6 +44,7 @@ import { ref, onMounted } from 'vue'
 import { getVinyl } from '@/services.js'
 import { useRoute } from 'vue-router'
 import Loading from '@/components/Loading/Loading.vue'
+import TrackList from '@/components/TrackList/TrackList.vue'
 
 const route = useRoute()
 const loading = ref(false)
@@ -85,7 +66,6 @@ const fetchVinyl = async () => {
 
 onMounted(() => {
   fetchVinyl()
-  console.log(vinyl)
 })
 </script>
 
@@ -97,14 +77,15 @@ onMounted(() => {
   grid-template-columns: 1fr 1fr;
   align-items: center;
   margin: 0 20px;
-  gap: 20px;
-  border: 0.5px solid black;
+  /* gap: 20px; */
+  /* border: 0.5px solid black; */
   border-radius: 2px;
   font-family: 'Barlow Condensed', sans-serif;
 }
 
 .vinyl-card-description {
-  padding: 0 10px 10px 10px;
+  padding: 20px 40px;
+  border: 0.3px solid black;
 }
 
 .vinyl-card-description * {
@@ -112,6 +93,13 @@ onMounted(() => {
   font-family: 'Barlow Condensed', sans-serif;
 }
 
+.vinyl-card-description h1 {
+  font-size: 52px;
+  line-height: 130%;
+  letter-spacing: 1px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
 
 .vinyl-card-description p {
   font-size: 16px;
@@ -123,11 +111,11 @@ onMounted(() => {
 .vinyl-card-img {
   align-self: baseline;
   justify-self: baseline;
+  width: 100%;
 }
 
 .vinyl-card-img img {
   width: 100%;
-  max-width: 650px;
   height: 100%;
 }
 
@@ -137,11 +125,15 @@ onMounted(() => {
     grid-template-columns: 1fr;
     margin: 0 10px;
   }
-/*
-  .vinyl-card-description * {
-    text-align: left;
-    font-family: 'Barlow Condensed', sans-serif;
-  } */
+
+  .vinyl-card-img {
+    align-self: normal;
+  }
+
+  .vinyl-card-description {
+    padding: 20px;
+    border-top: 0.1px solid rgb(179, 179, 179);
+  }
 
 }
 
