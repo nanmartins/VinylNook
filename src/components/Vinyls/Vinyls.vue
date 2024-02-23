@@ -254,7 +254,7 @@ onMounted(() => {
     max-width: 1400px;
     place-items: center;
     gap: 20px 10px;
-    padding: 10px;
+    padding: 20px 10px;
     margin: 0 auto;
     grid-template-columns: 1fr 1fr;
   }

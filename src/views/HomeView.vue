@@ -83,7 +83,7 @@ h2 {
   font-weight: 800;
   margin: 0 auto;
   margin-top: 150px;
-  padding-top: 80px;
+  padding-top: 100px;
 }
 
 img {

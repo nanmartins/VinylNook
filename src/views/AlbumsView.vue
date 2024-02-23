@@ -33,6 +33,9 @@ h2 {
   h2 {
     font-size: 120px;
     letter-spacing: 5px;
+    line-height: 15%;
+    font-weight: 800;
+    z-index: -1;
   }
 }
 
