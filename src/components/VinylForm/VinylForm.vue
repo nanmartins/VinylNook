@@ -173,40 +173,22 @@ const handleSubmit = async () => {
   newVinyl.value.tracks.disc2.sideB = tempTracksDisc2.value.filter(track => track.side === 'sideB')
   try {
     await createVinyl(newVinyl.value)
+  }
+  catch (error) {
+    console.error('Error creating vinyl:', error)
+  }
+  finally {
     // Reset form after successful submission
     resetForm()
+    tempTracksDisc1.value = []
+    tempTracksDisc2.value = []
+    hasDisc2.value = false
     createdMessage.value = 'Vinyl created successfully!'
     setTimeout(() => {
       createdMessage.value = ''
     }, 3000)
-  } catch (error) {
-    console.error('Error creating vinyl:', error)
   }
 }
-
-
-// const addTrackDisc1 = () => {
-//   const trackTitle = document.getElementById('trackTitle').value
-//   const trackLength = document.getElementById('trackLength').value
-//   const trackSide = document.getElementById('trackSide').value
-//   tempTracksDisc1.value.push({ trackNumber: tempTracksDisc1.value.length + 1, title: trackTitle, trackLength: trackLength, side: trackSide })
-// }
-
-// const addTrackDisc2 = () => {
-//   const trackTitle2 = document.getElementById('trackTitle2').value
-//   const trackLength2 = document.getElementById('trackLength2').value
-//   const trackSide2 = document.getElementById('trackSide2').value
-//   tempTracksDisc2.value.push({ trackNumber: tempTracksDisc2.value.length + 1, title: trackTitle2, trackLength: trackLength2, side: trackSide2 })
-// }
-
-
-// const removeTrackDisc1 = (index) => {
-//   tempTracksDisc1.value.splice(index, 1)
-// }
-
-// const removeTrackDisc2 = (index) => {
-//   tempTracksDisc2.value.splice(index, 1)
-// }
 
 const addTrackDisc1 = () => {
   const trackTitle = tempTracksDisc1.value.title
