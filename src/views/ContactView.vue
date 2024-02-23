@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="contact">
     <h2>contact</h2>
     <RecommendationForm />
   </div>
@@ -20,22 +20,28 @@ h2 {
   line-height: 35%;
   font-weight: 800;
   z-index: -1;
-  /* padding-top: 80px; */
 }
+
 
 @media only screen and (max-width: 800px) {
 
-  .about {
+  .contact {
     padding: 0 12px;
   }
 
   h2 {
-    font-size: 100px;
+    font-size: 120px;
     letter-spacing: 5px;
     line-height: 15%;
     font-weight: 800;
     z-index: -1;
-    /* padding-top: 80px; */
+  }
+}
+
+@media only screen and (max-width: 400px) {
+
+ h2 {
+    font-size: 90px;
   }
 }
 </style>

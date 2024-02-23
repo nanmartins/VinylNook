@@ -1,8 +1,10 @@
 <template>
-
+<div class="albums">
   <h2>albums</h2>
 
   <Vinyls />
+</div>
+
 
 </template>
 
@@ -14,6 +16,7 @@ import Vinyls from '@/components/Vinyls/Vinyls.vue'
 
 
 <style scoped>
+
 h2 {
   text-align: center;
   margin: 0 auto;
@@ -22,14 +25,21 @@ h2 {
   line-height: 35%;
   font-weight: 800;
   z-index: -1;
-  padding-top: 10px;
 }
 
 
 @media only screen and (max-width: 800px) {
+
   h2 {
-    font-size: 100px;
+    font-size: 120px;
     letter-spacing: 5px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+
+ h2 {
+    font-size: 90px;
   }
 }
 </style>

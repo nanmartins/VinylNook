@@ -104,14 +104,14 @@ const handleSubmit = async () => {
   display: flex;
   position: relative;
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
   flex-direction: column;
   background: white;
   padding: 20px;
   margin: 20px auto;
   border: 1px solid black;
   border-radius: 2px;
-  z-index: 10;
+  z-index: 1;
 }
 
 h2 {

@@ -3,31 +3,31 @@
     <h2>about</h2>
     <div class="about-content-container">
       <div>
-        <p>Welcome to Vinyl Nook, your haven for exploring the rich world of vinyl albums. At Vinyl Nook, we're passionate about preserving the timeless allure of vinyl records and providing enthusiasts with a platform to delve into the magic of analog sound.</p>
+        <p class="about-content-welcome">Welcome to Vinyl Nook, your haven for exploring the rich world of vinyl albums. At Vinyl Nook, we're passionate about preserving the timeless allure of vinyl records and providing enthusiasts with a platform to delve into the magic of analog sound.</p>
       </div>
 
       <div class="about-content-card">
         <svg fill="#000000" height="60px" width="60px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 512 512"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="m497.9,422.3l-57.2-57.5c-2.1-2.1-5.2-3.1-8.3-3.1l-43.9,5c33-37.9 53.2-87.3 53.2-141 0-118.2-96.7-214.5-215.3-214.5s-215.4,97.3-215.4,215.5 96.7,214.5 215.3,214.5c53.2,0 102.3-19.9 140.2-52.7l-5,43.3c0,3.1 1,6.3 3.1,8.4l57.2,57.5c6,6.5 16.7,4 17.7-7.3l5.2-46 46.8-5.2c8.3-0.9 13-10.4 6.4-16.9zm-466.1-195.6c-1.06581e-14-107.8 87.4-194.6 194.5-194.6s194.5,86.8 194.5,194.6c0,49.6-18.5,94.7-48.9,129l-34.8-34.8c21.7-25.5 34.9-58.7 34.9-95.2 0-80.6-65.5-146.5-145.6-146.5s-145.7,65.9-145.7,146.5c-1.42109e-14,80.6 65.5,146.5 145.6,146.5 36.8,0 70.6-13.7 96.3-36.5l34.8,34.8c-34.6,31.6-80.7,50.8-131.1,50.8-107.1,0-194.5-86.8-194.5-194.6zm257.7,46.6c9.9-13.1 15.9-29.2 15.9-46.6 0-42.9-35.4-78.5-79.1-78.5-43.7,0-79.1,35.6-79.1,78.5s35.4,78.5 79.1,78.5c18.1,0 35.1-6.5 48.7-17.1l33.6,33.6c-22,19-50.8,30.6-82.3,30.6-69.7,0-125.9-56.5-125.9-125.5 0-69 56.2-125.5 125.9-125.5 68.7,0 124.8,56.5 125.9,125.5 0,30.4-10.9,58.4-29.1,80.2l-33.6-33.7zm-41.3-41.4c-4.2-4.2-10.4-4.2-14.6,0-4.2,4.2-4.2,10.5 0,14.6l27.3,27.3c-9.7,7.2-21.6,11.4-34.6,11.4-32.2,0-58.3-26.2-58.3-58.6 0-32.4 26-58.6 58.3-58.6s58.3,26.2 58.3,58.6c0,11.9-3.5,22.9-9.5,32.1l-26.9-26.8zm134.2,196.7l3-30.2 39.3,39.3-2.8,29.6-39.5-38.7zm57.7-4.7l-38.6-38.6 26.7-2.7 39.5,38.7-27.6,2.6z"></path> </g> </g></svg>
         <h4>Our Mission</h4>
-        <span>Vinyl Nook was born out of a love for music and a desire to create a space where users can uncover, discover, and rediscover their favorite albums in the purest form. Our mission is simple: to connect music lovers with exceptional vinyl records and foster a community where the joy of vinyl collecting and listening is celebrated.</span>
+        <p>Vinyl Nook was born out of a love for music and a desire to create a space where users can uncover, discover, and rediscover their favorite albums in the purest form. Our mission is simple: to connect music lovers with exceptional vinyl records and foster a community where the joy of vinyl collecting and listening is celebrated.</p>
       </div>
 
       <div class="about-content-card">
         <svg version="1.1" height="60px" width="60px" id="Uploaded to svgrepo.com" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="#0B1719" d="M31.216,18.177l-3.515-8.453c-0.462-1.351-1.433-2.466-2.685-3.114C24.823,5.139,23.579,4,22.056,4 c-1.657,0-3,1.343-3,3c0,0.069,0.012,0.134,0.02,0.2C17.812,8.208,17,9.758,17,11.5c0,0.225,0,0.491,0,0.777 C16.705,12.106,16.366,12,16,12s-0.705,0.106-1,0.277c0-0.286,0-0.552,0-0.777c0-1.719-0.789-3.252-2.024-4.261 C12.983,7.159,13,7.082,13,7c0-1.657-1.343-3-3-3C8.485,4,7.246,5.126,7.042,6.585C5.763,7.228,4.767,8.352,4.299,9.724 l-3.515,8.453C0.287,19.179,0,20.305,0,21.5C0,25.642,3.358,29,7.5,29c3.441,0,6.333-2.32,7.216-5.478 C15.065,23.816,15.509,24,16,24s0.935-0.184,1.284-0.478C18.167,26.68,21.059,29,24.5,29c4.142,0,7.5-3.358,7.5-7.5 C32,20.305,31.713,19.179,31.216,18.177z M10,5c0.959,0,1.757,0.679,1.95,1.581C11.212,6.213,10.382,6,9.5,6 C9.047,6,8.614,6.071,8.193,6.174C8.506,5.484,9.193,5,10,5z M7.5,28C3.916,28,1,25.084,1,21.5c0-0.831,0.177-1.673,0.526-2.504 l0.163-0.392C2.757,16.471,4.957,15,7.5,15c3.584,0,6.5,2.916,6.5,6.5S11.084,28,7.5,28z M14,17.769C12.705,15.519,10.282,14,7.5,14 c-1.707,0-3.275,0.577-4.535,1.537l2.257-5.429l0.013-0.03l0.01-0.031C5.868,8.224,7.577,7,9.5,7c2.481,0,4.5,2.019,4.5,4.5V17.769z M16,23c-0.551,0-1-0.449-1-1s0.449-1,1-1s1,0.449,1,1S16.551,23,16,23z M17,20.277C16.705,20.106,16.366,20,16,20 s-0.705,0.106-1,0.277c0-1.819,0-4.281,0-6.277c0-0.551,0.449-1,1-1s1,0.449,1,1C17,15.996,17,18.458,17,20.277z M22.056,5 c0.815,0,1.515,0.492,1.826,1.193C23.439,6.077,22.98,6,22.5,6c-0.857,0-1.666,0.202-2.389,0.552C20.315,5.665,21.107,5,22.056,5z M18,11.5C18,9.019,20.019,7,22.5,7c1.923,0,3.632,1.224,4.255,3.047l0.01,0.031l0.013,0.03l2.257,5.429 C27.775,14.577,26.207,14,24.5,14c-2.782,0-5.205,1.519-6.5,3.769V11.5z M24.5,28c-3.584,0-6.5-2.916-6.5-6.5s2.916-6.5,6.5-6.5 c2.543,0,4.743,1.471,5.811,3.604L30.475,19C30.823,19.827,31,20.669,31,21.5C31,25.084,28.084,28,24.5,28z M7.5,16 C4.462,16,2,18.462,2,21.5C2,24.538,4.462,27,7.5,27c3.038,0,5.5-2.462,5.5-5.5C13,18.462,10.538,16,7.5,16z M7.5,26 C5.019,26,3,23.981,3,21.5S5.019,17,7.5,17s4.5,2.019,4.5,4.5S9.981,26,7.5,26z M24.5,16c-3.038,0-5.5,2.462-5.5,5.5 c0,3.038,2.462,5.5,5.5,5.5c3.038,0,5.5-2.462,5.5-5.5C30,18.462,27.538,16,24.5,16z M24.5,26c-2.481,0-4.5-2.019-4.5-4.5 s2.019-4.5,4.5-4.5s4.5,2.019,4.5,4.5S26.981,26,24.5,26z"></path> </g></svg>
         <h4>Explore, Discover, and Rediscover</h4>
-        <span>Whether you're a seasoned collector or a newcomer to the vinyl scene, Vinyl Nook is your go-to destination for all things vinyl. Dive into our extensive database of albums spanning genres, eras, and artists. From classic rock to jazz, hip-hop to indie, our curated collection offers something for every musical palate.</span>
+        <p>Whether you're a seasoned collector or a newcomer to the vinyl scene, Vinyl Nook is your go-to destination for all things vinyl. Dive into our extensive database of albums pning genres, eras, and artists. From classic rock to jazz, hip-hop to indie, our curated collection offers something for every musical palate.</p>
       </div>
 
       <div class="about-content-card">
         <svg fill="#000000" height="60px" width="60px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 438.647 438.647" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <path d="M163.919,22.927c-77.744,0-140.993,63.25-140.993,140.994s63.25,140.993,140.993,140.993 c77.744,0,140.993-63.25,140.993-140.993C304.912,86.177,241.663,22.927,163.919,22.927z M163.919,289.914 c-69.473,0-125.993-56.521-125.993-125.993c0-69.473,56.521-125.994,125.993-125.994s125.993,56.521,125.993,125.994 S233.391,289.914,163.919,289.914z"></path> <path d="M428.118,377.209l-88.089-88.088c-6.8-6.799-15.839-10.544-25.455-10.544c-3.189,0-6.312,0.421-9.314,1.219 l-13.346-13.346c23.274-28.965,35.926-64.754,35.926-102.531c0-43.852-17.033-85.034-47.96-115.96 C248.952,17.033,207.77,0,163.919,0C120.07,0,78.883,17.034,47.958,47.959c-63.941,63.941-63.942,167.981,0,231.922 c31.97,31.971,73.965,47.956,115.96,47.956c36.344,0,72.682-11.982,102.528-35.927l13.349,13.349 c-0.799,3.003-1.22,6.127-1.22,9.318c0,9.615,3.745,18.656,10.544,25.455l88.089,88.088c7.018,7.018,16.236,10.527,25.454,10.527 c9.219,0,18.438-3.509,25.455-10.527c0.001,0,0.001,0,0.001,0C442.153,414.083,442.153,391.245,428.118,377.209z M163.919,312.843c-38.15-0.002-76.312-14.525-105.355-43.568c-58.093-58.093-58.092-152.617,0-210.709 C86.658,30.472,124.074,15,163.919,15s77.26,15.472,105.354,43.566c28.095,28.094,43.567,65.509,43.567,105.354 s-15.473,77.26-43.567,105.354C240.223,298.324,202.078,312.847,163.919,312.843z M289.12,289.123 c-0.713,0.713-1.385,1.457-2.031,2.218l-9.36-9.362c0.72-0.694,1.441-1.387,2.151-2.097c0.71-0.71,1.404-1.431,2.099-2.151 l9.36,9.36C290.578,287.737,289.834,288.409,289.12,289.123z M417.51,417.513c-3.967,3.966-9.239,6.15-14.849,6.15 c-5.608,0-10.882-2.185-14.848-6.15l-88.089-88.088c-3.966-3.966-6.15-9.239-6.15-14.848s2.185-10.882,6.151-14.849 c3.966-3.966,9.238-6.15,14.848-6.15s10.882,2.185,14.848,6.15l88.089,88.088C425.698,396.003,425.698,409.325,417.51,417.513z"></path> <path d="M244.657,81.988c-1.809-1.421-4.168-1.935-6.403-1.395l-105.771,25.613c-3.365,0.815-5.735,3.827-5.735,7.29v65.868 c-6.37-4.848-14.311-7.734-22.915-7.734c-20.907,0-37.916,17.009-37.916,37.916c0,20.906,17.009,37.915,37.916,37.915 c20.906,0,37.915-17.009,37.915-37.915v-66.569l90.771-21.981v38.681c-6.37-4.848-14.311-7.734-22.915-7.734 c-20.907,0-37.916,17.009-37.916,37.916c0,20.907,17.009,37.916,37.916,37.916c20.906,0,37.915-17.009,37.915-37.916V87.882 C247.519,85.583,246.464,83.41,244.657,81.988z M103.833,232.459c-12.636,0-22.916-10.28-22.916-22.915 c0-12.636,10.28-22.916,22.916-22.916c12.635,0,22.915,10.28,22.915,22.916C126.748,222.179,116.468,232.459,103.833,232.459z M209.604,212.772c-12.636,0-22.916-10.28-22.916-22.916c0-12.636,10.28-22.916,22.916-22.916s22.915,10.28,22.915,22.916 C232.519,202.492,222.24,212.772,209.604,212.772z M232.519,105.561l-90.771,21.98v-8.145l90.771-21.98V105.561z"></path> </g> </g> </g> </g></svg>
         <h4>Discover New Gems</h4>
-        <span>Seeking recommendations for your next vinyl purchase or looking to expand your musical horizons? Let Vinyl Nook be your guide. Our recommendation feature analyzes your listening preferences and suggests handpicked vinyl albums that we believe you'll love. Say goodbye to endless scrolling and hello to your new favorite record.</span>
+        <p>Seeking recommendations for your next vinyl purchase or looking to expand your musical horizons? Let Vinyl Nook be your guide. Our recommendation feature analyzes your listening preferences and suggests handpicked vinyl albums that we believe you'll love. Say goodbye to endless scrolling and hello to your new favorite record.</p>
       </div>
 
       <div class="about-content-card">
         <svg fill="#000000" height="60px" width="60px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512.001 512.001" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <path d="M509.063,133.343c-1.861-1.559-4.318-2.218-6.707-1.789l-65.749,11.693c-17.98-27.742-42.478-50.993-71.164-67.453 c-31.261-17.939-66.946-27.421-103.193-27.421c-44.865,0-87.578,14.082-123.52,40.723c-33.89,25.12-58.923,59.174-72.643,98.715 l-5.657,1.007c-3.917,0.696-6.77,4.101-6.77,8.079v103.573c-3.022,0.038-6.116,0.336-9.207,0.886 C19.528,305.788,0,325.119,0,345.362c0,18.251,15.742,31.497,37.432,31.497c3.239,0,6.569-0.3,9.899-0.893 c13.661-2.43,25.69-9.338,33.782-18.413c16.527,29.446,40.006,54.473,68.56,72.932c33.538,21.682,72.468,33.143,112.58,33.143 c45.186,0,88.145-14.265,124.232-41.252c33.278-24.888,58.735-59.851,72.186-98.945c2.916-0.057,5.894-0.338,8.874-0.869 c24.93-4.431,44.457-23.761,44.457-44.005V139.633C512,137.205,510.924,134.901,509.063,133.343z M75.375,227.673v104.285 c0,12.115-14.159,24.868-30.919,27.85c-2.383,0.424-4.747,0.639-7.023,0.639c-14.442,0-21.019-7.819-21.019-15.084 c0-12.115,14.159-24.868,30.918-27.85c2.371-0.421,4.726-0.636,6.997-0.636c2.089,0,4.123,0.182,6.045,0.537 c2.398,0.449,4.868-0.201,6.743-1.758c1.874-1.559,2.959-3.871,2.959-6.31V203.772l39.175-6.967v17.968l-27.106,4.821 C78.228,220.29,75.375,223.695,75.375,227.673z M376.654,409.232c-33.227,24.85-72.786,37.984-114.402,37.984 c-36.944,0-72.792-10.552-103.669-30.514c-29.201-18.878-52.615-45.223-67.927-76.301c0.732-2.77,1.131-5.597,1.131-8.444 v-97.408l27.106-4.821c3.916-0.696,6.77-4.101,6.77-8.079V187.01c0-2.428-1.075-4.731-2.936-6.29 c-1.861-1.559-4.317-2.216-6.707-1.789l-31.161,5.541c13.15-32.7,34.949-60.92,63.647-82.192 c33.093-24.53,72.425-37.496,113.745-37.496c33.385,0,66.244,8.729,95.024,25.244c24.41,14.006,45.534,33.347,61.671,56.358 l-41.354,7.355c-3.916,0.696-6.77,4.101-6.77,8.079v103.573c-3.021,0.038-6.114,0.336-9.206,0.885 c-24.928,4.435-44.456,23.765-44.456,44.01c0,18.251,15.743,31.497,37.432,31.497c3.24,0,6.569-0.3,9.898-0.893 c24.93-4.432,44.457-23.764,44.457-44.01v-97.407l34.033-6.053c6.422,18.536,9.922,37.879,10.419,57.659 c-19.301,7.389-33.187,23.811-33.187,40.88c0,13.518,8.644,24.284,21.94,28.96C429.529,355.783,406.508,386.905,376.654,409.232z M495.589,278.557h-0.001c0,12.115-14.159,24.867-30.918,27.847c-2.383,0.423-4.745,0.638-7.023,0.638 c-14.443,0-21.02-7.818-21.02-15.081c0-12.114,14.159-24.869,30.917-27.851c4.553-0.81,9.03-0.844,13.044-0.1 c2.397,0.448,4.868-0.201,6.742-1.758c1.874-1.56,2.959-3.871,2.959-6.31v-77.811c0-2.428-1.074-4.731-2.937-6.29 c-1.861-1.559-4.317-2.216-6.707-1.789l-81.338,14.467c-3.916,0.697-6.769,4.101-6.769,8.079v104.284 c0,12.117-14.159,24.87-30.919,27.851c-2.383,0.424-4.745,0.639-7.023,0.639c-14.442,0-21.019-7.819-21.019-15.084 c0-12.116,14.159-24.869,30.916-27.85c2.372-0.422,4.728-0.636,6.998-0.636c2.089,0,4.123,0.181,6.043,0.537 c2.399,0.446,4.87-0.2,6.744-1.758c1.875-1.559,2.96-3.871,2.96-6.31V168.697l108.352-19.269V278.557z M459.333,190.512 l14.54-2.586v59.141c-1.381,0.018-2.778,0.096-4.182,0.221C468.893,227.86,465.424,208.834,459.333,190.512z"></path> <path d="M262.252,190.01c-36.387,0-65.989,29.604-65.989,65.992s29.603,65.992,65.989,65.992s65.988-29.604,65.988-65.992 S298.638,190.01,262.252,190.01z M262.252,305.579c-27.337,0-49.577-22.24-49.577-49.579s22.24-49.579,49.577-49.579 c27.337,0,49.576,22.24,49.576,49.579C311.827,283.339,289.588,305.579,262.252,305.579z"></path> <path d="M262.252,231.486c-13.517,0-24.515,10.997-24.515,24.514c0,13.516,10.997,24.514,24.515,24.514 c13.517,0,24.515-10.997,24.515-24.514C286.766,242.484,275.769,231.486,262.252,231.486z M262.252,264.102 c-4.467,0-8.102-3.634-8.102-8.101c0-4.468,3.635-8.101,8.102-8.101c4.468,0,8.102,3.634,8.102,8.101 C270.354,260.468,266.719,264.102,262.252,264.102z"></path> </g> </g> </g> </g></svg>
         <h4>Start Your Vinyl Journey Today</h4>
-        <span>Ready to embark on a journey through the enchanting world of vinyl? Join us at Vinyl Nook and immerse yourself in a universe where music comes to life in its purest form. Whether you're seeking to build your collection, explore new genres, or simply bask in the warm, crackling embrace of analog sound, Vinyl Nook is here to accompany you every step of the way.</span>
+        <p>Ready to embark on a journey through the enchanting world of vinyl? Join us at Vinyl Nook and immerse yourself in a universe where music comes to life in its purest form. Whether you're seeking to build your collection, explore new genres, or simply bask in the warm, crackling embrace of analog sound, Vinyl Nook is here to accompany you every step of the way.</p>
       </div>
     </div>
   </div>
@@ -55,19 +55,21 @@ h4 {
   font-size: 36px;
   font-weight: 800;
   padding: 0 10px 10px 10px;
+  width: 100%;
+  max-width: 600px;
 }
 
-p {
-  font-size: 20px;
-  font-weight: 300;
-  letter-spacing: 1px;
-  line-height: 150%;
+.about {
+  /* margin: 20px auto; */
+  margin-bottom: 50px;
+  padding: 0 20px;
 }
 
-span {
-  font-size: 18px;
+.about-content-welcome {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 22px;
   font-weight: 300;
-  letter-spacing: 1px;
 }
 
 .about-content-container {
@@ -78,8 +80,8 @@ span {
   background: white;
   width: 100%;
   max-width: 1000px;
-  margin: 20px auto;
-  padding: 40px 80px;
+  /* margin: 20px auto; */
+  padding: 40px 100px;
   z-index: 100;
   border: 1px solid black;
   border-radius: 2px;
@@ -89,39 +91,63 @@ span {
   max-width: 500px;
   margin: 0 auto;
   padding: 30px 30px 40px 30px;
-  border: 3px solid black;
-  border-radius: 2px;
+  /* border: 3px solid black; */
+  /* border-radius: 2px; */
 }
 
+.about-content-card p {
+  font-size: 18px;
+  font-weight: 300;
+  /* font-family: 'Barlow Condensed', sans-serif; */
+}
 
 
 @media only screen and (max-width: 800px) {
 
   h2 {
-    font-size: 100px;
+    font-size: 120px;
+    letter-spacing: 5px;
+    line-height: 15%;
+    font-weight: 800;
+    z-index: -1;
   }
 
   h4 {
-  font-size: 24px;
+  font-size: 26px;
 }
 
   .about {
     padding: 0 12px;
   }
 
+  .about-content-welcome {
+    font-size: 20px;
+  }
+
+
   .about-content-container {
-    padding: 30px 20px;
-    margin-top: 10px;
+    padding: 40px 20px;
+    /* margin-top: 10px; */
     gap: 40px;
+    /* background: #f4f4f4; */
   }
 
   .about-content-card {
     max-width: 500px;
     margin: 0 auto;
     padding: 20px 20px 30px 20px;
-    border: 3px solid black;
+    /* border: 3px solid black; */
+    background: #ffffff;
+    /* box-shadow: 1px 1px 4px rgb(236, 236, 236); */
     border-radius: 2px;
   }
 
+}
+
+@media only screen and (max-width: 400px) {
+
+ h2 {
+    font-size: 90px;
+  }
 }
 </style>
