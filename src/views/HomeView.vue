@@ -42,6 +42,9 @@ const loading = ref(false)
 .home-main-banner {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  widows: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
   padding: 0 40px;
   gap: 40px;
 }
