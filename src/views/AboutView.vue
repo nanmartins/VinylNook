@@ -62,6 +62,7 @@ h4 {
 .about {
   /* margin: 20px auto; */
   margin-bottom: 50px;
+  /* margin-top: -10px; */
   padding: 0 20px;
 }
 
@@ -80,7 +81,7 @@ h4 {
   background: white;
   width: 100%;
   max-width: 1000px;
-  /* margin: 20px auto; */
+  margin: 20px auto;
   padding: 40px 100px;
   z-index: 100;
   border: 1px solid black;
