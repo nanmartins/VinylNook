@@ -15,7 +15,6 @@
       </div>
     </div>
 
-
     <h2 class="recents-title">recents</h2>
     <Loading v-if="loading" />
     <NewRealeses v-else />
@@ -36,10 +35,14 @@ const loading = ref(false)
 
 <style scoped>
 
+.home {
+  margin-top: -30px;
+}
+
 .home-main-banner {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 40px;
+  padding: 0 40px;
   gap: 40px;
 }
 
@@ -53,10 +56,7 @@ const loading = ref(false)
 .home-banner-detail {
   display: flex;
   align-items: center;
-  /* position: relative; */
-  /* left: -40px; */
   width: 100%;
-  /* min-height: 40px; */
   background: linear-gradient(to right, black -10%, rgb(173, 173, 173) 50%, white 100%);
   color: white;
   font-size: 28px;

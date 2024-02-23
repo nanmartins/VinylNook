@@ -231,7 +231,7 @@ onMounted(() => {
 }
 
 .pagination button:disabled svg {
-  fill: rgb(151, 151, 151);
+  fill: rgb(185, 185, 185);
 }
 
 /*
