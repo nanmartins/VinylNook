@@ -16,21 +16,29 @@
         <p>Studio: {{ vinyl.studio}}</p>
         <p>Length: {{ vinyl.albumLength }}</p>
         <ul style="list-style-type: none">
-          <li v-for="genre in vinyl.genre" :key="genre">Genre: {{ genre }}</li>
+          <p v-for="genre in vinyl.genre" :key="genre">Genre: {{ genre }}</p>
         </ul>
         <p>Label: {{ vinyl.label }}</p>
         <p>Producer: {{ vinyl.producer }}</p>
+        {{  showMoreContent }}
+
+        <nav>
+          <button @click="showMoreContent = 'description'">Description</button>
+          <button @click="showMoreContent = 'tracks'">Tracks</button>
+        </nav>
 
         <hr>
-        <p>{{ vinyl.albumDescription }}</p>
+        <p v-if="showMoreContent === 'description'">{{ vinyl.albumDescription }}</p>
 
         <!-- Faixas -->
-        <div v-for="(disc, index) in vinyl.tracks" :key="index">
-          <h3>{{ disc.sideA.length > 0 && index === 'disc1' ? 'Disc 1' : ''  }}</h3>
-          <h3>{{ disc.sideB.length > 0 && index === 'disc2' ? 'Disc 2' : '' }}</h3>
+        <div v-if="showMoreContent === 'tracks'">
+          <div v-for="(disc, index) in vinyl.tracks" :key="index">
+            <h3>{{ disc.sideA.length > 0 && index === 'disc1' ? 'Disc 1' : ''  }}</h3>
+            <h3>{{ disc.sideB.length > 0 && index === 'disc2' ? 'Disc 2' : '' }}</h3>
 
-          <TrackList :tracks="disc.sideA" v-if="disc.sideA.length > 0" :side="disc.sideA.length > 0 ? 'Side A' : 'Side B' " />
-          <TrackList :tracks="disc.sideB" v-if="disc.sideB.length > 0" :side="disc.sideB.length > 0 ? 'Side B' : 'Side A' "/>
+            <TrackList :tracks="disc.sideA" v-if="disc.sideA.length > 0" :side="disc.sideA.length > 0 ? 'Side A' : 'Side B' " />
+            <TrackList :tracks="disc.sideB" v-if="disc.sideB.length > 0" :side="disc.sideB.length > 0 ? 'Side B' : 'Side A' "/>
+          </div>
         </div>
 
       </div>
@@ -49,6 +57,7 @@ import TrackList from '@/components/TrackList/TrackList.vue'
 const route = useRoute()
 const loading = ref(false)
 const vinyl = ref({})
+const showMoreContent = ref('description')
 
 const fetchVinyl = async () => {
   loading.value = true
@@ -86,6 +95,7 @@ onMounted(() => {
 .vinyl-card-description {
   padding: 20px 40px;
   border: 0.3px solid black;
+  height: 100%;
 }
 
 .vinyl-card-description * {
