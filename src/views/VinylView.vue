@@ -12,7 +12,7 @@
 
       <div class="vinyl-card-description">
         <h1>"{{ vinyl.album }}"</h1>
-        <h2>{{ vinyl.year }}, {{vinyl.artist}}</h2>
+        <h3>{{ vinyl.year }}, {{vinyl.artist}}</h3>
         <p>Studio: {{ vinyl.studio}}</p>
         <p>Length: {{ vinyl.albumLength }}</p>
         <ul style="list-style-type: none">
@@ -20,24 +20,43 @@
         </ul>
         <p>Label: {{ vinyl.label }}</p>
         <p>Producer: {{ vinyl.producer }}</p>
-        {{  showMoreContent }}
 
-        <nav>
-          <button @click="showMoreContent = 'description'">Description</button>
-          <button @click="showMoreContent = 'tracks'">Tracks</button>
+        <nav class="vinyl-card-nav">
+          <button @click="showMoreContent = 'description'" :class="{ active: showMoreContent === 'description' }">Description</button>
+          <button @click="showMoreContent = 'disc1'" :class="{ active: showMoreContent === 'disc1' }">Disc 01</button>
+          <div v-for="(disc, index) in vinyl.tracks" :key="index">
+            <button
+              v-if="disc.sideB.length > 0 && index === 'disc2'"
+              @click="showMoreContent = 'disc2'"
+              :class="{ active: showMoreContent === 'disc2' }"
+            >
+              Disc 02
+            </button>
+          </div>
         </nav>
 
-        <hr>
-        <p v-if="showMoreContent === 'description'">{{ vinyl.albumDescription }}</p>
+        <p v-if="showMoreContent === 'description'" style="padding-top: 0;">{{ vinyl.albumDescription }}</p>
 
         <!-- Faixas -->
-        <div v-if="showMoreContent === 'tracks'">
+        <div v-if="showMoreContent === 'disc1'">
           <div v-for="(disc, index) in vinyl.tracks" :key="index">
-            <h3>{{ disc.sideA.length > 0 && index === 'disc1' ? 'Disc 1' : ''  }}</h3>
-            <h3>{{ disc.sideB.length > 0 && index === 'disc2' ? 'Disc 2' : '' }}</h3>
+            <div v-if="index === 'disc1'">
+              <!-- <h2 style="text-align: center;">{{ disc.sideA.length > 0 && index === 'disc1' ? 'Disc 01' : '' }}</h2> -->
 
-            <TrackList :tracks="disc.sideA" v-if="disc.sideA.length > 0" :side="disc.sideA.length > 0 ? 'Side A' : 'Side B' " />
-            <TrackList :tracks="disc.sideB" v-if="disc.sideB.length > 0" :side="disc.sideB.length > 0 ? 'Side B' : 'Side A' "/>
+              <TrackList :tracks="disc.sideA" v-if="disc.sideA.length > 0" :side="disc.sideA.length > 0 ? 'Side A' : 'Side B' " />
+              <TrackList :tracks="disc.sideB" v-if="disc.sideB.length > 0" :side="disc.sideB.length > 0 ? 'Side B' : 'Side A' "/>
+            </div>
+          </div>
+        </div>
+
+        <div v-if="showMoreContent === 'disc2'">
+          <div v-for="(disc, index) in vinyl.tracks" :key="index">
+            <div v-if="index === 'disc2'">
+              <!-- <h2 style="text-align: center;">{{ disc.sideB.length > 0 && index === 'disc2' ? 'Disc 02' : '' }}</h2> -->
+
+              <TrackList :tracks="disc.sideA" v-if="disc.sideA.length > 0" :side="disc.sideA.length > 0 ? 'Side A' : 'Side B' " />
+              <TrackList :tracks="disc.sideB" v-if="disc.sideB.length > 0" :side="disc.sideB.length > 0 ? 'Side B' : 'Side A' "/>
+            </div>
           </div>
         </div>
 
@@ -86,13 +105,14 @@ onMounted(() => {
   grid-template-columns: 1fr 1fr;
   align-items: center;
   margin: 0 20px;
-  /* gap: 20px; */
-  /* border: 0.5px solid black; */
   border-radius: 2px;
   font-family: 'Barlow Condensed', sans-serif;
 }
 
 .vinyl-card-description {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   padding: 20px 40px;
   border: 0.3px solid black;
   height: 100%;
@@ -108,7 +128,7 @@ onMounted(() => {
   line-height: 130%;
   letter-spacing: 1px;
   font-weight: 800;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 
 .vinyl-card-description p {
@@ -116,8 +136,37 @@ onMounted(() => {
   line-height: 130%;
   letter-spacing: 1px;
   font-weight: 600;
+  padding-top: 5px;
 }
 
+.vinyl-card-nav {
+  display: flex;
+  align-items: center;
+  /* border-bottom: 1px solid black; */
+  border-left: 1px solid black;
+}
+
+.vinyl-card-nav button {
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 5px 15px;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+}
+
+.vinyl-card-nav button:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.vinyl-card-nav button.active {
+  background-color: black;
+  color: white;
+}
 .vinyl-card-img {
   align-self: baseline;
   justify-self: baseline;
@@ -143,6 +192,14 @@ onMounted(() => {
   .vinyl-card-description {
     padding: 20px;
     border-top: 0.1px solid rgb(179, 179, 179);
+  }
+
+  .vinyl-card-description h1 {
+    font-size: 30px;
+    /* line-height: 130%;
+    letter-spacing: 1px;
+    font-weight: 800;
+    margin-bottom: 10px; */
   }
 
 }

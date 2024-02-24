@@ -1,14 +1,26 @@
 <template>
   <div>
-    <ul style="list-style: none;">
-      <hr v-if="side === 'Side A'">
-      <h3>{{ side }}</h3>
-      <li v-for="track in tracks" :key="track.trackNumber">
-        {{ track.trackNumber }}, {{ track.title }} - {{ track.trackLength }}
-      </li>
-    </ul>
+    <table>
+      <thead>
+        <tr >
+          <th v-if="side === 'Side A'" colspan="3" style="text-align: center; font-size: 18px;">{{ side }}</th>
+          <th v-if="side === 'Side B'" colspan="3" style="text-align: center; font-size: 18px;">{{ side }}</th>
+        </tr>
+        <tr >
+          <th>N°</th>
+          <th>Title</th>
+          <th>Length</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="track in tracks" :key="track.trackNumber" >
+          <td>{{ track.trackNumber }}</td>
+          <td>{{ track.title }}</td>
+          <td>{{ track.trackLength }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-
 </template>
 
 <script setup>
@@ -20,6 +32,21 @@ const props = defineProps({
 })
 </script>
 
-<style>
+<style scoped>
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 4px 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
 
 </style>
