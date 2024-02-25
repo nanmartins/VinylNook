@@ -102,7 +102,7 @@ onMounted(() => {
 
 .vinyl-card {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.2fr 0.8fr;
   align-items: center;
   margin: 0 20px;
   border-radius: 2px;
@@ -112,8 +112,8 @@ onMounted(() => {
 .vinyl-card-description {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  padding: 20px 40px;
+  /* gap: 5px; */
+  padding: 20px 30px;
   border: 0.3px solid black;
   height: 100%;
 }
@@ -125,7 +125,7 @@ onMounted(() => {
 
 .vinyl-card-description h1 {
   font-size: 52px;
-  line-height: 130%;
+  /* line-height: 100%; */
   letter-spacing: 1px;
   font-weight: 800;
   /* margin-bottom: 10px; */
@@ -151,7 +151,8 @@ onMounted(() => {
   letter-spacing: 1px;
   font-weight: 600;
   border: none;
-  background-color: transparent;
+  background-color: white;
+  color: black;
   cursor: pointer;
   padding: 5px 15px;
   border-right: 1px solid black;
@@ -171,11 +172,12 @@ onMounted(() => {
   align-self: baseline;
   justify-self: baseline;
   width: 100%;
+  height: 100%;
 }
 
 .vinyl-card-img img {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
 }
 
 @media only screen and (max-width: 800px) {
