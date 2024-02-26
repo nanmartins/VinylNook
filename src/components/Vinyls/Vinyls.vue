@@ -62,7 +62,7 @@ const fetchVinyls = async () => {
   loading.value = true
   try {
     const response = await getVinyls({ page: currentPage.value })
-    console.log(response.vinyls)
+    // console.log(response.vinyls)
     // const response = await getVinyls({ page: router.currentRoute.value.query.page || 1 }) //getting page number
     apiData.value = response.vinyls
     totalPages.value = response.totalPages

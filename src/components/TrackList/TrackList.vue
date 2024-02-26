@@ -7,9 +7,9 @@
           <th v-if="side === 'Side B'" colspan="3" style="text-align: center; font-size: 18px;">{{ side }}</th>
         </tr>
         <tr >
-          <th>N°</th>
-          <th>Title</th>
-          <th>Length</th>
+          <th>n°</th>
+          <th>title</th>
+          <th>length</th>
         </tr>
       </thead>
       <tbody>

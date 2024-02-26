@@ -27,7 +27,7 @@
 <script setup>
 import { ref } from 'vue'
 import Loading from '@/components/Loading/Loading.vue'
-import Vinyls from '@/components/Vinyls/Vinyls.vue'
+// import Vinyls from '@/components/Vinyls/Vinyls.vue'
 import NewRealeses from '@/components/NewRealeses/NewRealeses.vue'
 
 const loading = ref(false)

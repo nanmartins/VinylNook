@@ -6,8 +6,8 @@
   <div v-else style="width: 100%; max-width: 1400px; margin: -15px auto 20px auto">
 
     <div class="vinyl-card">
-      <div class="vinyl-card-img">
-        <img :src="vinyl.albumCover" alt="" >
+      <div class="vinyl-card-img" :style="{ 'background-image': 'url(' + vinyl.albumCover + ')' }">
+        <!-- <img :src="vinyl.albumCover" alt="" > -->
       </div>
 
       <div class="vinyl-card-description">
@@ -22,15 +22,15 @@
         <p>Producer: {{ vinyl.producer }}</p>
 
         <nav class="vinyl-card-nav">
-          <button @click="showMoreContent = 'description'" :class="{ active: showMoreContent === 'description' }">Description</button>
-          <button @click="showMoreContent = 'disc1'" :class="{ active: showMoreContent === 'disc1' }">Disc 01</button>
+          <button @click="showMoreContent = 'description'" :class="{ active: showMoreContent === 'description' }">about</button>
+          <button @click="showMoreContent = 'disc1'" :class="{ active: showMoreContent === 'disc1' }">disc 01</button>
           <div v-for="(disc, index) in vinyl.tracks" :key="index">
             <button
               v-if="disc.sideB.length > 0 && index === 'disc2'"
               @click="showMoreContent = 'disc2'"
               :class="{ active: showMoreContent === 'disc2' }"
             >
-              Disc 02
+              disc 02
             </button>
           </div>
         </nav>
@@ -115,6 +115,7 @@ onMounted(() => {
   /* gap: 5px; */
   padding: 20px 30px;
   border: 0.3px solid black;
+  border-left: none;
   height: 100%;
 }
 
@@ -172,13 +173,22 @@ onMounted(() => {
   align-self: baseline;
   justify-self: baseline;
   width: 100%;
+  max-width: 1000px;
   height: 100%;
+  max-height: 1000px;
+  aspect-ratio: 4 / 4;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* border-radius: 2px; */
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+
 }
 
-.vinyl-card-img img {
+/* .vinyl-card-img img {
   width: 100%;
-  /* height: 100%; */
-}
+} */
 
 @media only screen and (max-width: 800px) {
 
@@ -189,11 +199,14 @@ onMounted(() => {
 
   .vinyl-card-img {
     align-self: normal;
+    border-top-right-radius: 2px;
+    border-bottom-left-radius: 0;
   }
 
   .vinyl-card-description {
     padding: 20px;
-    border-top: 0.1px solid rgb(179, 179, 179);
+    border-top: 0.3px solid rgb(146, 146, 146);
+    border-left: 0.3px solid black;
   }
 
   .vinyl-card-description h1 {

@@ -67,9 +67,10 @@ h4 {
 }
 
 .about-content-welcome {
-  max-width: 600px;
+  max-width: 650px;
   margin: 0 auto;
-  font-size: 22px;
+  font-size: 26px;
+  letter-spacing: 1px;
   font-weight: 300;
 }
 
@@ -97,7 +98,7 @@ h4 {
 }
 
 .about-content-card p {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 300;
   /* font-family: 'Barlow Condensed', sans-serif; */
 }
@@ -122,15 +123,15 @@ h4 {
   }
 
   .about-content-welcome {
-    font-size: 20px;
+    font-size: 22px;
+    padding-bottom: 50px;
+    border-bottom: 0.5px solid rgb(207, 207, 207);
   }
 
 
   .about-content-container {
     padding: 40px 20px;
-    /* margin-top: 10px; */
     gap: 40px;
-    /* background: #f4f4f4; */
   }
 
   .about-content-card {

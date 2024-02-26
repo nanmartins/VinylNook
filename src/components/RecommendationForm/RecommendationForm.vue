@@ -7,7 +7,7 @@
 
     <h2>Recommend a album</h2>
 
-    <div style="margin: 10px auto 20px auto; font-weight: 300; font-size: 18px">
+    <div class="about-content-welcome">
       <p>Can't find your favorite album?</p>
       <p>Send us a recommendation and we will add it to our collection</p>
     </div>
@@ -113,6 +113,13 @@ const handleSubmit = async () => {
   border-radius: 2px;
   z-index: 1;
 }
+
+.about-content-welcome {
+  margin: 20px auto;
+  font-weight: 300;
+  font-size: 20px;
+}
+
 
 h2 {
   font-size: 36px;
