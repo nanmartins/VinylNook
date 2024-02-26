@@ -126,10 +126,8 @@ onMounted(() => {
 
 .vinyl-card-description h1 {
   font-size: 52px;
-  /* line-height: 100%; */
   letter-spacing: 1px;
   font-weight: 800;
-  /* margin-bottom: 10px; */
 }
 
 .vinyl-card-description p {
@@ -143,7 +141,6 @@ onMounted(() => {
 .vinyl-card-nav {
   display: flex;
   align-items: center;
-  /* border-bottom: 1px solid black; */
   border-left: 1px solid black;
 }
 
