@@ -72,6 +72,8 @@ h4 {
   font-size: 26px;
   letter-spacing: 1px;
   font-weight: 300;
+  padding-bottom: 50px;
+  border-bottom: 0.5px solid rgb(207, 207, 207);
 }
 
 .about-content-container {
@@ -85,7 +87,7 @@ h4 {
   margin: 20px auto;
   padding: 40px 100px;
   z-index: 100;
-  border: 1px solid black;
+  border: 0.3px solid black;
   border-radius: 2px;
 }
 
@@ -124,8 +126,6 @@ h4 {
 
   .about-content-welcome {
     font-size: 22px;
-    padding-bottom: 50px;
-    border-bottom: 0.5px solid rgb(207, 207, 207);
   }
 
 

@@ -109,7 +109,7 @@ const handleSubmit = async () => {
   background: white;
   padding: 20px;
   margin: 20px auto;
-  border: 1px solid black;
+  border: 0.3px solid black;
   border-radius: 2px;
   z-index: 1;
 }
@@ -143,7 +143,7 @@ label {
 input, textarea {
   width: 100%;
   padding: 10px;
-  border: 1px solid black;
+  border: 0.5px solid black;
   border-radius: 2px;
   margin: 5px 0;
 }
@@ -152,7 +152,7 @@ button {
   width: 100%;
   /* max-width: 300px; */
   padding: 15px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-radius: 2px;
   margin: 10px auto;
   background: black;

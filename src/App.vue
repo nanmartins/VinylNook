@@ -48,4 +48,45 @@ textarea:focus {
   background: white;
 }
 
+.swiper-button-prev,
+.swiper-button-next {
+  /* position: absolute;
+  top: var(--swiper-navigation-top-offset, 50%);
+  width: calc(var(--swiper-navigation-size) / 44 * 27);
+  height: var(--swiper-navigation-size);
+  margin-top: calc(0px - (var(--swiper-navigation-size) / 2));
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--swiper-navigation-color, var(--swiper-theme-color)); */
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 2px;
+  padding: 30px 20px;
+  color: black !important;
+  text-shadow: 1px 1px white;
+  border: 0.4px solid black;
+  transition: 0.3s;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+@media only screen and (max-width: 800px) {
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    padding: 20px 12px;
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 22px !important;
+    padding: 0px;
+  }
+}
+
 </style>

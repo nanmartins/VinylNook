@@ -23,9 +23,7 @@
 
         <div class="vinyl-card-field">
           <p>Genre:</p>
-          <p v-for="genre in vinyl.genre" :key="genre" >
-            {{ genre }}
-          </p>
+          <p v-for="genre in vinyl.genre" :key="genre">{{ genre }} </p>
         </div>
 
         <div class="vinyl-card-field">
@@ -95,11 +93,17 @@ const loading = ref(false)
 const vinyl = ref({})
 const showMoreContent = ref('description')
 
+const separateGenres = (genresString) => {
+  return genresString.split(',').map(genre => genre.trim())
+}
+
 const fetchVinyl = async () => {
   loading.value = true
   const vinylId = route.params.id
   try {
     const response = await getVinyl(vinylId)
+    response.vinyl.genre = separateGenres(response.vinyl.genre.toString())
+    // console.log(response.vinyl)
     vinyl.value = response.vinyl
   } catch (error) {
     throw error
@@ -137,7 +141,7 @@ onMounted(() => {
   /* gap: 5px; */
   padding: 20px 30px;
   border: 0.3px solid black;
-  border-left: none;
+  /* border-left: none; */
   height: 100%;
 }
 
