@@ -150,13 +150,16 @@ input, textarea {
 
 button {
   width: 100%;
-  max-width: 300px;
+  /* max-width: 300px; */
   padding: 15px;
   border: 1px solid black;
   border-radius: 2px;
-  margin: 5px auto;
+  margin: 10px auto;
   background: black;
   color: white;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 </style>

@@ -7,19 +7,36 @@
 
     <div class="vinyl-card">
       <div class="vinyl-card-img" :style="{ 'background-image': 'url(' + vinyl.albumCover + ')' }">
-        <!-- <img :src="vinyl.albumCover" alt="" > -->
       </div>
 
-      <div class="vinyl-card-description">
+      <div class="vinyl-card-content">
         <h1>"{{ vinyl.album }}"</h1>
-        <h3>{{ vinyl.year }}, {{vinyl.artist}}</h3>
-        <p>Studio: {{ vinyl.studio}}</p>
-        <p>Length: {{ vinyl.albumLength }}</p>
-        <ul style="list-style-type: none">
-          <p v-for="genre in vinyl.genre" :key="genre">Genre: {{ genre }}</p>
-        </ul>
-        <p>Label: {{ vinyl.label }}</p>
-        <p>Producer: {{ vinyl.producer }}</p>
+        <h2>{{vinyl.artist}}</h2>
+
+        <div class="vinyl-card-field">
+          <p>Studio:</p><p>{{ vinyl.studio}}</p>
+        </div>
+
+        <div class="vinyl-card-field">
+          <p>Length:</p><p>{{ vinyl.albumLength }}</p>
+        </div>
+
+        <div class="vinyl-card-field">
+          <p>Genre:</p>
+          <p v-for="genre in vinyl.genre" :key="genre" >
+            {{ genre }}
+          </p>
+        </div>
+
+        <div class="vinyl-card-field">
+          <p>Label:</p>
+          <p>{{ vinyl.label }}</p>
+        </div>
+
+        <div class="vinyl-card-field">
+          <p>Producer:</p>
+          <p>{{ vinyl.producer }}</p>
+        </div>
 
         <nav class="vinyl-card-nav">
           <button @click="showMoreContent = 'description'" :class="{ active: showMoreContent === 'description' }">about</button>
@@ -92,6 +109,10 @@ const fetchVinyl = async () => {
   }
 }
 
+const separateNames = (names) => {
+  return names.split(',').map(name => name.trim())
+}
+
 onMounted(() => {
   fetchVinyl()
 })
@@ -109,9 +130,10 @@ onMounted(() => {
   font-family: 'Barlow Condensed', sans-serif;
 }
 
-.vinyl-card-description {
+.vinyl-card-content {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   /* gap: 5px; */
   padding: 20px 30px;
   border: 0.3px solid black;
@@ -119,18 +141,25 @@ onMounted(() => {
   height: 100%;
 }
 
-.vinyl-card-description * {
+.vinyl-card-field {
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: 65px auto;
+  gap: 10px;
+}
+
+.vinyl-card-content * {
   text-align: left;
   font-family: 'Barlow Condensed', sans-serif;
 }
 
-.vinyl-card-description h1 {
-  font-size: 52px;
+.vinyl-card-content h1 {
+  font-size: 46px;
   letter-spacing: 1px;
   font-weight: 800;
 }
 
-.vinyl-card-description p {
+.vinyl-card-content p {
   font-size: 16px;
   line-height: 130%;
   letter-spacing: 1px;
@@ -166,6 +195,7 @@ onMounted(() => {
   background-color: black;
   color: white;
 }
+
 .vinyl-card-img {
   align-self: baseline;
   justify-self: baseline;
@@ -183,10 +213,6 @@ onMounted(() => {
 
 }
 
-/* .vinyl-card-img img {
-  width: 100%;
-} */
-
 @media only screen and (max-width: 800px) {
 
   .vinyl-card {
@@ -200,13 +226,13 @@ onMounted(() => {
     border-bottom-left-radius: 0;
   }
 
-  .vinyl-card-description {
+  .vinyl-card-content {
     padding: 20px;
     border-top: 0.3px solid rgb(146, 146, 146);
     border-left: 0.3px solid black;
   }
 
-  .vinyl-card-description h1 {
+  .vinyl-card-content h1 {
     font-size: 30px;
     /* line-height: 130%;
     letter-spacing: 1px;
