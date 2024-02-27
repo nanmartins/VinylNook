@@ -35,6 +35,12 @@ html, body {
   background: black;
   background-image: linear-gradient(to bottom, white 0%, white 50%, black 100%);
 }
+
+input:focus,
+textarea:focus {
+  outline: 0.5px solid #007aff;
+}
+
 #app {
   /* font-family: Avenir, Helvetica, Arial, sans-serif; */
   font-family: 'Barlow Condensed', sans-serif;

@@ -3,8 +3,8 @@
     <table>
       <thead>
         <tr >
-          <th v-if="side === 'Side A'" colspan="3" style="text-align: center; font-size: 18px;">{{ side }}</th>
-          <th v-if="side === 'Side B'" colspan="3" style="text-align: center; font-size: 18px;">{{ side }}</th>
+          <th v-if="side === 'Side A'" colspan="3" style="text-align: center; font-size: 18px;">side A</th>
+          <th v-if="side === 'Side B'" colspan="3" style="text-align: center; font-size: 18px;">side B</th>
         </tr>
         <tr >
           <th>n°</th>

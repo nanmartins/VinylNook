@@ -26,7 +26,7 @@
           <button @click="showMoreContent = 'disc1'" :class="{ active: showMoreContent === 'disc1' }">disc 01</button>
           <div v-for="(disc, index) in vinyl.tracks" :key="index">
             <button
-              v-if="disc.sideB.length > 0 && index === 'disc2'"
+              v-if="disc.sideA.length > 0 && index === 'disc2'"
               @click="showMoreContent = 'disc2'"
               :class="{ active: showMoreContent === 'disc2' }"
             >
