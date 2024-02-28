@@ -1,128 +1,96 @@
 <template>
+  <div class="vinyl-card">
+    <div class="vinyl-card-img" :style="{ 'background-image': 'url(' + vinyl.albumCover + ')' }"></div>
 
-  <div v-if="loading">
-    <Loading />
-  </div>
+    <div class="vinyl-card-content">
+      <h1>"{{ vinyl.album }}"</h1>
+      <h2>{{vinyl.artist}}</h2>
 
-  <div v-else style="width: 100%; max-width: 1400px; margin: -15px auto 20px auto">
-    <div class="vinyl-card">
-      <div class="vinyl-card-img" :style="{ 'background-image': 'url(' + vinyl.albumCover + ')' }"></div>
-
-      <div class="vinyl-card-content">
-        <h1>"{{ vinyl.album }}"</h1>
-        <h2>{{vinyl.artist}}</h2>
-
-        <div class="vinyl-card-field">
-          <p>Studio:</p><p>{{ vinyl.studio}}</p>
-        </div>
-
-        <div class="vinyl-card-field">
-          <p>Length:</p><p>{{ vinyl.albumLength }}</p>
-        </div>
-
-        <div class="vinyl-card-field">
-          <p>Label:</p>
-          <p>{{ vinyl.label }}</p>
-        </div>
-
-        <div class="vinyl-card-field">
-          <p>Producer:</p>
-          <p>{{ vinyl.producer }}</p>
-        </div>
-
-        <div class="vinyl-card-field">
-          <p>Genre:</p>
-          <p v-for="genre in vinyl.genre" :key="genre" class="genre-tag">{{ genre }}</p>
-        </div>
-
-        <nav class="vinyl-card-nav">
-          <button @click="showMoreContent = 'description'" :class="{ active: showMoreContent === 'description' }">about</button>
-          <button @click="showMoreContent = 'disc1'" :class="{ active: showMoreContent === 'disc1' }">disc 01</button>
-          <div v-for="(disc, index) in vinyl.tracks" :key="index">
-            <button
-              v-if="disc.sideA.length > 0 && index === 'disc2'"
-              @click="showMoreContent = 'disc2'"
-              :class="{ active: showMoreContent === 'disc2' }"
-            >
-              disc 02
-            </button>
-          </div>
-        </nav>
-
-        <p v-if="showMoreContent === 'description'" style="padding-top: 0;">{{ vinyl.albumDescription }}</p>
-
-        <!-- Faixas -->
-        <div v-if="showMoreContent === 'disc1'">
-          <div v-for="(disc, index) in vinyl.tracks" :key="index">
-            <div v-if="index === 'disc1'">
-              <!-- <h2 style="text-align: center;">{{ disc.sideA.length > 0 && index === 'disc1' ? 'Disc 01' : '' }}</h2> -->
-
-              <TrackList :tracks="disc.sideA" v-if="disc.sideA.length > 0" :side="disc.sideA.length > 0 ? 'Side A' : 'Side B' " />
-              <TrackList :tracks="disc.sideB" v-if="disc.sideB.length > 0" :side="disc.sideB.length > 0 ? 'Side B' : 'Side A' "/>
-            </div>
-          </div>
-        </div>
-
-        <div v-if="showMoreContent === 'disc2'">
-          <div v-for="(disc, index) in vinyl.tracks" :key="index">
-            <div v-if="index === 'disc2'">
-              <!-- <h2 style="text-align: center;">{{ disc.sideB.length > 0 && index === 'disc2' ? 'Disc 02' : '' }}</h2> -->
-
-              <TrackList :tracks="disc.sideA" v-if="disc.sideA.length > 0" :side="disc.sideA.length > 0 ? 'Side A' : 'Side B' " />
-              <TrackList :tracks="disc.sideB" v-if="disc.sideB.length > 0" :side="disc.sideB.length > 0 ? 'Side B' : 'Side A' "/>
-            </div>
-          </div>
-        </div>
-
+      <div class="vinyl-card-field">
+        <p>Studio:</p><p>{{ vinyl.studio}}</p>
       </div>
-    </div>
 
+      <div class="vinyl-card-field">
+        <p>Length:</p><p>{{ vinyl.albumLength }}</p>
+      </div>
+
+      <div class="vinyl-card-field">
+        <p>Label:</p>
+        <p>{{ vinyl.label }}</p>
+      </div>
+
+      <div class="vinyl-card-field">
+        <p>Producer:</p>
+        <p>{{ vinyl.producer }}</p>
+      </div>
+
+      <div class="vinyl-card-field">
+        <p>Genre:</p>
+        <p v-for="genre in vinyl.genre" :key="genre" class="genre-tag" @click="redirectToAlbumsByGenre(genre)">{{ genre }}</p>
+      </div>
+
+      <nav class="vinyl-card-nav">
+        <button @click="showMoreContent = 'description'" :class="{ active: showMoreContent === 'description' }">about</button>
+        <button @click="showMoreContent = 'disc1'" :class="{ active: showMoreContent === 'disc1' }">disc 01</button>
+        <div v-for="(disc, index) in vinyl.tracks" :key="index">
+          <button
+            v-if="disc.sideA.length > 0 && index === 'disc2'"
+            @click="showMoreContent = 'disc2'"
+            :class="{ active: showMoreContent === 'disc2' }"
+          >
+            disc 02
+          </button>
+        </div>
+      </nav>
+
+      <p v-if="showMoreContent === 'description'" style="padding-top: 0;">{{ vinyl.albumDescription }}</p>
+
+      <!-- Faixas -->
+      <div v-if="showMoreContent === 'disc1'">
+        <div v-for="(disc, index) in vinyl.tracks" :key="index">
+          <div v-if="index === 'disc1'">
+            <!-- <h2 style="text-align: center;">{{ disc.sideA.length > 0 && index === 'disc1' ? 'Disc 01' : '' }}</h2> -->
+
+            <TrackList :tracks="disc.sideA" v-if="disc.sideA.length > 0" :side="disc.sideA.length > 0 ? 'Side A' : 'Side B' " />
+            <TrackList :tracks="disc.sideB" v-if="disc.sideB.length > 0" :side="disc.sideB.length > 0 ? 'Side B' : 'Side A' "/>
+          </div>
+        </div>
+      </div>
+
+      <div v-if="showMoreContent === 'disc2'">
+        <div v-for="(disc, index) in vinyl.tracks" :key="index">
+          <div v-if="index === 'disc2'">
+            <!-- <h2 style="text-align: center;">{{ disc.sideB.length > 0 && index === 'disc2' ? 'Disc 02' : '' }}</h2> -->
+
+            <TrackList :tracks="disc.sideA" v-if="disc.sideA.length > 0" :side="disc.sideA.length > 0 ? 'Side A' : 'Side B' " />
+            <TrackList :tracks="disc.sideB" v-if="disc.sideB.length > 0" :side="disc.sideB.length > 0 ? 'Side B' : 'Side A' "/>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </template>
 
-<script setup>
-import { ref, onMounted } from 'vue'
-import { getVinyl } from '@/services.js'
-import { useRoute } from 'vue-router'
-import TrackList from '@/components/TrackList/TrackList.vue'
-import Loading from '@/components/Loading/Loading.vue'
 
-const loading = ref(false)
-const route = useRoute()
-const vinyl = ref({})
+<script setup>
+import { ref, defineProps } from 'vue'
+import TrackList from '@/components/TrackList/TrackList.vue'
+import { useRouter } from 'vue-router'
+
+const props = defineProps({
+  vinyl: Object
+})
+const router = useRouter()
 const showMoreContent = ref('description')
 
-const separateGenres = (genresString) => {
-  return genresString.split(',').map(genre => genre.trim())
+const redirectToAlbumsByGenre = (genre) => {
+  router.push({ name: 'albums', query: { genre } })
 }
-
-const fetchVinyl = async () => {
-  loading.value = true
-  const vinylId = route.params.id
-  try {
-    const response = await getVinyl(vinylId)
-    response.vinyl.genre = separateGenres(response.vinyl.genre.toString())
-    vinyl.value = response.vinyl
-  } catch (error) {
-    throw error
-  }
-  finally {
-    loading.value = false
-  }
-}
-
-const separateNames = (names) => {
-  return names.split(',').map(name => name.trim())
-}
-
-onMounted(() => {
-  fetchVinyl()
-})
-
 </script>
 
-<style scoped>
 
+<style scoped>
 .vinyl-card {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -154,15 +122,15 @@ onMounted(() => {
 
 .vinyl-card-content p {
   font-size: 16px;
-  line-height: 130%;
-  letter-spacing: 1px;
-  font-weight: 600;
-  padding-top: 5px;
+  /* line-height: 130%; */
+  /* letter-spacing: 1px; */
+  /* font-weight: 600; */
+  /* padding-top: 5px; */
 }
 
 .vinyl-card-field {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
 }
 
@@ -175,10 +143,11 @@ onMounted(() => {
   display: flex;
   align-items: center;
   border: 0.2px solid black;
-  padding: 4px;
+  padding: 4px 6px;
   border-radius: 2px;
   background: #f2f2f2;
   cursor: pointer;
+  font-size: 14px !important;
 }
 
 .genre-tag:hover {

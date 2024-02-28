@@ -62,9 +62,13 @@ const fetchVinyls = async () => {
   loading.value = true
   try {
     const response = await getVinyls({ page: currentPage.value })
-    // console.log(response.vinyls)
-    // const response = await getVinyls({ page: router.currentRoute.value.query.page || 1 }) //getting page number
-    apiData.value = response.vinyls
+    apiData.value = response.vinyls.map(vinyl => {
+      return {
+        ...vinyl,
+        genre: typeof vinyl.genre === 'string' ? vinyl.genre.split(',').map(genre => genre.trim()) : []
+      }
+    })
+    // apiData.value = response.vinyls
     totalPages.value = response.totalPages
   }
   catch (error) {
@@ -74,6 +78,14 @@ const fetchVinyls = async () => {
     loading.value = false
   }
 }
+
+
+const filteredAlbums = computed(() => {
+  if (!genre) {
+    return albums.value
+  }
+  return albums.value.filter(album => album.genre.includes(genre))
+})
 
 // const sortedVinyls = computed(() => {
 //   const vinylsCopy = [...apiData.value]
@@ -125,6 +137,7 @@ const removeVinyl = async (vinylId) => {
 
 onMounted(() => {
   fetchVinyls()
+  filteredAlbums
 })
 
 </script>

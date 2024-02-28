@@ -23,7 +23,8 @@ const routes = [
   {
     path: '/albums',
     name: 'albums',
-    component: () => import('../views/AlbumsView.vue')
+    component: () => import('../views/AlbumsView.vue'),
+    props: (route) => ({ genre: route.query.genre })
   },
   {
     path: '/edit-vinyl/:id',

@@ -10,7 +10,7 @@
 
 
 <script setup>
-import { ref } from 'vue'
+// import { ref } from 'vue'
 import Vinyls from '@/components/Vinyls/Vinyls.vue'
 </script>
 
