@@ -61,14 +61,9 @@ const totalPages = ref(1)
 const fetchVinyls = async () => {
   loading.value = true
   try {
-    const response = await getVinyls({ page: currentPage.value })
-    apiData.value = response.vinyls.map(vinyl => {
-      return {
-        ...vinyl,
-        genre: typeof vinyl.genre === 'string' ? vinyl.genre.split(',').map(genre => genre.trim()) : []
-      }
-    })
-    // apiData.value = response.vinyls
+    const genre = router.currentRoute.value.query.genre
+    const response = await getVinyls({ page: currentPage.value, genre })
+    apiData.value = response.vinyls;
     totalPages.value = response.totalPages
   }
   catch (error) {
@@ -80,25 +75,6 @@ const fetchVinyls = async () => {
 }
 
 
-const filteredAlbums = computed(() => {
-  if (!genre) {
-    return albums.value
-  }
-  return albums.value.filter(album => album.genre.includes(genre))
-})
-
-// const sortedVinyls = computed(() => {
-//   const vinylsCopy = [...apiData.value]
-
-//   console.log(vinylsCopy)
-//   vinylsCopy.sort((a, b) => {
-//     a.pos > b.pos ? 1 : -1
-//   })
-//   console.log(vinylsCopy)
-//   return vinylsCopy
-// })
-
-
 const changePage = async (action) => {
   if (action === 'prev' && currentPage.value > 1) {
     currentPage.value -= 1
@@ -106,10 +82,7 @@ const changePage = async (action) => {
   else if (action === 'next' && currentPage.value < totalPages.value) {
     currentPage.value += 1
   }
-
-  // await router.replace({ query: { page: currentPage.value } }) //changing route for pages number
   window.scrollTo({ top: 95, behavior: 'smooth' })
-
   await fetchVinyls()
 }
 
@@ -137,7 +110,6 @@ const removeVinyl = async (vinylId) => {
 
 onMounted(() => {
   fetchVinyls()
-  filteredAlbums
 })
 
 </script>

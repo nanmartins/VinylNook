@@ -4,10 +4,10 @@ const vinylBaseUrl = 'https://node-express-sooty-omega.vercel.app/vinyls'
 const recommendationBaseUrl = 'https://node-express-sooty-omega.vercel.app/recommendations'
 
 
-export const getVinyls = async ({ page = 1, limit = 16 } = {}) => {
+export const getVinyls = async ({ page = 1, limit = 16, genre } = {}) => {
   try {
     const response = await axios.get(vinylBaseUrl, {
-      params: { page, limit }
+      params: { page, limit, genre }
     })
     return response.data
   }
@@ -70,7 +70,6 @@ export const deleteVinyl = async (deleteId) => {
     throw error
   }
 }
-
 
 // Recommendation
 

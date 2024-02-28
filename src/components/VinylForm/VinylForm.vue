@@ -37,9 +37,13 @@
         <input type="text" v-model="newVinyl.albumLength" required>
       </div>
 
-      <div>
+      <!-- <div>
         <label for="genre">Genre: </label>
         <input type="text" v-model="newVinyl.genre" required>
+      </div> -->
+      <div>
+        <label for="genre">Genre (comma-separated): </label>
+        <input type="text" v-model="genreInput" required>
       </div>
 
       <div>
@@ -163,6 +167,7 @@ const createdMessage = ref('')
 const tempTracksDisc1 = ref([])
 const tempTracksDisc2 = ref([])
 const hasDisc2 = ref(false)
+const genreInput = ref('');
 
 
 const handleSubmit = async () => {
@@ -171,6 +176,8 @@ const handleSubmit = async () => {
 
   newVinyl.value.tracks.disc2.sideA = tempTracksDisc2.value.filter(track => track.side === 'sideA')
   newVinyl.value.tracks.disc2.sideB = tempTracksDisc2.value.filter(track => track.side === 'sideB')
+  const genres = genreInput.value.split(',').map(genre => genre.trim())
+  newVinyl.value.genre = genres
   try {
     await createVinyl(newVinyl.value)
   }

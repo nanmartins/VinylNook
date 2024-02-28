@@ -63,11 +63,16 @@ textarea:focus {
   color: var(--swiper-navigation-color, var(--swiper-theme-color)); */
   background: rgba(255, 255, 255, 0.55);
   border-radius: 2px;
-  padding: 30px 20px;
+  padding: 20px 15px;
   color: black !important;
   text-shadow: 1px 1px white;
   border: 0.4px solid black;
   transition: 0.3s;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 32px !important;
 }
 
 .swiper-button-prev:hover,
@@ -79,12 +84,12 @@ textarea:focus {
 
   .swiper-button-prev,
   .swiper-button-next {
-    padding: 20px 12px;
+    padding: 10px 12px;
   }
 
   .swiper-button-prev::after,
   .swiper-button-next::after {
-    font-size: 22px !important;
+    font-size: 20px !important;
     padding: 0px;
   }
 }
