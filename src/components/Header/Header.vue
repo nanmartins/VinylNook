@@ -7,7 +7,6 @@
       <router-link to="/albums">Albums</router-link>
       <router-link to="/about">About</router-link>
       <router-link to="/contact">Contact</router-link>
-      <!-- <router-link to="/">Recommendatio</router-link> -->
     </nav>
   </header>
 </template>
@@ -18,11 +17,13 @@ import { ref, onMounted } from 'vue'
 
 const scrolled = ref(false)
 
+
 onMounted(() => {
   window.addEventListener('scroll', () => {
     scrolled.value = window.scrollY >= 65
   })
 })
+
 </script>
 
 <style scoped>

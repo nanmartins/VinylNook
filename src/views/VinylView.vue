@@ -26,7 +26,8 @@ const fetchVinyl = async () => {
   try {
     const response = await getVinyl(vinylId)
     vinyl.value = response.vinyl
-  } catch (error) {
+  }
+  catch (error) {
     throw error
   }
   finally {
