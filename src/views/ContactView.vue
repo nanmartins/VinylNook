@@ -7,9 +7,15 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
 import RecommendationForm from '@/components/RecommendationForm/RecommendationForm.vue'
 
+onMounted(() => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+})
+
 </script>
+
 
 <style scoped>
 h2 {

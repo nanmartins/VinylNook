@@ -110,6 +110,7 @@ const removeVinyl = async (vinylId) => {
 
 onMounted(() => {
   fetchVinyls()
+  window.scrollTo({ top: 0, behavior: 'smooth' })
 })
 
 </script>

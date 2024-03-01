@@ -25,13 +25,19 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import Loading from '@/components/Loading/Loading.vue'
 // import Vinyls from '@/components/Vinyls/Vinyls.vue'
 import NewRealeses from '@/components/NewRealeses/NewRealeses.vue'
 
 const loading = ref(false)
+
+onMounted(() => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+})
+
 </script>
+
 
 <style scoped>
 
@@ -149,6 +155,16 @@ img {
     letter-spacing: 5px;
     line-height: 0%;
     padding-top: 40px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+
+  .home-banner-detail {
+    font-size: 22px;
+  }
+  .home-banner-text h2 {
+    font-size: 68px;
   }
 }
 </style>

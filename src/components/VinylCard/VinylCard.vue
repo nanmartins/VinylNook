@@ -26,7 +26,9 @@
 
       <div class="vinyl-card-field">
         <p>Genre:</p>
-        <p v-for="genre in vinyl.genre" :key="genre" class="genre-tag" @click="redirectToAlbumsByGenre(genre)">{{ genre }}</p>
+        <div v-for="genre in vinyl.genre" :key="genre" class="genre-tag-container" @click="redirectToAlbumsByGenre(genre)">
+          <p class="genre-tag">{{ genre }}</p>
+        </div>
       </div>
 
       <nav class="vinyl-card-nav">
@@ -104,7 +106,7 @@ const redirectToAlbumsByGenre = (genre) => {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 20px 30px;
+  padding: 20px;
   border: 0.3px solid black;
   height: 100%;
 }
@@ -139,8 +141,19 @@ const redirectToAlbumsByGenre = (genre) => {
   flex-basis: 65px;
 }
 
-.genre-tag {
+.vinyl-card-field p:nth-child(2) {
+  flex: 1;
+  /* min-width: 0; */
+}
+
+.genre-tag-container {
   display: flex;
+  flex-wrap: wrap;
+}
+
+.genre-tag {
+  display: inline-flex;
+  white-space: nowrap;
   align-items: center;
   border: 0.2px solid black;
   padding: 4px 6px;
