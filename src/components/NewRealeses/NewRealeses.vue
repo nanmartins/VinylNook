@@ -6,6 +6,7 @@
       :slidesPerView="2"
       :spaceBetween="5"
       :mousewheel="false"
+      :centeredSlidesBounds="true"
       :keyboard="true"
       :navigation="true"
       :autoplay="{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }"
@@ -44,9 +45,9 @@
         <router-link :to="`/album/${vinyl._id}`" class="card-router-link">
           <img :src="vinyl.albumCover">
           <div v-if="showInfo && index === hoveredIndex" class="vinyl-info-container">
-            <p style="letter-spacing: 1.5px; font-weight: 600; background: rgba(255, 255, 255, 0.8); padding: 5px">"{{ vinyl.album }}"</p>
-            <p style="letter-spacing: 1.5px; background: rgba(255, 255, 255, 0.6); padding: 3px 5px">{{ vinyl.artist }}</p>
-            <p style="letter-spacing: 1.5px; background: rgba(255, 255, 255, 0.6); padding: 3px 5px; font-size: 14px; text-align: right">{{ timeDiff(vinyl.createdAt) }}</p>
+            <p>"{{ vinyl.album }}"</p>
+            <p>{{ vinyl.artist }}</p>
+            <p>{{ timeDiff(vinyl.createdAt) }}</p>
           </div>
         </router-link>
       </SwiperSlide>
@@ -167,12 +168,11 @@ onMounted(async () => {
 
 .vinyl-card img {
   width: 100%;
-  /* max-width: 300px; */
   border-radius: 2px;
 }
 
 .vinyl-card:hover img {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .vinyl-info-container {
@@ -191,10 +191,25 @@ onMounted(async () => {
 
 .vinyl-info-container p {
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 600;
   text-shadow: 1px 1px rgb(217, 217, 217);
   font-style: italic;
+  letter-spacing: 1.5px;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 3px 5px;
 }
+
+.vinyl-info-container p:first-child {
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 5px
+}
+
+.vinyl-info-container p:last-child {
+  font-size: 15px;
+  text-align: right;
+}
+
 
 @media only screen and (max-width: 800px) {
 

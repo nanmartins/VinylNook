@@ -8,7 +8,7 @@
         </tr>
         <tr >
           <th>n°</th>
-          <th>title</th>
+          <th style="width: 100%">title</th>
           <th>length</th>
         </tr>
       </thead>
