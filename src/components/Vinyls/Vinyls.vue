@@ -222,6 +222,7 @@ onMounted(() => {
   background: transparent;
   border: none;
   cursor: pointer;
+  color: black;
   padding: 20px;
 }
 
@@ -229,8 +230,7 @@ onMounted(() => {
   border-bottom: 3px solid black;
   padding-bottom: 17px;
   cursor: default;
-  color: black;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .pagination-svg-btn:disabled {
