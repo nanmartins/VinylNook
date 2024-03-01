@@ -106,7 +106,7 @@ const redirectToAlbumsByGenre = (genre) => {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 20px;
+  padding: 20px 25px;
   border: 0.3px solid black;
   height: 100%;
 }
@@ -168,6 +168,7 @@ const redirectToAlbumsByGenre = (genre) => {
   display: flex;
   align-items: center;
   border-left: 1px solid black;
+  border-radius: 2px;
 }
 
 .vinyl-card-nav button {
@@ -182,6 +183,11 @@ const redirectToAlbumsByGenre = (genre) => {
   border-right: 1px solid black;
   border-bottom: 1px solid black;
   border-top: 1px solid black;
+}
+
+.vinyl-card-nav button:last-child {
+  border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px;
 }
 
 .vinyl-card-nav button:hover {
