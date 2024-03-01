@@ -94,6 +94,7 @@ h2 {
 
 img {
   width: 100%;
+  height: 100%;
   max-width: 800px;
   aspect-ratio: 4 / 4;
   border-radius: 2px;

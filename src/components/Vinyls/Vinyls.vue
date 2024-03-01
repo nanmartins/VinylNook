@@ -25,21 +25,27 @@
   </section>
 
   <div v-if="!loading" class="pagination">
-    <button @click="changePage('prev')" :disabled="currentPage === 1">
-      <svg version="1.1" width="20" height="20" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35.3 58.8" enable-background="new 0 0 35.3 58.8" xml:space="preserve">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M29.4,2.7L2.8,29.2c-0.2,0.3-0.2,0.8,0,1.1l26.6,26.5
-        c0.2,0.3,0.7,0.3,1,0l3.5-3.4L10.8,30.3c-0.4-0.2-0.4-0.7,0-1.1L33.9,6.1l-3.5-3.5C30.2,2.2,29.7,2.2,29.4,2.7L29.4,2.7z"></path>
-      </svg>
-    </button>
+    <div class="pagination-container">
+      <button @click="changePage('prev')" :disabled="currentPage === 1" class="pagination-svg-btn">
+        <svg version="1.1" width="15" height="15" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35.3 58.8" enable-background="new 0 0 35.3 58.8" xml:space="preserve">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M29.4,2.7L2.8,29.2c-0.2,0.3-0.2,0.8,0,1.1l26.6,26.5
+          c0.2,0.3,0.7,0.3,1,0l3.5-3.4L10.8,30.3c-0.4-0.2-0.4-0.7,0-1.1L33.9,6.1l-3.5-3.5C30.2,2.2,29.7,2.2,29.4,2.7L29.4,2.7z"></path>
+        </svg>
+      </button>
 
-    <span>{{ currentPage }} / {{ totalPages }}</span>
+      <div v-for="page in totalPages" :key="page">
+        <button @click="changePage(page)" :disabled="currentPage === page" class="navigation-pages-btn">{{ page }}</button>
+      </div>
+      <!-- <span>{{ currentPage }} / {{ totalPages }}</span> -->
 
-    <button @click="changePage('next')" :disabled="currentPage === totalPages" style="transform: rotate(180deg)">
-      <svg version="1.1" width="20" height="20" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35.3 58.8" enable-background="new 0 0 35.3 58.8" xml:space="preserve">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M29.4,2.7L2.8,29.2c-0.2,0.3-0.2,0.8,0,1.1l26.6,26.5
-        c0.2,0.3,0.7,0.3,1,0l3.5-3.4L10.8,30.3c-0.4-0.2-0.4-0.7,0-1.1L33.9,6.1l-3.5-3.5C30.2,2.2,29.7,2.2,29.4,2.7L29.4,2.7z"></path>
-      </svg>
-    </button>
+      <button @click="changePage('next')" :disabled="currentPage === totalPages" style="transform: rotate(180deg)" class="pagination-svg-btn">
+        <svg version="1.1" width="15" height="15" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35.3 58.8" enable-background="new 0 0 35.3 58.8" xml:space="preserve">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M29.4,2.7L2.8,29.2c-0.2,0.3-0.2,0.8,0,1.1l26.6,26.5
+          c0.2,0.3,0.7,0.3,1,0l3.5-3.4L10.8,30.3c-0.4-0.2-0.4-0.7,0-1.1L33.9,6.1l-3.5-3.5C30.2,2.2,29.7,2.2,29.4,2.7L29.4,2.7z"></path>
+        </svg>
+      </button>
+
+    </div>
 
   </div>
 </template>
@@ -75,12 +81,22 @@ const fetchVinyls = async () => {
 }
 
 
-const changePage = async (action) => {
-  if (action === 'prev' && currentPage.value > 1) {
-    currentPage.value -= 1
+const changePage = async (pageOrAction) => {
+  if (pageOrAction === 'prev') {
+    if (currentPage.value > 1) {
+      currentPage.value--
+    }
   }
-  else if (action === 'next' && currentPage.value < totalPages.value) {
-    currentPage.value += 1
+  else if (pageOrAction === 'next') {
+    if (currentPage.value < totalPages.value) {
+      currentPage.value++
+    }
+  }
+  else {
+    const pageNumber = parseInt(pageOrAction)
+    if (!isNaN(pageNumber) && pageNumber >= 1 && pageNumber <= totalPages.value) {
+      currentPage.value = pageNumber
+    }
   }
   window.scrollTo({ top: 95, behavior: 'smooth' })
   await fetchVinyls()
@@ -131,8 +147,6 @@ onMounted(() => {
 .vinyl-card {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* border: 1px solid rgb(165, 165, 165); */
   border-radius: 2px;
   padding: 7px;
   margin: 0 auto;
@@ -152,15 +166,12 @@ onMounted(() => {
   transform: scale(1.05);
   transition: transform 0.5s;
   box-shadow: 0 5px 25px rgb(199, 199, 199);
-  /* animation: grayscaleAnimation 0.5s ease-in-out; */
 }
 
 .vinyl-card img {
   width: 100%;
   max-width: 400px;
   border-radius: 2px;
-  /* filter: grayscale(100%);
-  transition: filter 0.5s ease-in-out; */
 }
 
 .vinyl-info-container {
@@ -194,42 +205,37 @@ onMounted(() => {
 
 .pagination {
   display: flex;
-  gap: 10px;
   justify-content: center;
   align-items: center;
-  /* margin: 20px; */
   padding: 20px 0 50px 0;
 }
 
-.pagination button {
+.pagination-container {
+  display: flex;
+  border-bottom: 0.3px solid rgb(184, 184, 184);
+  align-items: center;
+}
+
+.pagination-container button {
+  display: flex;
+  align-items: center;
   background: transparent;
   border: none;
-  display: flex;
   cursor: pointer;
+  padding: 20px;
 }
 
-.pagination button:disabled {
+.navigation-pages-btn:disabled {
+  border-bottom: 3px solid black;
+  padding-bottom: 17px;
   cursor: default;
+  color: black;
+  font-weight: 600;
 }
 
-.pagination button svg {
-  fill: black;
+.pagination-svg-btn:disabled {
+  display: none;
 }
-
-.pagination button:disabled svg {
-  fill: rgb(185, 185, 185);
-}
-
-/*
-
-@keyframes grayscaleAnimation {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 100% 0;
-  }
-} */
 
 
 @media only screen and (max-width: 800px) {

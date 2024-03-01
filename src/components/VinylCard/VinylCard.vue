@@ -26,9 +26,9 @@
 
       <div class="vinyl-card-field">
         <p>Genre:</p>
-        <div v-for="genre in vinyl.genre" :key="genre" class="genre-tag-container" @click="redirectToAlbumsByGenre(genre)">
-          <p class="genre-tag">{{ genre }}</p>
-        </div>
+        <p class="genre-tag-container">
+          <span v-for="genre in vinyl.genre" :key="genre" @click="redirectToAlbumsByGenre(genre)" class="genre-tag">{{ genre }}</span>
+        </p>
       </div>
 
       <nav class="vinyl-card-nav">
@@ -124,14 +124,11 @@ const redirectToAlbumsByGenre = (genre) => {
 
 .vinyl-card-content p {
   font-size: 16px;
-  /* line-height: 130%; */
-  /* letter-spacing: 1px; */
-  /* font-weight: 600; */
-  /* padding-top: 5px; */
 }
 
 .vinyl-card-field {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   gap: 10px;
 }
@@ -143,20 +140,20 @@ const redirectToAlbumsByGenre = (genre) => {
 
 .vinyl-card-field p:nth-child(2) {
   flex: 1;
-  /* min-width: 0; */
 }
 
 .genre-tag-container {
   display: flex;
   flex-wrap: wrap;
+  gap: 5px 8px;
 }
 
 .genre-tag {
   display: inline-flex;
   white-space: nowrap;
-  align-items: center;
   border: 0.2px solid black;
-  padding: 4px 6px;
+  padding: 4px;
+  padding-top: 2px;
   border-radius: 2px;
   background: #f2f2f2;
   cursor: pointer;
@@ -234,6 +231,10 @@ const redirectToAlbumsByGenre = (genre) => {
 
   .vinyl-card-content h1 {
     font-size: 30px;
+  }
+
+  .genre-tag {
+    font-size: 13px !important;
   }
 
 }
