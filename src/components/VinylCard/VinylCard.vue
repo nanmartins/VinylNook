@@ -106,6 +106,7 @@ const redirectToAlbumsByGenre = (genre) => {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  gap: 8px 0;
   padding: 20px 25px;
   border: 0.3px solid black;
   height: 100%;
@@ -123,7 +124,7 @@ const redirectToAlbumsByGenre = (genre) => {
 }
 
 .vinyl-card-content p {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .vinyl-card-field {
