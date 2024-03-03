@@ -157,7 +157,7 @@ button {
   margin: 10px auto;
   background: black;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   letter-spacing: 1px;
 }

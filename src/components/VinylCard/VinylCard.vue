@@ -100,6 +100,7 @@ const redirectToAlbumsByGenre = (genre) => {
   margin: 0 20px;
   border-radius: 2px;
   font-family: 'Barlow Condensed', sans-serif;
+  box-shadow: 5px 5px 25px rgb(199, 199, 199);
 }
 
 .vinyl-card-content {
@@ -158,7 +159,7 @@ const redirectToAlbumsByGenre = (genre) => {
   border-radius: 2px;
   background: #f2f2f2;
   cursor: pointer;
-  font-size: 14px !important;
+  font-size: 16px !important;
 }
 
 .genre-tag:hover {
