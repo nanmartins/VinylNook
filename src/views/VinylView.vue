@@ -3,7 +3,7 @@
     <Loading />
   </div>
 
-  <div v-else style="width: 100%; max-width: 1000px; margin: -15px auto 20px auto">
+  <div v-else style="width: 100%; max-width: 1000px; margin: -15px auto 20px auto;">
     <VinylCard :vinyl="vinyl"/>
   </div>
 

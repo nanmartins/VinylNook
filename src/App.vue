@@ -34,6 +34,7 @@ import Footer from './components/Footer/Footer.vue'
 html, body {
   background: black;
   background-image: linear-gradient(to bottom, white 0%, white 50%, black 100%);
+  overflow-x: hidden;
 }
 
 input:focus,
@@ -46,6 +47,7 @@ textarea:focus {
   font-family: 'Barlow Condensed', sans-serif;
   text-align: center;
   background: white;
+  /* overflow-x: hidden; */
 }
 
 .swiper-button-prev,

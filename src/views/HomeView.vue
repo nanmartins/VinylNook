@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <h2 class="recents-title">recents</h2>
+    <h2 class="recents-title">RECENTS</h2>
     <Loading v-if="loading" />
     <NewRealeses v-else />
 
@@ -27,7 +27,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import Loading from '@/components/Loading/Loading.vue'
-// import Vinyls from '@/components/Vinyls/Vinyls.vue'
 import NewRealeses from '@/components/NewRealeses/NewRealeses.vue'
 
 const loading = ref(false)
@@ -85,8 +84,8 @@ h2 {
   text-align: center;
   font-size: 220px;
   letter-spacing: 10px;
-  line-height: 10%;
-  font-weight: 800;
+  line-height: 5%;
+  font-weight: 900;
   margin: 0 auto;
   margin-top: 150px;
   padding-top: 100px;
@@ -152,7 +151,7 @@ img {
 
 
   .recents-title {
-    font-size: 100px;
+    font-size: 90px;
     letter-spacing: 5px;
     line-height: 0%;
     padding-top: 40px;
@@ -166,6 +165,22 @@ img {
   }
   .home-banner-text h2 {
     font-size: 68px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+
+  .recents-title {
+    font-size: 70px;
+    line-height: 0%;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+
+  .recents-title {
+    font-size: 40px;
+    line-height: 0%;
   }
 }
 </style>

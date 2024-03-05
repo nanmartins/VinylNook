@@ -1,7 +1,6 @@
 <template>
   <div class="vinyl-card">
     <div class="vinyl-card-top">
-      <!-- <div class="vinyl-card-img" :style="{ 'background-image': 'url(' + vinyl.albumCover + ')' }"> -->
       <div class="vinyl-card-img">
         <img :src="vinyl.albumCover" alt="">
       </div>
@@ -14,11 +13,13 @@
             <span>Artist</span>
             <h2>{{ vinyl.artist }}</h2>
           </div>
+
           <div style="display: flex; flex-direction: column; justify-content: space-between;">
-            <span>Release Year</span>
+            <span>Year</span>
             <h3>{{ vinyl.year }}</h3>
           </div>
         </div>
+
 
         <div class="vinyl-card-top-genre-field">
           <span>Genre</span>
@@ -27,38 +28,64 @@
           </div>
         </div>
 
+
+        <div class="vinyl-card-top-studio">
+          <div style="display: flex; flex-direction: column; justify-content: space-between;">
+            <span>Studio</span>
+            <p>{{ vinyl.studio }}</p>
+          </div>
+
+          <div style="display: flex; flex-direction: column;">
+            <span>Label</span>
+            <p>{{ vinyl.label }}</p>
+          </div>
+        </div>
+
+
+        <div class="vinyl-card-top-studio">
+          <div style="display: flex; flex-direction: column; justify-content: space-between;">
+            <span>Producer</span>
+            <p>{{ vinyl.producer }}</p>
+          </div>
+
+          <div style="display: flex; flex-direction: column;">
+            <span>Length</span>
+            <p>{{ vinyl.albumLength }}</p>
+          </div>
+        </div>
+
       </div>
 
     </div>
   </div>
 
-  <hr style="margin: 40px 40px 20px 40px;">
+  <hr style="margin: 20px">
 
   <div style="display: flex; justify-content: center; margin: 0 20px">
     <nav class="vinyl-card-nav">
-      <button @click="showMoreContent = 'description'" :class="{ active: showMoreContent === 'description' }">about</button>
-      <button @click="showMoreContent = 'disc1'" :class="{ active: showMoreContent === 'disc1' }">disc 01</button>
+      <button @click="showMoreContent = 'description'" :class="{ active: showMoreContent === 'description' }">About</button>
+      <button @click="showMoreContent = 'disc1'" :class="{ active: showMoreContent === 'disc1' }">Disc 01</button>
       <div v-for="(disc, index) in vinyl.tracks" :key="index">
         <button
         v-if="disc.sideA.length > 0 && index === 'disc2'"
         @click="showMoreContent = 'disc2'"
         :class="{ active: showMoreContent === 'disc2' }"
         >
-        disc 02
+        Disc 02
       </button>
     </div>
   </nav>
 </div>
 
-<div style="padding: 10px 30px;">
-  <p v-if="showMoreContent === 'description'" style="padding-top: 0;">{{ vinyl.albumDescription }}</p>
+<div>
+  <p v-if="showMoreContent === 'description'" style="padding: 20px; font-size: 18px; letter-spacing: 1.3px;">{{ vinyl.albumDescription }}</p>
 </div>
 
 <!-- Faixas -->
-      <div v-if="showMoreContent === 'disc1'" style="margin: 0 40px">
+      <div v-if="showMoreContent === 'disc1'" style="padding: 0 20px;">
         <div v-for="(disc, index) in vinyl.tracks" :key="index">
           <div v-if="index === 'disc1'">
-            <h2 style="text-align: center;">{{ disc.sideA.length > 0 && index === 'disc1' ? 'Disc 01' : '' }}</h2>
+            <h2 style="text-align: center; padding-top: 10px;">{{ disc.sideA.length > 0 && index === 'disc1' ? 'Disc 01' : '' }}</h2>
 
             <TrackList :tracks="disc.sideA" v-if="disc.sideA.length > 0" :side="disc.sideA.length > 0 ? 'Side A' : 'Side B' " />
             <TrackList :tracks="disc.sideB" v-if="disc.sideB.length > 0" :side="disc.sideB.length > 0 ? 'Side B' : 'Side A' "/>
@@ -66,10 +93,10 @@
         </div>
       </div>
 
-      <div v-if="showMoreContent === 'disc2'" style="margin: 0 40px">
+      <div v-if="showMoreContent === 'disc2'" style="padding: 0 20px;">
         <div v-for="(disc, index) in vinyl.tracks" :key="index">
           <div v-if="index === 'disc2'">
-            <h2 style="text-align: center;">{{ disc.sideA.length > 0 && index === 'disc2' ? 'Disc 02' : '' }}</h2>
+            <h2 style="text-align: center; padding-top: 10px;">{{ disc.sideA.length > 0 && index === 'disc2' ? 'Disc 02' : '' }}</h2>
 
             <TrackList :tracks="disc.sideA" v-if="disc.sideA.length > 0" :side="disc.sideA.length > 0 ? 'Side A' : 'Side B' " />
             <TrackList :tracks="disc.sideB" v-if="disc.sideB.length > 0" :side="disc.sideB.length > 0 ? 'Side B' : 'Side A' "/>
@@ -181,14 +208,11 @@ onMounted(() => {
 .vinyl-card {
   margin: 0 20px;
   font-family: 'Barlow Condensed', sans-serif;
-  /* border: 0.3px solid black;
-  padding: 10px; */
   /* box-shadow: 5px 5px 25px rgb(199, 199, 199); */
 }
 
 .vinyl-card-top {
   display: flex;
-  /* gap: 25px; */
   text-align: left;
 }
 
@@ -197,9 +221,12 @@ onMounted(() => {
 }
 
 .vinyl-card-img img{
+  width: 100%;
   max-width: 350px;
-  height: auto;
+  height: 100%;
+  max-height: 350px;
   border-radius: 2px;
+  aspect-ratio: 4 / 4;
 }
 
 .vinyl-card-top-content {
@@ -209,6 +236,7 @@ onMounted(() => {
 
 .vinyl-card-top-info {
   display: flex;
+  gap: 30px;
   justify-content: space-between;
   width: 100%;
   margin-bottom: 20px;
@@ -222,6 +250,17 @@ onMounted(() => {
   font-size: 18px;
   letter-spacing: 1.3px;
   font-weight: 300;
+  /* font-style: italic; */
+}
+
+.vinyl-card-top-content span::after {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: #646464;
+  margin-top: 0px;
+  margin-bottom: 5px;
 }
 
 .vinyl-card-top-content h1 {
@@ -247,6 +286,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  margin-bottom: 20px;
 }
 
 .genre-tag {
@@ -266,7 +306,33 @@ onMounted(() => {
   color: white;
 }
 
+.vinyl-card-top-studio {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 30px;
+  margin-bottom: 20px;
+}
 
+.vinyl-card-top-studio div:last-child {
+  align-items: baseline;
+  flex-shrink: 0;
+}
+
+.vinyl-card-top-studio p {
+  font-size: 18px;
+  letter-spacing: 1.3px;
+  font-weight: 600;
+}
+/* .vinyl-card-top-studio > div {
+  flex: 1;
+} */
+
+/* .vinyl-card-top-producer p {
+  font-size: 18px;
+  letter-spacing: 1.3px;
+  font-weight: 600;
+}
+ */
 
 
 
@@ -383,17 +449,43 @@ onMounted(() => {
 @media only screen and (max-width: 800px) {
 
   .vinyl-card {
+    /* grid-template-columns: 1fr; */
+    margin: 0 12px;
+  }
+
+  .vinyl-card-top {
+    display: grid;
     grid-template-columns: 1fr;
-    margin: 0 10px;
+    /* gap: 25px; */
+    text-align: left;
+  }
+
+  .vinyl-card-top-content {
+    padding: 10px;
   }
 
   .vinyl-card-img {
+    display: flex;
+    justify-content: center;
+  }
+
+  .vinyl-card-img img {
+    max-width: 800px;
+    max-height: 800px;
+  }
+
+  .genre-tag {
+    font-size: 13px !important;
+  }
+
+
+  /* .vinyl-card-img {
     align-self: normal;
     border-top-right-radius: 2px;
     border-bottom-left-radius: 0;
-  }
+  } */
 
-  .vinyl-card-content {
+  /* .vinyl-card-content {
     padding: 20px;
     border-top: 0.3px solid rgb(146, 146, 146);
     border-left: 0.3px solid black;
@@ -405,7 +497,7 @@ onMounted(() => {
 
   .genre-tag {
     font-size: 13px !important;
-  }
+  } */
 
 }
 

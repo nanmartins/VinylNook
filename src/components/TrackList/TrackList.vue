@@ -3,19 +3,19 @@
     <table>
       <thead>
         <tr >
-          <th v-if="side === 'Side A'" colspan="3" style="text-align: center; font-size: 18px;">side A</th>
-          <th v-if="side === 'Side B'" colspan="3" style="text-align: center; font-size: 18px;">side B</th>
+          <th v-if="side === 'Side A'" colspan="3" style="text-align: center; font-size: 18px;">Side A</th>
+          <th v-if="side === 'Side B'" colspan="3" style="text-align: center; font-size: 18px;">Side B</th>
         </tr>
-        <tr >
+        <!-- <tr >
           <th>n°</th>
           <th style="width: 100%">title</th>
           <th>length</th>
-        </tr>
+        </tr> -->
       </thead>
       <tbody>
         <tr v-for="track in tracks" :key="track.trackNumber" >
-          <td>{{ track.trackNumber }}</td>
-          <td>{{ track.title }}</td>
+          <td>{{ track.trackNumber + '.'}}</td>
+          <td style="width: 100%; letter-spacing: 1px;">{{ track.title }}</td>
           <td>{{ track.trackLength }}</td>
         </tr>
       </tbody>
@@ -40,9 +40,9 @@ table {
 }
 
 th, td {
-  padding: 2px 8px;
+  padding: 5px 8px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  /* border-bottom: 1px solid #ddd; */
 }
 
 th {

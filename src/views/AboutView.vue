@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h2>about</h2>
+    <h2>ABOUT</h2>
     <div class="about-content-container">
       <div>
         <p class="about-content-welcome">Welcome to Vinyl Nook, your haven for exploring the rich world of vinyl albums. At Vinyl Nook, we're passionate about preserving the timeless allure of vinyl records and providing enthusiasts with a platform to delve into the magic of analog sound.</p>
@@ -52,7 +52,7 @@ h2 {
   font-size: 220px;
   letter-spacing: 10px;
   line-height: 35%;
-  font-weight: 800;
+  font-weight: 900;
   z-index: -1;
 }
 
@@ -114,7 +114,7 @@ h4 {
 @media only screen and (max-width: 800px) {
 
   h2 {
-    font-size: 120px;
+    font-size: 100px;
     letter-spacing: 5px;
     line-height: 15%;
     font-weight: 800;
@@ -153,8 +153,32 @@ h4 {
 
 @media only screen and (max-width: 400px) {
 
- h2 {
-    font-size: 90px;
+  h2 {
+    font-size: 70px;
+    line-height: 0%;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+
+  .about-content-container {
+    /* position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background: white;
+    width: 100%;
+    max-width: 1000px; */
+    margin: 12px auto;
+    /* padding: 40px 100px;
+    z-index: 100;
+    border: 0.3px solid black;
+    border-radius: 2px; */
+  }
+
+  h2 {
+    font-size: 40px;
+    line-height: 0%;
   }
 }
 </style>

@@ -136,8 +136,11 @@ onMounted(async () => {
 <style scoped>
 
 .vinyl-carousel-container {
-  padding: 50px;
+  padding: 50px 15px;
   margin-bottom: 100px;
+  width: 100%;
+  max-width: 2000px;
+  margin: 0 auto;
 }
 
 .vinyl-card {
@@ -214,8 +217,16 @@ onMounted(async () => {
 @media only screen and (max-width: 800px) {
 
   .vinyl-carousel-container {
-    padding: 30px;
+    padding: 30px 0;
     margin-bottom: 100px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+
+  .vinyl-carousel-container {
+    padding: 12px 0;
+    /* margin-bottom: 100px; */
   }
 }
 

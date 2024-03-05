@@ -162,4 +162,20 @@ button {
   letter-spacing: 1px;
 }
 
+@media only screen and (max-width: 300px) {
+  .recommendation-form {
+    /* display: flex;
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    flex-direction: column;
+    background: white;
+    padding: 20px; */
+    margin: 12px auto;
+    /* border: 0.3px solid black;
+    border-radius: 2px;
+    z-index: 1; */
+  }
+}
+
 </style>

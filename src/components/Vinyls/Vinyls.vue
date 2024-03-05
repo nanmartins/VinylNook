@@ -246,13 +246,32 @@ onMounted(() => {
     max-width: 1400px;
     place-items: center;
     gap: 20px 10px;
-    padding: 20px 10px;
+    padding: 20px 12px;
     margin: 0 auto;
     grid-template-columns: 1fr 1fr;
   }
 
   .vinyl-card {
     padding: 5px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+
+  .vinyl-card-container {
+    /* display: grid;
+    width: 100%;
+    max-width: 1400px;
+    place-items: center;
+    gap: 20px 10px; */
+    padding: 12px 12px;
+    /* margin: 0 auto;
+    grid-template-columns: 1fr 1fr; */
+  }
+
+  h2 {
+    font-size: 40px;
+    line-height: 0%;
   }
 }
 
