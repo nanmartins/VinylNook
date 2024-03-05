@@ -1,7 +1,7 @@
 <template>
   <Header />
 
-  <div class="content" style="height: 100%; min-height: 100vh; margin: 0; margin-top: 80px; padding: 0">
+  <div class="content" style="height: 100%; min-height: 100vh; margin: 0; margin-top: 177px; padding: 0">
     <router-view />
   </div>
 

@@ -109,6 +109,7 @@ img {
     padding: 0;
     gap: 20px;
     width: 100vw;
+    padding-top: 26px;
   }
 
   .home-banner-text {
@@ -118,7 +119,7 @@ img {
     justify-content: space-between;
     position: absolute;
     padding: 0px;
-    top: 80px;
+    top: 128px;
     height: 60%;
     left: 0;
   }

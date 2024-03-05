@@ -3,7 +3,7 @@
     <Loading />
   </div>
 
-  <div v-else style="width: 100%; max-width: 1000px; margin: -15px auto 20px auto;">
+  <div v-else class="vinyl-view-content">
     <VinylCard :vinyl="vinyl"/>
   </div>
 
@@ -42,5 +42,20 @@ onMounted(() => {
 
 
 <style scoped>
+
+.vinyl-view-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: -20px auto 20px auto;
+}
+
+@media screen and (max-width: 800px) {
+
+  .vinyl-view-content {
+    /* width: 100%; */
+    /* max-width: 1000px; */
+    margin: -50px auto 20px auto;
+  }
+}
 
 </style>

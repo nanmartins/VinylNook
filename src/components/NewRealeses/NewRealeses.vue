@@ -4,7 +4,7 @@
     <!-- <h2>releases</h2> -->
     <Swiper
       :slidesPerView="2"
-      :spaceBetween="5"
+      :spaceBetween="10"
       :mousewheel="false"
       :centeredSlidesBounds="true"
       :keyboard="true"
@@ -217,7 +217,7 @@ onMounted(async () => {
 @media only screen and (max-width: 800px) {
 
   .vinyl-carousel-container {
-    padding: 30px 0;
+    padding: 25px 10px;
     margin-bottom: 100px;
   }
 }

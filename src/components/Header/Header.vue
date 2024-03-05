@@ -1,13 +1,16 @@
 <template>
   <header :class="{ 'scrolled': scrolled }">
-    <router-link to="/">
-      <img src="@/assets/logo.png" alt="">
-    </router-link>
-    <nav>
-      <router-link to="/albums">Albums</router-link>
-      <router-link to="/about">About</router-link>
-      <router-link to="/contact">Contact</router-link>
-    </nav>
+    <div class="header-content">
+      <router-link to="/">
+        <img src="@/assets/logo.png" alt="">
+      </router-link>
+      <nav>
+        <router-link to="/albums">Albums</router-link>
+        <router-link to="/about">About</router-link>
+        <router-link to="/contact">Contact</router-link>
+      </nav>
+
+    </div>
   </header>
 </template>
 
@@ -31,10 +34,10 @@ onMounted(() => {
 header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   background: #ffffff;
   padding: 15px 10px;
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
@@ -65,6 +68,15 @@ header img {
 
 .scrolled nav a.router-link-exact-active::after {
   background-color: white;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 2000px;
+  margin: 0 auto;
 }
 
 nav {
@@ -118,14 +130,15 @@ nav a.router-link-exact-active::after {
   header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     background: #ffffff;
     padding: 10px;
-    position: sticky;
+    position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
   }
+
   header img {
     height: 40px;
   }
