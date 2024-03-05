@@ -89,6 +89,7 @@ h2 {
   margin: 0 auto;
   margin-top: 150px;
   padding-top: 100px;
+  font-style: italic;
 }
 
 img {

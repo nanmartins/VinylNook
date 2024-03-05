@@ -222,6 +222,14 @@ onMounted(async () => {
   }
 }
 
+@media only screen and (max-width: 400px) {
+
+  .vinyl-carousel-container {
+    padding: 20px 0;
+    /* margin-bottom: 100px; */
+  }
+}
+
 @media only screen and (max-width: 300px) {
 
   .vinyl-carousel-container {

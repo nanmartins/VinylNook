@@ -26,6 +26,7 @@ h2 {
   line-height: 35%;
   font-weight: 900;
   z-index: -1;
+  font-style: italic;
 }
 
 

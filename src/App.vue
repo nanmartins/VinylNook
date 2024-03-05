@@ -86,7 +86,9 @@ textarea:focus {
 
   .swiper-button-prev,
   .swiper-button-next {
-    padding: 10px 12px;
+    width: 22px !important;
+    height: 32px !important;
+    padding: 5px 10px !important;
   }
 
   .swiper-button-prev::after,

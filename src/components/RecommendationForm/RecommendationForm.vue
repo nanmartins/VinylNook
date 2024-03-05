@@ -162,6 +162,7 @@ button {
   letter-spacing: 1px;
 }
 
+
 @media only screen and (max-width: 300px) {
   .recommendation-form {
     /* display: flex;

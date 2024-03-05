@@ -78,7 +78,7 @@
 </div>
 
 <div>
-  <p v-if="showMoreContent === 'description'" style="padding: 20px; font-size: 18px; letter-spacing: 1.3px;">{{ vinyl.albumDescription }}</p>
+  <p v-if="showMoreContent === 'description'" style="padding: 20px 25px; font-size: 18px; letter-spacing: 1.3px;">{{ vinyl.albumDescription }}</p>
 </div>
 
 <!-- Faixas -->
@@ -230,8 +230,16 @@ onMounted(() => {
 }
 
 .vinyl-card-top-content {
-  padding: 0 25px;
+  /* padding: 0 25px; */
+  padding-left: 25px;
+  padding-right: 60px;
   flex: 1
+}
+
+p {
+  font-size: 16px;
+  letter-spacing: 1.3px;
+  font-weight: 600;
 }
 
 .vinyl-card-top-info {
@@ -258,7 +266,7 @@ onMounted(() => {
   display: block;
   width: 20px;
   height: 1px;
-  background: #646464;
+  background: #000000;
   margin-top: 0px;
   margin-bottom: 5px;
 }
@@ -266,12 +274,14 @@ onMounted(() => {
 .vinyl-card-top-content h1 {
   font-size: 42px;
   letter-spacing: 1.5px;
-  font-weight: 600;
+  font-weight: 800;
   margin-bottom: 20px;
+  text-transform: uppercase;
+  font-style: italic;
 }
 
 .vinyl-card-top-content h2 {
-  font-size: 26px;
+  font-size: 24px;
   letter-spacing: 1.5px;
   font-weight: 600;
 }
@@ -293,12 +303,13 @@ onMounted(() => {
   display: flex;
   align-items: center;
   white-space: nowrap;
-  border: 0.2px solid #e8e8e8;
+  border: 0.2px solid #2f2f2f;
   padding: 4px 6px;
   border-radius: 2px;
-  background: #f2f2f2;
+  /* background: #f2f2f2; */
   cursor: pointer;
   font-size: 16px !important;
+  transition: 0.3s ease-in-out;
 }
 
 .genre-tag:hover {
@@ -318,11 +329,11 @@ onMounted(() => {
   flex-shrink: 0;
 }
 
-.vinyl-card-top-studio p {
+/* .vinyl-card-top-studio p {
   font-size: 18px;
   letter-spacing: 1.3px;
   font-weight: 600;
-}
+} */
 /* .vinyl-card-top-studio > div {
   flex: 1;
 } */
@@ -348,7 +359,7 @@ onMounted(() => {
 
 
 
-.vinyl-card-content {
+/* .vinyl-card-content {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -393,7 +404,7 @@ onMounted(() => {
   display: flex;
   flex-wrap: wrap;
   gap: 5px 8px;
-}
+} */
 
 .vinyl-card-nav {
   display: flex;
@@ -446,6 +457,19 @@ onMounted(() => {
 
 } */
 
+
+
+@media only screen and (max-width: 1200px) {
+  .vinyl-card-top-content {
+    /* padding: 0 25px; */
+    padding-left: 25px;
+    padding-right: 25px;
+    /* flex: 1 */
+  }
+}
+
+
+
 @media only screen and (max-width: 800px) {
 
   .vinyl-card {
@@ -472,6 +496,15 @@ onMounted(() => {
   .vinyl-card-img img {
     max-width: 800px;
     max-height: 800px;
+  }
+
+  .vinyl-card-top-content h1 {
+    font-size: 34px;
+    letter-spacing: 1.5px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-style: italic;
   }
 
   .genre-tag {
