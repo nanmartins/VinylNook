@@ -223,12 +223,12 @@ onMounted(() => {
   border: none;
   cursor: pointer;
   color: black;
-  padding: 20px;
+  padding: 15px 20px;
 }
 
 .navigation-pages-btn:disabled {
   border-bottom: 3px solid black;
-  padding-bottom: 17px;
+  padding-bottom: 12px;
   cursor: default;
   font-weight: 700;
 }

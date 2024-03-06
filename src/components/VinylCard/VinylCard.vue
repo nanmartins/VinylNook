@@ -82,27 +82,25 @@
     </div>
 
     <!-- Faixas -->
-      <div v-if="showMoreContent === 'disc1'" class="vinyl-card-bottom-tracks">
-        <div v-for="(disc, index) in vinyl.tracks" :key="index">
-          <div v-if="index === 'disc1'">
-            <h2 style="text-align: center; padding-top: 10px;">{{ disc.sideA.length > 0 && index === 'disc1' ? 'Disc 01' : '' }}</h2>
-
-            <TrackList :tracks="disc.sideA" v-if="disc.sideA.length > 0" :side="disc.sideA.length > 0 ? 'Side A' : 'Side B' " />
-            <TrackList :tracks="disc.sideB" v-if="disc.sideB.length > 0" :side="disc.sideB.length > 0 ? 'Side B' : 'Side A' "/>
-          </div>
+    <div v-if="showMoreContent === 'disc1'" class="vinyl-card-bottom-tracks">
+      <div v-for="(disc, index) in vinyl.tracks" :key="index">
+        <div v-if="index === 'disc1'">
+          <!-- <h2 style="text-align: center; padding-top: 10px;">{{ disc.sideA.length > 0 && index === 'disc1' ? 'Disc 01' : '' }}</h2> -->
+          <TrackList :tracks="disc.sideA" v-if="disc.sideA.length > 0" :side="disc.sideA.length > 0 ? 'Side A' : 'Side B' " />
+          <TrackList :tracks="disc.sideB" v-if="disc.sideB.length > 0" :side="disc.sideB.length > 0 ? 'Side B' : 'Side A' "/>
         </div>
       </div>
+    </div>
 
-      <div v-if="showMoreContent === 'disc2'" class="vinyl-card-bottom-tracks">
-        <div v-for="(disc, index) in vinyl.tracks" :key="index">
-          <div v-if="index === 'disc2'">
-            <h2 style="text-align: center; padding-top: 10px;">{{ disc.sideA.length > 0 && index === 'disc2' ? 'Disc 02' : '' }}</h2>
-
-            <TrackList :tracks="disc.sideA" v-if="disc.sideA.length > 0" :side="disc.sideA.length > 0 ? 'Side A' : 'Side B' " />
-            <TrackList :tracks="disc.sideB" v-if="disc.sideB.length > 0" :side="disc.sideB.length > 0 ? 'Side B' : 'Side A' "/>
-          </div>
+    <div v-if="showMoreContent === 'disc2'" class="vinyl-card-bottom-tracks">
+      <div v-for="(disc, index) in vinyl.tracks" :key="index">
+        <div v-if="index === 'disc2'">
+          <!-- <h2 style="text-align: center; padding-top: 10px;">{{ disc.sideA.length > 0 && index === 'disc2' ? 'Disc 02' : '' }}</h2> -->
+          <TrackList :tracks="disc.sideA" v-if="disc.sideA.length > 0" :side="disc.sideA.length > 0 ? 'Side A' : 'Side B' " />
+          <TrackList :tracks="disc.sideB" v-if="disc.sideB.length > 0" :side="disc.sideB.length > 0 ? 'Side B' : 'Side A' "/>
         </div>
       </div>
+    </div>
 
   </div>
 
@@ -136,11 +134,6 @@ onMounted(() => {
 
 
 <style scoped>
-/* .vinyl-card {
-  margin: 0 20px;
-  font-family: 'Barlow Condensed', sans-serif;
-  box-shadow: 5px 5px 25px rgb(199, 199, 199);
-} */
 
 .vinyl-card-top {
   display: flex;
@@ -280,9 +273,8 @@ p {
   font-size: 22px;
   letter-spacing: 2px;
   font-weight: 800;
-  /* background-color: white; */
   background-color: transparent;
-  color: black;
+  color: #626262;
   cursor: pointer;
   padding: 7px 20px;
   border: none;
@@ -298,7 +290,7 @@ p {
 }
 
 .vinyl-card-nav button:hover {
-  background-color: rgb(240, 240, 240);
+  color: black;
 }
 
 .vinyl-card-nav button.active {
@@ -322,14 +314,14 @@ p {
   font-size: 18px;
   letter-spacing: 1.5px;
   padding: 35px;
-  padding-top: 20px;
+  padding-top: 30px;
   font-weight: 500;
 }
 
 .vinyl-card-bottom-tracks {
-  padding: 0 20px 20px 20px;
+  padding: 20px;
   width: 100%;
-  max-width: 820px;
+  max-width: 800px;
 }
 
 
@@ -342,10 +334,6 @@ p {
 
 
 @media only screen and (max-width: 800px) {
-
-  /* .vinyl-card {
-    margin: 0 12px;
-  } */
 
   .vinyl-card-top {
     display: grid;
@@ -390,44 +378,21 @@ p {
     border-bottom: none;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
-    /* width: 100%; */
   }
 
-  .vinyl-card-bottom {
-    border-top-right-radius: 0px;
-    /* width: 100%; */
+  .vinyl-card-nav button {
+    font-size: 18px;
+    padding: 7px 15px;
   }
-
-  /* .vinyl-card-bottom {
-    padding: 0;
-  } */
-
 
   .vinyl-card-bottom p {
-    margin: 20px auto 35px auto;
-  }
-
-
-
-  /* .vinyl-card-img {
-    align-self: normal;
-    border-top-right-radius: 2px;
-    border-bottom-left-radius: 0;
-  } */
-
-  /* .vinyl-card-content {
     padding: 20px;
-    border-top: 0.3px solid rgb(146, 146, 146);
-    border-left: 0.3px solid black;
+    padding-bottom: 30px;
   }
 
-  .vinyl-card-content h1 {
-    font-size: 30px;
+  .vinyl-card-bottom-tracks {
+    padding: 20px 10px;
   }
-
-  .genre-tag {
-    font-size: 13px !important;
-  } */
 
 }
 
