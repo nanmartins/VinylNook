@@ -1,5 +1,5 @@
 <template>
-  <div class="vinyl-card">
+  <!-- <div class="vinyl-card"> -->
     <div class="vinyl-card-top">
       <div class="vinyl-card-img">
         <img :src="vinyl.albumCover" alt="">
@@ -57,32 +57,32 @@
       </div>
 
     </div>
-  </div>
+  <!-- </div> -->
 
-  <hr style="margin: 20px">
-
-  <div style="display: flex; justify-content: center; margin: 0 20px">
-    <nav class="vinyl-card-nav">
+  <nav class="vinyl-card-nav">
+    <div class="vinyl-card-nav-buttons">
       <button @click="showMoreContent = 'description'" :class="{ active: showMoreContent === 'description' }">About</button>
       <button @click="showMoreContent = 'disc1'" :class="{ active: showMoreContent === 'disc1' }">Disc 01</button>
       <div v-for="(disc, index) in vinyl.tracks" :key="index">
         <button
-        v-if="disc.sideA.length > 0 && index === 'disc2'"
-        @click="showMoreContent = 'disc2'"
-        :class="{ active: showMoreContent === 'disc2' }"
-        >
-        Disc 02
-      </button>
+          v-if="disc.sideA.length > 0 && index === 'disc2'"
+          @click="showMoreContent = 'disc2'"
+          :class="{ active: showMoreContent === 'disc2' }"
+          >
+          Disc 02
+        </button>
+      </div>
     </div>
   </nav>
-</div>
 
-<div>
-  <p v-if="showMoreContent === 'description'" style="padding: 20px 25px; font-size: 18px; letter-spacing: 1.3px;">{{ vinyl.albumDescription }}</p>
-</div>
+  <div class="vinyl-card-bottom">
 
-<!-- Faixas -->
-      <div v-if="showMoreContent === 'disc1'" style="padding: 0 20px;">
+    <div>
+      <p v-if="showMoreContent === 'description'">{{ vinyl.albumDescription }}</p>
+    </div>
+
+    <!-- Faixas -->
+      <div v-if="showMoreContent === 'disc1'" class="vinyl-card-bottom-tracks">
         <div v-for="(disc, index) in vinyl.tracks" :key="index">
           <div v-if="index === 'disc1'">
             <h2 style="text-align: center; padding-top: 10px;">{{ disc.sideA.length > 0 && index === 'disc1' ? 'Disc 01' : '' }}</h2>
@@ -93,7 +93,7 @@
         </div>
       </div>
 
-      <div v-if="showMoreContent === 'disc2'" style="padding: 0 20px;">
+      <div v-if="showMoreContent === 'disc2'" class="vinyl-card-bottom-tracks">
         <div v-for="(disc, index) in vinyl.tracks" :key="index">
           <div v-if="index === 'disc2'">
             <h2 style="text-align: center; padding-top: 10px;">{{ disc.sideA.length > 0 && index === 'disc2' ? 'Disc 02' : '' }}</h2>
@@ -104,79 +104,10 @@
         </div>
       </div>
 
+  </div>
 
 
-    <!-- <div class="vinyl-card-img" :style="{ 'background-image': 'url(' + vinyl.albumCover + ')' }">
-    </div> -->
 
-    <!-- <div class="vinyl-card-content"> -->
-
-      <!-- <div class="vinyl-card-field">
-        <p>Studio:</p><p>{{ vinyl.studio}}</p>
-      </div>
-
-      <div class="vinyl-card-field">
-        <p>Length:</p><p>{{ vinyl.albumLength }}</p>
-      </div>
-
-      <div class="vinyl-card-field">
-        <p>Label:</p>
-        <p>{{ vinyl.label }}</p>
-      </div>
-
-      <div class="vinyl-card-field">
-        <p>Producer:</p>
-        <p>{{ vinyl.producer }}</p>
-      </div>
-
-      <div class="vinyl-card-field">
-        <p>Genre:</p>
-        <p class="genre-tag-container">
-          <span v-for="genre in vinyl.genre" :key="genre" @click="redirectToAlbumsByGenre(genre)" class="genre-tag">{{ genre }}</span>
-        </p>
-      </div>
-
-      <nav class="vinyl-card-nav">
-        <button @click="showMoreContent = 'description'" :class="{ active: showMoreContent === 'description' }">about</button>
-        <button @click="showMoreContent = 'disc1'" :class="{ active: showMoreContent === 'disc1' }">disc 01</button>
-        <div v-for="(disc, index) in vinyl.tracks" :key="index">
-          <button
-            v-if="disc.sideA.length > 0 && index === 'disc2'"
-            @click="showMoreContent = 'disc2'"
-            :class="{ active: showMoreContent === 'disc2' }"
-
-            disc 02
-          </button>
-        </div>
-      </nav> -->
-
-      <!-- <p v-if="showMoreContent === 'description'" style="padding-top: 0;">{{ vinyl.albumDescription }}</p> -->
-
-      <!-- Faixas -->
-      <!-- <div v-if="showMoreContent === 'disc1'">
-        <div v-for="(disc, index) in vinyl.tracks" :key="index">
-          <div v-if="index === 'disc1'"> -->
-            <!-- <h2 style="text-align: center;">{{ disc.sideA.length > 0 && index === 'disc1' ? 'Disc 01' : '' }}</h2> -->
-
-            <!-- <TrackList :tracks="disc.sideA" v-if="disc.sideA.length > 0" :side="disc.sideA.length > 0 ? 'Side A' : 'Side B' " />
-            <TrackList :tracks="disc.sideB" v-if="disc.sideB.length > 0" :side="disc.sideB.length > 0 ? 'Side B' : 'Side A' "/>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div v-if="showMoreContent === 'disc2'">
-        <div v-for="(disc, index) in vinyl.tracks" :key="index">
-          <div v-if="index === 'disc2'"> -->
-            <!-- <h2 style="text-align: center;">{{ disc.sideB.length > 0 && index === 'disc2' ? 'Disc 02' : '' }}</h2> -->
-
-            <!-- <TrackList :tracks="disc.sideA" v-if="disc.sideA.length > 0" :side="disc.sideA.length > 0 ? 'Side A' : 'Side B' " />
-            <TrackList :tracks="disc.sideB" v-if="disc.sideB.length > 0" :side="disc.sideB.length > 0 ? 'Side B' : 'Side A' "/>
-          </div>
-        </div>
-      </div> -->
-
-    <!-- </div> -->
-  <!-- </div> -->
 </template>
 
 
@@ -205,11 +136,11 @@ onMounted(() => {
 
 
 <style scoped>
-.vinyl-card {
+/* .vinyl-card {
   margin: 0 20px;
   font-family: 'Barlow Condensed', sans-serif;
-  /* box-shadow: 5px 5px 25px rgb(199, 199, 199); */
-}
+  box-shadow: 5px 5px 25px rgb(199, 199, 199);
+} */
 
 .vinyl-card-top {
   display: flex;
@@ -329,107 +260,40 @@ p {
   flex-shrink: 0;
 }
 
-/* .vinyl-card-top-studio p {
-  font-size: 18px;
-  letter-spacing: 1.3px;
-  font-weight: 600;
-} */
-/* .vinyl-card-top-studio > div {
-  flex: 1;
-} */
-
-/* .vinyl-card-top-producer p {
-  font-size: 18px;
-  letter-spacing: 1.3px;
-  font-weight: 600;
-}
- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .vinyl-card-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  gap: 8px 0;
-  padding: 20px 25px;
-  border: 0.3px solid black;
-  height: 100%;
-}
-
-.vinyl-card-content * {
-  text-align: left;
-  font-family: 'Barlow Condensed', sans-serif;
-}
-
-.vinyl-card-content h1 {
-  font-size: 46px;
-  letter-spacing: 1px;
-  font-weight: 800;
-}
-
-.vinyl-card-content p {
-  font-size: 18px;
-}
-
-.vinyl-card-field {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 10px;
-}
-
-.vinyl-card-field p:first-child {
-  flex-grow: 0;
-  flex-basis: 65px;
-}
-
-.vinyl-card-field p:nth-child(2) {
-  flex: 1;
-}
-
-.genre-tag-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px 8px;
-} */
-
 .vinyl-card-nav {
   display: flex;
   align-items: center;
-  border-left: 1px solid black;
-  border-radius: 2px;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.vinyl-card-nav-buttons {
+  display: flex;
+  border: 0.5px solid black;
+  border-bottom: none;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
 }
 
 .vinyl-card-nav button {
-  font-size: 16px;
-  letter-spacing: 1px;
-  font-weight: 600;
-  border: none;
+  font-size: 22px;
+  letter-spacing: 2px;
+  font-weight: 800;
   background-color: white;
   color: black;
   cursor: pointer;
-  padding: 5px 15px;
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
-  border-top: 1px solid black;
+  padding: 7px 20px;
+  border: none;
+}
+
+.vinyl-card-nav button:first-child {
+  border-right: 0.5px solid black;
 }
 
 .vinyl-card-nav button:last-child {
-  border-bottom-right-radius: 2px;
-  border-top-right-radius: 2px;
+  border-left: 0.5px solid black;
+  border-right: none;
 }
 
 .vinyl-card-nav button:hover {
@@ -441,46 +305,50 @@ p {
   color: white;
 }
 
-/* .vinyl-card-img {
-  flex-grow: 1;
-  align-self: baseline;
-  justify-self: baseline;
-  width: 100%;
-  max-width: 500px;
-  height: 100%;
-  max-height: 500px;
-  aspect-ratio: 4 / 4;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+
+.vinyl-card-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid black;
   border-radius: 2px;
+  border-top-left-radius: 0px;
+  width: 100%;
+}
 
-} */
+.vinyl-card-bottom p {
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  padding: 35px;
+  padding-top: 20px;
+  font-weight: 500;
+}
 
+.vinyl-card-bottom-tracks {
+  padding: 0 20px 20px 20px;
+  width: 100%;
+  max-width: 820px;
+}
 
 
 @media only screen and (max-width: 1200px) {
   .vinyl-card-top-content {
-    /* padding: 0 25px; */
     padding-left: 25px;
     padding-right: 25px;
-    /* flex: 1 */
   }
 }
 
 
-
 @media only screen and (max-width: 800px) {
 
-  .vinyl-card {
-    /* grid-template-columns: 1fr; */
+  /* .vinyl-card {
     margin: 0 12px;
-  }
+  } */
 
   .vinyl-card-top {
     display: grid;
     grid-template-columns: 1fr;
-    /* gap: 25px; */
     text-align: left;
   }
 
@@ -510,6 +378,23 @@ p {
   .genre-tag {
     font-size: 13px !important;
   }
+
+  .vinyl-card-description {
+    margin: 15px 20px;
+  }
+
+  .vinyl-card-bottom {
+    padding: 0;
+  }
+
+
+  .vinyl-card-bottom p {
+    /* font-size: 18px; */
+    /* letter-spacing: 1.5px; */
+    margin: 20px auto 35px auto;
+    /* font-weight: 500; */
+  }
+
 
 
   /* .vinyl-card-img {

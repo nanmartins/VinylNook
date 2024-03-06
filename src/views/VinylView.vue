@@ -46,6 +46,7 @@ onMounted(() => {
 .vinyl-view-content {
   width: 100%;
   max-width: 1200px;
+  padding: 0 20px;
   margin: -20px auto 20px auto;
 }
 
