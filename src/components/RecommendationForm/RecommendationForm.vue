@@ -152,14 +152,14 @@ button {
   width: 100%;
   /* max-width: 300px; */
   padding: 15px;
-  /* border: 1px solid black; */
+  border: none;
   border-radius: 2px;
   margin: 10px auto;
   background: black;
   color: white;
-  font-size: 18px;
+  font-size: 20px;
+  letter-spacing: 2px;
   font-weight: 600;
-  letter-spacing: 1px;
 }
 
 

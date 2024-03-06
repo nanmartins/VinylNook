@@ -280,7 +280,8 @@ p {
   font-size: 22px;
   letter-spacing: 2px;
   font-weight: 800;
-  background-color: white;
+  /* background-color: white; */
+  background-color: transparent;
   color: black;
   cursor: pointer;
   padding: 7px 20px;
@@ -383,16 +384,27 @@ p {
     margin: 15px 20px;
   }
 
-  .vinyl-card-bottom {
-    padding: 0;
+  .vinyl-card-nav-buttons {
+    display: flex;
+    border: 0.5px solid black;
+    border-bottom: none;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    /* width: 100%; */
   }
+
+  .vinyl-card-bottom {
+    border-top-right-radius: 0px;
+    /* width: 100%; */
+  }
+
+  /* .vinyl-card-bottom {
+    padding: 0;
+  } */
 
 
   .vinyl-card-bottom p {
-    /* font-size: 18px; */
-    /* letter-spacing: 1.5px; */
     margin: 20px auto 35px auto;
-    /* font-weight: 500; */
   }
 
 

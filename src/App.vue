@@ -42,6 +42,10 @@ textarea:focus {
   outline: 0.5px solid #007aff;
 }
 
+button {
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
 #app {
   /* font-family: Avenir, Helvetica, Arial, sans-serif; */
   font-family: 'Barlow Condensed', sans-serif;
