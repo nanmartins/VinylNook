@@ -75,6 +75,7 @@
     </div>
   </nav>
 
+
   <div class="vinyl-card-bottom">
 
     <div>
@@ -386,8 +387,9 @@ p {
   }
 
   .vinyl-card-bottom p {
-    padding: 20px;
+    padding: 25px 20px;
     padding-bottom: 30px;
+    font-size: 15px;
   }
 
   .vinyl-card-bottom-tracks {

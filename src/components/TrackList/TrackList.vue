@@ -12,8 +12,8 @@
           <th>length</th>
         </tr> -->
       </thead>
-      <tbody style="margin-bottom: 100px">
-        <tr v-for="track in tracks" :key="track.trackNumber" >
+      <tbody style="margin-bottom: 20px:">
+        <tr v-for="track in tracks" :key="track.trackNumber" style="display: flex; ">
           <td>{{ track.trackNumber + '.'}}</td>
           <td style="width: 100%; letter-spacing: 1px;">{{ track.title }}</td>
           <td>{{ track.trackLength }}</td>
@@ -42,18 +42,22 @@ table {
 th, td {
   padding: 10px;
   text-align: left;
-  /* border-bottom: 1px solid #ddd; */
+  font-size: 18px;
 }
-
-/*
-th {
-  background-color: #f2f2f2;
-} */
 
 .disc-side {
   font-size: 22px;
   letter-spacing: 1.5px;
   padding-top: 20px;
+}
+
+
+@media only screen and (max-width: 800px) {
+
+  th, td {
+    font-size: 15px;
+    padding: 10px 5px;
+  }
 }
 
 
