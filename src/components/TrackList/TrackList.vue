@@ -42,7 +42,7 @@ table {
 th, td {
   padding: 10px;
   text-align: left;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .disc-side {

@@ -136,7 +136,7 @@ onMounted(() => {
 .vinyl-card-container {
   display: grid;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1600px;
   place-items: center;
   gap: 40px 30px;
   padding: 20px;

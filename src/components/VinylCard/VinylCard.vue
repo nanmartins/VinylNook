@@ -59,53 +59,56 @@
     </div>
   <!-- </div> -->
 
-  <nav class="vinyl-card-nav">
-    <div class="vinyl-card-nav-buttons">
-      <button @click="showMoreContent = 'description'" :class="{ active: showMoreContent === 'description' }">About</button>
-      <button @click="showMoreContent = 'disc1'" :class="{ active: showMoreContent === 'disc1' }">Disc 01</button>
-      <div v-for="(disc, index) in vinyl.tracks" :key="index">
-        <button
-          v-if="disc.sideA.length > 0 && index === 'disc2'"
-          @click="showMoreContent = 'disc2'"
-          :class="{ active: showMoreContent === 'disc2' }"
-          >
-          Disc 02
-        </button>
-      </div>
-    </div>
-  </nav>
 
-
-  <div class="vinyl-card-bottom">
-
-    <div>
-      <p v-if="showMoreContent === 'description'">{{ vinyl.albumDescription }}</p>
-    </div>
-
-    <!-- Faixas -->
-    <div v-if="showMoreContent === 'disc1'" class="vinyl-card-bottom-tracks">
-      <div v-for="(disc, index) in vinyl.tracks" :key="index">
-        <div v-if="index === 'disc1'">
-          <!-- <h2 style="text-align: center; padding-top: 10px;">{{ disc.sideA.length > 0 && index === 'disc1' ? 'Disc 01' : '' }}</h2> -->
-          <TrackList :tracks="disc.sideA" v-if="disc.sideA.length > 0" :side="disc.sideA.length > 0 ? 'Side A' : 'Side B' " />
-          <TrackList :tracks="disc.sideB" v-if="disc.sideB.length > 0" :side="disc.sideB.length > 0 ? 'Side B' : 'Side A' "/>
+  <!-- BOTTOM SECTION -->
+  <div class="vinyl-card-bottom-container">
+    <nav class="vinyl-card-nav">
+      <div class="vinyl-card-nav-buttons">
+        <button @click="showMoreContent = 'description'" :class="{ active: showMoreContent === 'description' }">About</button>
+        <button @click="showMoreContent = 'disc1'" :class="{ active: showMoreContent === 'disc1' }">Disc 01</button>
+        <div v-for="(disc, index) in vinyl.tracks" :key="index">
+          <button
+            v-if="disc.sideA.length > 0 && index === 'disc2'"
+            @click="showMoreContent = 'disc2'"
+            :class="{ active: showMoreContent === 'disc2' }"
+            >
+            Disc 02
+          </button>
         </div>
       </div>
-    </div>
+    </nav>
 
-    <div v-if="showMoreContent === 'disc2'" class="vinyl-card-bottom-tracks">
-      <div v-for="(disc, index) in vinyl.tracks" :key="index">
-        <div v-if="index === 'disc2'">
-          <!-- <h2 style="text-align: center; padding-top: 10px;">{{ disc.sideA.length > 0 && index === 'disc2' ? 'Disc 02' : '' }}</h2> -->
-          <TrackList :tracks="disc.sideA" v-if="disc.sideA.length > 0" :side="disc.sideA.length > 0 ? 'Side A' : 'Side B' " />
-          <TrackList :tracks="disc.sideB" v-if="disc.sideB.length > 0" :side="disc.sideB.length > 0 ? 'Side B' : 'Side A' "/>
+
+    <div class="vinyl-card-bottom">
+
+      <div>
+        <p v-if="showMoreContent === 'description'">{{ vinyl.albumDescription }}</p>
+      </div>
+
+      <!-- Faixas -->
+      <div v-if="showMoreContent === 'disc1'" class="vinyl-card-bottom-tracks">
+        <div v-for="(disc, index) in vinyl.tracks" :key="index">
+          <div v-if="index === 'disc1'">
+            <!-- <h2 style="text-align: center; padding-top: 10px;">{{ disc.sideA.length > 0 && index === 'disc1' ? 'Disc 01' : '' }}</h2> -->
+            <TrackList :tracks="disc.sideA" v-if="disc.sideA.length > 0" :side="disc.sideA.length > 0 ? 'Side A' : 'Side B' " />
+            <TrackList :tracks="disc.sideB" v-if="disc.sideB.length > 0" :side="disc.sideB.length > 0 ? 'Side B' : 'Side A' "/>
+          </div>
         </div>
       </div>
+
+      <div v-if="showMoreContent === 'disc2'" class="vinyl-card-bottom-tracks">
+        <div v-for="(disc, index) in vinyl.tracks" :key="index">
+          <div v-if="index === 'disc2'">
+            <!-- <h2 style="text-align: center; padding-top: 10px;">{{ disc.sideA.length > 0 && index === 'disc2' ? 'Disc 02' : '' }}</h2> -->
+            <TrackList :tracks="disc.sideA" v-if="disc.sideA.length > 0" :side="disc.sideA.length > 0 ? 'Side A' : 'Side B' " />
+            <TrackList :tracks="disc.sideB" v-if="disc.sideB.length > 0" :side="disc.sideB.length > 0 ? 'Side B' : 'Side A' "/>
+          </div>
+        </div>
+      </div>
+
     </div>
 
   </div>
-
-
 
 </template>
 
@@ -139,10 +142,12 @@ onMounted(() => {
 .vinyl-card-top {
   display: flex;
   text-align: left;
+  transition: 0.3s ease-in-out;
 }
 
 .vinyl-card-img {
   display: flex;
+  transition: 0.3s ease-in-out;
 }
 
 .vinyl-card-img img{
@@ -254,12 +259,21 @@ p {
   flex-shrink: 0;
 }
 
+.vinyl-card-bottom-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .vinyl-card-nav {
   display: flex;
   align-items: center;
+  align-self: flex-end;
   justify-content: flex-start;
   width: 100%;
+  max-width: 810px;
   margin-top: 20px;
+  transition: 0.3s ease-in-out;
 }
 
 .vinyl-card-nav-buttons {
@@ -303,12 +317,15 @@ p {
 .vinyl-card-bottom {
   display: flex;
   flex-direction: column;
+  align-self: flex-end;
   align-items: center;
   justify-content: center;
   border: 0.5px solid black;
   border-radius: 2px;
   border-top-left-radius: 0px;
   width: 100%;
+  max-width: 810px;
+  transition: 0.3s ease-in-out;
 }
 
 .vinyl-card-bottom p {
@@ -323,6 +340,18 @@ p {
   padding: 20px;
   width: 100%;
   max-width: 800px;
+}
+
+@media only screen and (max-width: 1220px) {
+  .vinyl-card-nav {
+    max-width: 100%;
+    transition: 0.3s ease-in-out;
+  }
+
+  .vinyl-card-bottom {
+    max-width: 100%;
+    transition: 0.3s ease-in-out;
+  }
 }
 
 
@@ -340,6 +369,7 @@ p {
     display: grid;
     grid-template-columns: 1fr;
     text-align: left;
+    transition: 0.3s ease-in-out;
   }
 
   .vinyl-card-top-content {
@@ -354,6 +384,7 @@ p {
   .vinyl-card-img img {
     max-width: 800px;
     max-height: 800px;
+    transition: 0.3s ease-in-out;
   }
 
   .vinyl-card-top-content h1 {

@@ -139,7 +139,7 @@ onMounted(async () => {
   padding: 50px 15px;
   margin-bottom: 100px;
   width: 100%;
-  max-width: 2000px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
