@@ -148,7 +148,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   border-radius: 2px;
-  padding: 7px;
+  padding: 4px;
   margin: 0 auto;
   background-size: cover;
   background-repeat: no-repeat;
@@ -252,7 +252,7 @@ onMounted(() => {
   }
 
   .vinyl-card {
-    padding: 5px;
+    padding: 3px;
   }
 }
 

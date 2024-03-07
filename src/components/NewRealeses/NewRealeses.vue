@@ -147,7 +147,7 @@ onMounted(async () => {
   /* border: 1px solid black; */
   border-radius: 2px;
   background: white;
-  padding: 5px;
+  padding: 4px;
   box-sizing: border-box;
   text-align: center;
   transition: 0.2s ease-in-out;
@@ -216,6 +216,10 @@ onMounted(async () => {
 
 @media only screen and (max-width: 800px) {
 
+  .vinyl-card {
+    padding: 3px;
+  }
+
   .vinyl-carousel-container {
     padding: 25px 10px;
     margin-bottom: 100px;
@@ -225,7 +229,7 @@ onMounted(async () => {
 @media only screen and (max-width: 400px) {
 
   .vinyl-carousel-container {
-    padding: 20px 0;
+    padding: 20px 10px;
     /* margin-bottom: 100px; */
   }
 }

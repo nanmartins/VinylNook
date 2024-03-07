@@ -271,13 +271,13 @@ p {
 }
 
 .vinyl-card-nav button {
-  font-size: 22px;
-  letter-spacing: 2px;
+  font-size: 18px;
+  letter-spacing: 5px;
   font-weight: 800;
   background-color: transparent;
   color: #626262;
   cursor: pointer;
-  padding: 7px 20px;
+  padding: 5px 16px;
   border: none;
 }
 
@@ -382,8 +382,9 @@ p {
   }
 
   .vinyl-card-nav button {
-    font-size: 18px;
-    padding: 7px 15px;
+    font-size: 16px;
+    letter-spacing: 3px;
+    padding: 5px 12px;
   }
 
   .vinyl-card-bottom p {

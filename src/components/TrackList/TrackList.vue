@@ -12,10 +12,10 @@
           <th>length</th>
         </tr> -->
       </thead>
-      <tbody style="margin-bottom: 20px:">
-        <tr v-for="track in tracks" :key="track.trackNumber" style="display: flex; ">
+      <tbody style="margin-bottom: 20px;">
+        <tr v-for="track in tracks" :key="track.trackNumber" class="tracks-container">
           <td>{{ track.trackNumber + '.'}}</td>
-          <td style="width: 100%; letter-spacing: 1px;">{{ track.title }}</td>
+          <td style="width: 100%;">{{ track.title }}</td>
           <td>{{ track.trackLength }}</td>
         </tr>
       </tbody>
@@ -46,9 +46,19 @@ th, td {
 }
 
 .disc-side {
-  font-size: 22px;
+  font-size: 24px;
+  letter-spacing: 2px;
+  /* padding-top: 20px; */
+}
+
+.tracks-container {
+  display: flex;
   letter-spacing: 1.5px;
-  padding-top: 20px;
+  padding: 0 20px;
+}
+
+.tracks-container:last-child {
+  padding-bottom: 20px;
 }
 
 
@@ -56,8 +66,18 @@ th, td {
 
   th, td {
     font-size: 15px;
-    padding: 10px 5px;
+    padding: 10px 7px;
   }
+
+  .disc-side {
+    font-size: 22px;
+  }
+
+  .tracks-container {
+    padding: 0 15px;
+    padding-right: 0;
+  }
+
 }
 
 
