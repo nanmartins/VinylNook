@@ -271,9 +271,7 @@ p {
   align-self: flex-end;
   justify-content: flex-start;
   width: 100%;
-  max-width: 810px;
   margin-top: 20px;
-  transition: 0.3s ease-in-out;
 }
 
 .vinyl-card-nav-buttons {
@@ -324,8 +322,6 @@ p {
   border-radius: 2px;
   border-top-left-radius: 0px;
   width: 100%;
-  max-width: 810px;
-  transition: 0.3s ease-in-out;
 }
 
 .vinyl-card-bottom p {
@@ -342,17 +338,6 @@ p {
   max-width: 800px;
 }
 
-@media only screen and (max-width: 1220px) {
-  .vinyl-card-nav {
-    max-width: 100%;
-    transition: 0.3s ease-in-out;
-  }
-
-  .vinyl-card-bottom {
-    max-width: 100%;
-    transition: 0.3s ease-in-out;
-  }
-}
 
 
 @media only screen and (max-width: 1200px) {

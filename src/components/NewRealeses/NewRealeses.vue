@@ -45,7 +45,7 @@
         <router-link :to="`/album/${vinyl._id}`" class="card-router-link">
           <img :src="vinyl.albumCover">
           <div v-if="showInfo && index === hoveredIndex" class="vinyl-info-container">
-            <p>"{{ vinyl.album }}"</p>
+            <p>{{ vinyl.album }}</p>
             <p>{{ vinyl.artist }}</p>
             <p>{{ timeDiff(vinyl.createdAt) }}</p>
           </div>
@@ -93,26 +93,26 @@ const timeDiff = (date) => {
   if (minutes < 60) {
     const min = Math.floor(minutes)
     if (minutes === 1) {
-      return min + " minute ago."
+      return min + " min ago"
     } else {
-      return min + " minutes ago."
+      return min + " mins ago"
     }
   }
 
   if (minutes < 1440) {
     const hours = Math.floor(minutes / 60)
     if (hours === 1) {
-      return hours + " hour ago."
+      return hours + " hr ago"
     } else {
-      return hours + " hours ago."
+      return hours + " hrs ago"
     }
   }
 
   const days = Math.floor(minutes / 1440)
   if (days === 1) {
-    return days + " day ago."
+    return days + " day ago"
   } else {
-    return days + " days ago."
+    return days + " days ago"
   }
 }
 
@@ -181,7 +181,7 @@ onMounted(async () => {
 .vinyl-info-container {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 105%;
   margin: 0 auto;
   gap: 5px;
   padding: 0 20px;
@@ -193,23 +193,23 @@ onMounted(async () => {
 }
 
 .vinyl-info-container p {
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 500;
   text-shadow: 1px 1px rgb(217, 217, 217);
-  font-style: italic;
-  letter-spacing: 1.5px;
-  background: rgba(255, 255, 255, 0.6);
+  letter-spacing: 2px;
+  background: rgba(255, 255, 255, 0.72);
   padding: 3px 5px;
 }
-
 .vinyl-info-container p:first-child {
-  font-weight: 800;
-  background: rgba(255, 255, 255, 0.8);
+  font-size: 17px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.92);
   padding: 5px
 }
 
 .vinyl-info-container p:last-child {
-  font-size: 15px;
+  font-size: 14px;
+  letter-spacing: 1px;
   text-align: right;
 }
 

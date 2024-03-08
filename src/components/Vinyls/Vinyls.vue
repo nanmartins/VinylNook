@@ -238,16 +238,20 @@ onMounted(() => {
 }
 
 
+
+@media only screen and (max-width: 1200px) {
+
+  .vinyl-card-container {
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+
 @media only screen and (max-width: 800px) {
 
   .vinyl-card-container {
-    display: grid;
-    width: 100%;
-    max-width: 1400px;
-    place-items: center;
-    gap: 20px 10px;
-    padding: 20px 12px;
-    margin: 0 auto;
+    gap: 20px 15px;
     grid-template-columns: 1fr 1fr;
   }
 
