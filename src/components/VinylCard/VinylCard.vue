@@ -207,7 +207,7 @@ p {
   font-weight: 800;
   margin-bottom: 20px;
   text-transform: uppercase;
-  font-style: italic;
+  /* font-style: italic; */
 }
 
 .vinyl-card-top-content h2 {
@@ -373,12 +373,20 @@ p {
   }
 
   .vinyl-card-top-content h1 {
-    font-size: 34px;
+    font-size: 32px;
     letter-spacing: 1.5px;
     font-weight: 800;
     margin-bottom: 20px;
-    text-transform: uppercase;
-    font-style: italic;
+    /* text-transform: uppercase; */
+    /* font-style: italic; */
+  }
+
+  .vinyl-card-top-content h2 {
+    font-size: 22px;
+  }
+
+  .vinyl-card-top-content h3 {
+    font-size: 18px;
   }
 
   .genre-tag {
