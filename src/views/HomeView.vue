@@ -16,7 +16,7 @@
     </div>
 
 
-    <InfoCards />
+    <!-- <InfoCards /> -->
 
 
     <h2 class="recents-title">RECENTS</h2>
@@ -32,7 +32,7 @@
 import { ref, onMounted } from 'vue'
 import Loading from '@/components/Loading/Loading.vue'
 import NewRealeses from '@/components/NewRealeses/NewRealeses.vue'
-import InfoCards from '@/components/InfoCards/InfoCards.vue'
+// import InfoCards from '@/components/InfoCards/InfoCards.vue'
 
 const loading = ref(false)
 

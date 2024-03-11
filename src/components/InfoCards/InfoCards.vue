@@ -134,8 +134,8 @@ import JourneySvg from '@/assets/SVG/JourneySvg.vue'
 @media only screen and (max-width: 800px) {
 
   .infocards-content-card h4 {
-  font-size: 26px;
-}
+    font-size: 26px;
+  }
 
   .about {
     padding: 0 12px;
@@ -164,9 +164,30 @@ import JourneySvg from '@/assets/SVG/JourneySvg.vue'
 
 @media only screen and (max-width: 600px) {
 
+  .info-cards {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .infocards-container {
+    padding: 0 10px 40px 10px;
+    margin-top: 20vh;
+  }
+
+  .infocards-content-welcome {
+    /* margin: 0 auto;
+    font-size: 26px;
+    letter-spacing: 1px;
+    font-weight: 300; */
+    padding: 0;
+    /* padding-bottom: 50px;
+    font-style: italic; */
+  }
+
   .infocards-content-cards-container {
     /* display: grid; */
     grid-template-columns: repeat(1, 1fr);
+    margin: 0 20px;
     /* gap: 20px 30px; */
   }
 }
