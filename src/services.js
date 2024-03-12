@@ -71,6 +71,17 @@ export const deleteVinyl = async (deleteId) => {
   }
 }
 
+
+export const getGenresTop = async () => {
+  try {
+    const response = await axios.get(`${vinylBaseUrl}/genres/top`)
+    return response.data
+  }
+  catch (error) {
+    throw error
+  }
+}
+
 // Recommendation
 
 export const getRecommendations = async () => {

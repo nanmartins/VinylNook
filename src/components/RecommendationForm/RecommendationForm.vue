@@ -146,7 +146,14 @@ input, textarea {
   border: 0.5px solid black;
   border-radius: 2px;
   margin: 5px 0;
+  background: #f8f8f8;
 }
+
+input:focus,
+textarea:focus {
+  background: white;
+}
+
 
 button {
   width: 100%;

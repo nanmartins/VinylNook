@@ -39,7 +39,7 @@ html, body {
 
 input:focus,
 textarea:focus {
-  outline: 0.5px solid #007aff;
+  outline: 0.5px solid #1d1d1d;
 }
 
 button {

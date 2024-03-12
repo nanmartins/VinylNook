@@ -136,8 +136,7 @@ onMounted(async () => {
 <style scoped>
 
 .vinyl-carousel-container {
-  padding: 50px 15px;
-  margin-bottom: 100px;
+  padding: 50px 15px 100px 15px;
   width: 100%;
   max-width: 1600px;
   margin: 0 auto;

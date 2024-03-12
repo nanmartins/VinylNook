@@ -18,6 +18,8 @@
 
     <!-- <InfoCards /> -->
 
+    <GenresCard />
+
 
     <h2 class="recents-title">RECENTS</h2>
     <Loading v-if="loading" />
@@ -32,6 +34,7 @@
 import { ref, onMounted } from 'vue'
 import Loading from '@/components/Loading/Loading.vue'
 import NewRealeses from '@/components/NewRealeses/NewRealeses.vue'
+import GenresCard from '@/components/GenresCard/GenresCard.vue'
 // import InfoCards from '@/components/InfoCards/InfoCards.vue'
 
 const loading = ref(false)
@@ -92,8 +95,8 @@ h2 {
   line-height: 5%;
   font-weight: 900;
   margin: 0 auto;
-  margin-top: 150px;
-  padding-top: 100px;
+  margin-top: 35vh;
+  /* padding-top: 100px; */
   font-style: italic;
 }
 
@@ -106,6 +109,16 @@ img {
 }
 
 
+@media only screen and (max-width: 1200px) {
+
+  .home-banner-detail {
+    font-size: 22px;
+  }
+
+  .home-banner-text h2 {
+    font-size: 68px;
+  }
+}
 
 @media only screen and (max-width: 800px) {
 
@@ -139,14 +152,9 @@ img {
 
   .home-banner-detail {
     width: 100vw;
-    color: white;
     font-size: 24px;
-    font-weight: 200;
-    text-shadow: 1px 1px black;
-    border-radius: 2px;
+    border-radius: none;
     padding: 10px 5px;
-    font-style: italic;
-    background: linear-gradient(to right, black -10%, rgb(173, 173, 173) 40%, white 100%);
   }
 
   img {
@@ -165,15 +173,6 @@ img {
   }
 }
 
-@media only screen and (max-width: 1200px) {
-
-  .home-banner-detail {
-    font-size: 22px;
-  }
-  .home-banner-text h2 {
-    font-size: 68px;
-  }
-}
 
 @media only screen and (max-width: 400px) {
 

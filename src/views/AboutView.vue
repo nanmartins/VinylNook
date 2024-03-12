@@ -73,7 +73,7 @@ h4 {
 }
 
 .about-content-welcome {
-  max-width: 650px;
+  max-width: 800px;
   margin: 0 auto;
   font-size: 26px;
   letter-spacing: 1px;
