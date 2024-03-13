@@ -118,10 +118,6 @@ onMounted(async () => {
 @media only screen and (max-width: 1000px) {
 
   .genres-card-container {
-    /* display: grid; */
-    /* grid-template-columns: repeat(2, 1fr); */
-    /* width: 100%; */
-    /* max-width: 1100px; */
     padding: 50px 20px;
     margin: 0 auto;
     gap: 20px;

@@ -106,9 +106,9 @@ h4 {
 }
 
 .about-content-card p {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 300;
-  /* font-family: 'Barlow Condensed', sans-serif; */
+  letter-spacing: 1px;
 }
 
 
@@ -131,7 +131,7 @@ h4 {
   }
 
   .about-content-welcome {
-    font-size: 22px;
+    font-size: 20px;
   }
 
 
@@ -148,6 +148,10 @@ h4 {
     background: #ffffff;
     /* box-shadow: 1px 1px 4px rgb(236, 236, 236); */
     border-radius: 2px;
+  }
+
+  .about-content-card p {
+    font-size: 15px;
   }
 
 }
