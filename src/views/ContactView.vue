@@ -33,7 +33,7 @@ h2 {
 @media only screen and (max-width: 800px) {
 
   .contact {
-    padding: 0 12px;
+    padding: 0 20px;
   }
 
   h2 {

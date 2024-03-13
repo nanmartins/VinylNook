@@ -127,7 +127,7 @@ h4 {
 }
 
   .about {
-    padding: 0 12px;
+    padding: 0 20px;
   }
 
   .about-content-welcome {
