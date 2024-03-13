@@ -170,6 +170,7 @@ img {
     letter-spacing: 5px;
     line-height: 0%;
     padding-top: 40px;
+    margin-top: 25vh;
   }
 }
 
@@ -179,6 +180,7 @@ img {
   .recents-title {
     font-size: 70px;
     line-height: 0%;
+    margin-top: 15vh;
   }
 }
 
