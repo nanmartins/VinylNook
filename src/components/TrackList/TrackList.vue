@@ -14,7 +14,8 @@
       </thead>
       <tbody style="margin-bottom: 20px;">
         <tr v-for="track in tracks" :key="track.trackNumber" class="tracks-container">
-          <td>{{ track.trackNumber + '.'}}</td>
+          <!-- <td>{{ track.trackNumber + '.'}}</td> -->
+          <td style="font-weight: 300; font-size: 18px; font-style: italic">{{ track.trackNumber }}</td>
           <td style="width: 100%;">{{ track.title }}</td>
           <td>{{ track.trackLength }}</td>
         </tr>
@@ -54,7 +55,8 @@ th, td {
 .tracks-container {
   display: flex;
   letter-spacing: 1.5px;
-  padding: 0 20px;
+  align-items: flex-end;
+  /* padding: 0 20px; */
 }
 
 .tracks-container:last-child {

@@ -18,7 +18,7 @@
 
     <!-- <InfoCards /> -->
 
-    <GenresCard />
+    <!-- <GenresCard /> -->
 
 
     <h2 class="recents-title">RECENTS</h2>

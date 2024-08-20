@@ -151,9 +151,9 @@ onMounted(() => {
 
 .vinyl-card-img img{
   width: 100%;
-  max-width: 350px;
+  max-width: 420px;
   height: 100%;
-  max-height: 350px;
+  max-height: 420px;
   border-radius: 2px;
   aspect-ratio: 4 / 4;
 }
