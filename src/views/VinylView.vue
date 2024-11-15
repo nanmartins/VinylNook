@@ -47,16 +47,16 @@ onMounted(() => {
   width: 100%;
   max-width: 1200px;
   padding: 0 20px;
-  margin: -20px auto 20px auto;
+  margin: -20px auto 10% auto;
 }
 
-@media screen and (max-width: 800px) {
+/* @media screen and (max-width: 800px) {
 
   .vinyl-view-content {
-    /* width: 100%; */
-    /* max-width: 1000px; */
-    margin: -50px auto 20px auto;
+    width: 100%;
+    max-width: 1000px;
+    margin: -50px auto 40px auto;
   }
-}
+} */
 
 </style>
