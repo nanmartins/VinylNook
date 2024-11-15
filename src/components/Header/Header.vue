@@ -267,8 +267,14 @@ nav a.router-link-exact-active::after {
   }
 
   nav a {
-    font-size: 24px;
+    font-size: 22px;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
+  }
+
+  nav a.router-link-exact-active {
+    font-weight: 600;
+    font-style: italic;
   }
 
   .hamburger {
